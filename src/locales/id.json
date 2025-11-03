@@ -1,0 +1,131 @@
+{
+  "greeting": "Perkenalkan nama saya Esa Panganti, website ini dibuat sebagai bagian dari proses penelitian saya untuk melihat seberapa jauh urgensi penerapan Nationally Integrated Medical Records (NIMR) di Indonesia, partisipasi dan dukungan Anda sangat berarti bagi kelancaran dan keberhasilan penelitian ini. ",
+  "lang_selection": "Pemilihan Bahasa",
+  "buttons": {
+    "agree": "YA, saya bersedia",
+    "disagree": "TIDAK, saya tidak bersedia ",
+    "next": "lanjut",
+    "back": "kembali",
+    "yes": "YA",
+    "no": "TIDAK"
+  },
+  "thank_you": {
+    "not_participate": "Saya menghormati sepenuhnya keputusan yang telah Bapak/Ibu sampaikan. Terima kasih atas respons yang diberikan. Apabila di kemudian hari terdapat hal lain yang dapat saya bantu, saya dengan senang hati siap untuk dihubungi.",
+    "participate": "Thank you for your participation. May success always accompany your future endeavors."
+  },
+  "participation_criteria": {
+    "title": "Ketentuan Mengisi Kuesioner",
+    "criteria1": "Seseorang yang memiliki pengalaman atau bekerja dibidang kesehatan (Perawat, Dokter Umum, Dokter Spesialis, Fisioterapis",
+    "criteria12": "Pernah melayani atau praktek di Intalasi Gawat Darurat (IGD), Unit Gawat Darurat (UGD), Intensive Care Unit (ICU) Neonatal Intensive Unit (NICU), Pediatric Intensive Unit (PICU)."
+  },
+  "explanation_consent": {
+    "title": "Penjelasan dan Persetujuan",
+    "point3": "Penelitian ini bertujuan untuk melihat urgensi penerapan Nationally Integrated Medical Records (NIMR) di Indonesia yang dimulai dari rumah sakit anda.",
+    "point4": "Saya memahami bahwa partisipasi saya bersifat sukarela.",
+    "point5": "Data yang diperoleh dari penelitian ini dijaga kerahasiaannya dan hanya digunakan untuk kepentingan ilmiah.",
+    "point6": "Diharapkan menggunakan perangkat Laptop/Komputer/ Ipad/ Tab pada saat pengisian dan pengerjaan penelitian. ",
+    "description": "Dengan mengklik “YA”, saya telah menyetujui pertimbangan-pertimbangan diatas dan bersedia untuk melanjutkan proses penelitian ini sampai dengan selesai."
+  },
+  "personal_data": {
+    "title": "Data Pribadi",
+    "description": "Silahkan mengisi data pribadi terlebih dahulu untuk melanjutkan pengisian data. Informasi pribadi sepenuhnya akan digunakan untuk keperluan penelitian. ",
+    "fields": {
+      "fullname": "Nama beserta title pendidikan",
+      "email": "Email",
+      "gender": "Jenis Kelamin",
+      "age": "Umur",
+      "affiliation": "Afiliasi",
+      "occupation": "Pekerjaan",
+      "length_employment": "Lama Bekerja"
+    }
+  },
+  "questionnaire_hint": "Jawab pertanyaan-pertanyaan berikut yang sesuai dengan kondisi Anda sesungguhnya. Skala satu (1) menyatakan “SANGAT TIDAK SETUJU”, skala lima (5) menyatakan “SANGAT SETUJU”.",
+  "commitment": {
+    "title": "Komitmen",
+    "question": {
+      "q1": "Saya merasa memiliki keterikatan emosional dengan sistem Integrated Medical Record yang saya gunakan.",
+      "q2": "Saya merasa menjadi bagian dari sistem Integrated Medical Record tersebut.",
+      "q3": "Saya merasa dapat mengidentifikasikan diri dengan sistem Integrated Medical Record yang saya gunakan.",
+      "q4": "Sistem Integrated Medical Record yang saya gunakan memiliki makna pribadi yang penting bagi saya.",
+      "q5": "Saya merasa memiliki hubungan kemitraan dengan sistem Integrated Medical Record yang saya gunakan."
+    }
+  },
+  "big_data": {
+    "title": "Usefulness of Big Data",
+    "question": {
+      "q1": "Di tempat saya bekerja, sebagian besar data pasien seperti data demografis, tanda vital, diagnosis, obat-obatan, alergi, dan status merokok sudah dicatat secara terkomputerisasi melalui sistem Integrated Medical Record.",
+      "q2": "Prosedur klinis dan resep obat untuk pasien biasanya dilakukan melalui sistem entri pesanan terkomputerisasi (Computerized Provider Order Entry) pada Integrated Medical Record.",
+      "q3": "Informasi klinis seperti diagnosis, hasil laboratorium, tes penunjang, dan gambar medis dapat dipertukarkan secara elektronik dengan penyedia layanan kesehatan eksternal melalui Integrated Medical Record.",
+      "q4": "Sistem Integrated Medical Record yang digunakan di fasilitas saya dapat membantu dalam pengambilan keputusan klinis, misalnya melalui peringatan alergi atau interaksi obat.",
+      "q5": "Sistem Integrated Medical Record memungkinkan pertukaran data dengan lembaga kesehatan masyarakat, seperti pelaporan hasil laboratorium wajib atau data imunisasi."
+    }
+  },
+  "case_hint": {
+    "description": "Sesi ini bertujuan untuk mengetahui persepsi dan pengalaman Bapak/Ibu dalam penggunaan sistem Integrated Medical Record melalui situasi kasus yang menggambarkan kondisi di lapangan. Setiap bagian akan diawali dengan sebuah kasus singkat, kemudian diikuti oleh beberapa pernyataan yang berkaitan dengan situasi tersebut.",
+    "note": "Mohon Bapak/Ibu membaca setiap kasus dengan cermat dan memberikan jawaban sesuai dengan pengalaman atau pandangan pribadi. Tidak ada jawaban benar atau salah  semua jawaban akan dijaga kerahasiaannya dan digunakan hanya untuk keperluan penelitian akademik."
+  },
+  "case1": {
+    "title": "Case 1",
+    "description": "Seorang pasien datang ke rumah sakit dengan keluhan utama berupa tubuh yang terasa sangat lemas serta luka di bagian kaki yang tidak kunjung sembuh selama beberapa minggu. Setelah dilakukan wawancara singkat dengan keluarga, baru diketahui bahwa pasien telah mengidap Diabetes Mellitus Tipe 2 selama lebih dari lima tahun. Namun, informasi penting ini tidak tersedia secara otomatis di sistem rumah sakit karena tidak adanya koneksi ke National Integrated Medical Record (NIMR). Akibatnya, dokter yang menangani tidak dapat melihat riwayat medis atau hasil pemeriksaan laboratorium terdahulu yang berkaitan dengan kondisi gula darah, status kontrol penyakit, maupun pengobatan rutin pasien. Hal ini menyebabkan seluruh proses pemeriksaan harus dimulai kembali dari awal, termasuk tes laboratorium dan evaluasi kondisi luka. Penundaan ini berdampak pada keterlambatan dalam pengambilan keputusan klinis, sehingga intervensi medis yang seharusnya dapat dilakukan lebih cepat menjadi tertunda.",
+    "questions": {
+      "q1": " Sejauh mana anda merasa bahwa integrasi rekam medis akan mempermudah penanganan kasus ini ?"
+    }
+  },
+  "case2": {
+    "title": "Case 2",
+    "description": "Pasien yang sama, dengan riwayat diabetes, sempat mendapatkan resep antibiotik dari dokter saat dirawat di rumah sakit. Namun tak lama setelah pemberian obat, pasien mengalami reaksi alergi parah yang memerlukan penanganan segera. Setelah dilakukan penelusuran, diketahui bahwa pasien sebelumnya pernah dirawat di rumah sakit lain dan sudah tercatat memiliki alergi terhadap jenis antibiotik yang diberikan saat ini. Sayangnya, karena sistem informasi rumah sakit belum terhubung secara nasional melalui NIMR, dokter yang meresepkan tidak memiliki akses terhadap catatan alergi tersebut. Insiden ini kemudian menjadi perhatian serius dalam audit internal rumah sakit. Dari hasil evaluasi, disimpulkan bahwa kejadian tersebut sebenarnya bisa dicegah jika sistem rekam medis digital yang terintegrasi antar fasilitas seperti NIMR telah diterapkan dan digunakan secara menyeluruh.",
+    "questions": {
+      "q1": "Sejauh mana kesalahan tersebut menurut anda disebabkan oleh tidak adanya NIMR (National Integrated Medical Record) ?",
+      "q2": "Jika NIMR ( Integrated Medical Record) tersedia, apakah Anda yakin akan menerapkannya untuk mencegah hal serupa ?",
+      "q3": "Bedasarkan dua kasus sebelumnya, apakah anda akan mengimplementasikan sistem Rekam Medis Terintegrasi Nasional (NIMR / National Integrated Medical Record ) di rumah sakit anda ?"
+    }
+  },
+  "case3": {
+    "title": "Case 3",
+    "description": "Seorang pria berusia 40 tahun datang ke Unit Gawat Darurat (UGD) dengan keluhan utama berupa sesak napas berat. Setelah dilakukan anamnesis singkat, diketahui bahwa pasien memiliki riwayat asma persisten yang sudah berlangsung bertahun-tahun dan sebelumnya tercatat di rumah sakit lain. Namun, karena tidak adanya sistem Rekam Medis Terintegrasi Nasional (NIRM), dokter yang bertugas tidak memiliki akses terhadap catatan riwayat medis pasien tersebut, termasuk frekuensi eksaserbasi, pengobatan rutin yang biasa digunakan, serta respons tubuh pasien terhadap jenis terapi tertentu. Ketiadaan data ini menyebabkan keterlambatan dalam pengambilan keputusan medis dan pemberian terapi yang seharusnya bisa lebih cepat dan tepat sasaran. Waktu penanganan pun menjadi lebih panjang, dan pasien harus menjalani observasi lebih lama karena dokter perlu memulai seluruh tahapan penilaian klinis dari awal.",
+    "questions": {
+      "q1": "Sejauh mana menurut Anda kasus ini menunjukkan pentingnya sistem rekam medis nasional yang terintegrasi?"
+    }
+  },
+  "case4": {
+    "title": "Case 4",
+    "description": "Kurang dari satu bulan setelah kunjungan pertamanya ke UGD, pasien yang sama kembali menjalani perawatan di rumah sakit karena kondisi asma yang kembali memburuk. Sebelum dirujuk ke rumah sakit, pasien sempat berkonsultasi dan mendapatkan penanganan dari seorang dokter di klinik swasta, di mana pendekatan terapi yang digunakan berbeda dari standar yang diterapkan di rumah sakit. Karena tidak ada sistem yang menghubungkan catatan medis antar fasilitas, dokter di rumah sakit tidak mengetahui bahwa pasien telah mendapatkan pengobatan dari tempat lain dengan jenis dan dosis obat yang berbeda. Akibatnya, kombinasi pengobatan yang diberikan justru menimbulkan efek samping yang cukup serius, termasuk peningkatan detak jantung dan gangguan lambung. Audit internal tim medis kemudian menyimpulkan bahwa kesalahan pengobatan tersebut sebenarnya dapat dihindari apabila informasi riwayat terapi pasien dapat diakses dengan mudah oleh tenaga medis melalui sistem NIRM yang terintegrasi secara nasional.",
+    "questions": {
+      "q1": "Seberapa besar menurut Anda kegagalan ini disebabkan oleh tidak adanya sistem integrasi data rekam medis?",
+      "q2": "Jika Anda menghadapi kasus serupa, apakah Anda akan menerapkan sistem NIRM sebagai bentuk pencegahan?",
+      "q3": "Bedasarkan dua kasus sebelumnya, apakah anda akan mengimplementasikan sistem Rekam Medis Terintegrasi Nasional (NIMR / National Integrated Medical Record ) di rumah sakit anda ?"
+    }
+  },
+  "case5": {
+    "title": "Case 5",
+    "description": "Seorang anak dibawa orang tuanya ke Instalasi Gawat Darurat (IGD) rumah sakit dengan keluhan demam tinggi yang tidak kunjung turun dan nyeri saat menelan. Dari informasi yang disampaikan orang tua, anak tersebut sebelumnya sudah dua kali diperiksakan ke dua klinik yang berbeda dalam beberapa hari terakhir. Sayangnya, karena tidak adanya sistem integrasi data antar fasilitas pelayanan kesehatan, dokter yang menangani tidak dapat melihat hasil pemeriksaan atau penanganan sebelumnya. Akibatnya, dokter harus melakukan seluruh proses pemeriksaan ulang, termasuk pemeriksaan laboratorium, untuk memastikan diagnosis yang tepat. Proses ini tidak hanya memakan waktu lebih lama, tetapi juga menyebabkan beban biaya tambahan yang sebenarnya bisa dihindari jika data rekam medis anak tersedia secara digital dan dapat diakses lintas fasilitas.",
+    "questions": {
+      "q1": "Sejauh mana kasus ini menunjukkan pentingnya sistem rekam medis nasional?"
+    }
+  },
+  "case6": {
+    "title": "Case 6",
+    "description": "Seorang pasien menjalani pengobatan dari dua dokter yang berbeda dalam waktu berdekatan. Karena masing-masing dokter bekerja di fasilitas yang berbeda dan tidak ada sistem integrasi rekam medis antar tempat layanan kesehatan, dokter di rumah sakit tidak mengetahui bahwa pasien sudah mendapatkan antibiotik dari dokter sebelumnya. Akibatnya, pasien menerima terapi antibiotik dua kali tanpa adanya koordinasi atau penyesuaian dosis. Setelah pemberian antibiotik kedua, pasien mengalami efek samping serius berupa gangguan pencernaan (gastrointestinal) seperti mual hebat dan diare. Dalam evaluasi medis, ditemukan bahwa efek samping tersebut sangat mungkin disebabkan oleh penggunaan antibiotik yang berlebihan dan tidak terpantau. Kasus ini menunjukkan pentingnya adanya sistem informasi yang dapat menghubungkan riwayat pengobatan pasien di berbagai fasilitas layanan kesehatan untuk mencegah pengobatan ganda yang berisiko.",
+    "questions": {
+      "q1": "Seberapa besar Anda menilai bahwa kesalahan ini berasal dari tidak adanya integrasi data medis?",
+      "q2": "Apakah kasus ini memperkuat keinginan Anda mengimplementasikan sistem tersebut?",
+      "q3": "Bedasarkan dua kasus sebelumnya, apakah anda akan mengimplementasikan sistem Rekam Medis Terintegrasi Nasional (NIMR / National Integrated Medical Record ) di rumah sakit anda ?"
+    }
+  },
+  "case7": {
+    "title": "Case 7",
+    "description": "Seorang pasien mengunjungi Puskesmas dengan keluhan utama berupa demam tinggi dan batuk berdahak yang telah berlangsung beberapa hari. Berdasarkan pemeriksaan awal, pasien diduga mengalami Infeksi Saluran Pernapasan Akut (ISPA). Namun, karena pasien belum pernah tercatat sebagai pengunjung di fasilitas kesehatan ini, dan tidak adanya sistem rekam medis elektronik yang terintegrasi, petugas medis tidak memiliki akses terhadap riwayat kesehatan sebelumnya. Mereka tidak mengetahui apakah pasien baru saja pulih dari penyakit lain, sedang menjalani pengobatan tertentu, atau memiliki riwayat alergi terhadap obat-obatan tertentu. Akibatnya, proses diagnosis harus dilakukan secara menyeluruh dari awal dan berlangsung lebih lama dari seharusnya. Hal ini juga menyebabkan keterlambatan dalam pemberian resep karena dokter harus bersikap ekstra hati-hati sebelum menentukan terapi pengobatan.",
+    "questions": {
+      "q1": "Sejauh mana menurut Anda kasus ini menunjukkan pentingnya sistem rekam medis nasional yang terintegrasi?"
+    }
+  },
+  "case8": {
+    "title": "Case 8",
+    "description": "Dua minggu setelah kunjungan ke Puskesmas, pasien yang sama datang ke rumah sakit umum daerah dengan keluhan baru berupa munculnya ruam kulit di beberapa bagian tubuh dan rasa mual yang menetap. Setelah dilakukan anamnesis dan pemeriksaan, diketahui bahwa pasien sebelumnya telah mengonsumsi obat yang ternyata memicu reaksi alergi ringan. Namun, karena rumah sakit tersebut juga tidak memiliki akses ke rekam medis pasien yang terintegrasi dengan fasilitas kesehatan lainnya, dokter yang menangani tidak mengetahui bahwa pasien memiliki riwayat alergi terhadap obat tersebut. Akibatnya, pasien kembali diberikan obat yang sama, yang kemudian memperburuk kondisi klinisnya. Evaluasi tim medis menyimpulkan bahwa tidak adanya informasi riwayat alergi pasien menyebabkan kesalahan dalam pemilihan terapi dan menghambat efektivitas pengobatan.",
+    "questions": {
+      "q1": "Seberapa besar menurut Anda kegagalan ini disebabkan oleh tidak adanya sistem integrasi data rekam medis?",
+      "q2": "Jika Anda menghadapi kasus serupa, apakah Anda akan menerapkan sistem NIRM sebagai bentuk pencegahan?",
+      "q3": "Bedasarkan dua kasus sebelumnya, apakah anda akan mengimplementasikan sistem Rekam Medis Terintegrasi Nasional (NIMR / National Integrated Medical Record ) di rumah sakit anda ?"
+    }
+  }
+}

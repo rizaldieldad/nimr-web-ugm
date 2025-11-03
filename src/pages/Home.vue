@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import ChooseLanguage from "../components/ChooseLanguage.vue";
+</script>
 
 <template>
   <section
@@ -16,18 +18,7 @@
 
     <div class="flex flex-col items-center gap-y-5">
       <p class="text-2xl tracking-widest">Pemilihan Bahasa</p>
-      <div class="flex gap-x-4">
-        <RouterLink
-          to="/criteria"
-          class="border border-sky-500 px-5 py-2 rounded-full"
-          >Indonesia 🇮🇩</RouterLink
-        >
-        <RouterLink
-          to="/criteria"
-          class="border border-sky-500 px-5 py-2 rounded-full"
-          >English 🇬🇧</RouterLink
-        >
-      </div>
+      <ChooseLanguage />
     </div>
   </section>
 </template>
