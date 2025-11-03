@@ -18,6 +18,10 @@ const router = createRouter({
         {
           path: "",
           component: Home,
+        },
+        {
+          path: "/criteria",
+          component: () => import("./pages/Criteria.vue"),
         }
       ]
     }
