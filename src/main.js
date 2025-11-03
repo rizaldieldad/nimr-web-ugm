@@ -5,13 +5,20 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from "vue-router"
 
 import Home from "./pages/Home.vue"
+import MainLayout from "./layout/MainLayout.vue"
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: "/",
-      component: Home
+      component: MainLayout,
+      children: [
+        {
+          path: "",
+          component: Home,
+        }
+      ]
     }
   ],
 })
