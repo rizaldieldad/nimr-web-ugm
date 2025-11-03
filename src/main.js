@@ -22,6 +22,10 @@ const router = createRouter({
         {
           path: "/criteria",
           component: () => import("./pages/Criteria.vue"),
+        },
+        {
+          path: "/consent",
+          component: () => import("./pages/Consent.vue"),
         }
       ]
     }
