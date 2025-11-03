@@ -19,13 +19,13 @@ const changeLanguage = (lang) => {
   <div class="flex gap-x-4">
     <button
       @click="changeLanguage('id')"
-      class="border border-sky-500 px-5 py-2 rounded-full"
+      class="border border-sky-500 hover:bg-sky-500 hover:text-white px-5 py-2 rounded-full cursor-pointer"
     >
       Indonesia 🇮🇩
     </button>
     <button
       @click="changeLanguage('en')"
-      class="border border-sky-500 px-5 py-2 rounded-full"
+      class="border border-sky-500 hover:bg-sky-500 hover:text-white px-5 py-2 rounded-full cursor-pointer"
     >
       English 🇬🇧
     </button>
