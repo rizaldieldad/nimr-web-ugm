@@ -3,12 +3,12 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-const handleNext = () => router.push("/");
+const handleNext = () => router.push("/consent");
 </script>
 
 <template>
   <section
-    class="mx-auto max-w-5xl flex items-center justify-center h-screen p-10 lg:p-20"
+    class="mx-auto max-w-5xl flex items-center justify-center min-h-screen p-10 lg:p-20"
   >
     <div class="w-full justify-between space-y-20">
       <h1 class="text-4xl lg:text-6xl font-bold text-center">
@@ -16,10 +16,10 @@ const handleNext = () => router.push("/");
       </h1>
 
       <ol class="list-decimal space-y-5 pl-5">
-        <li class="text-lg lg:text-4xl text-justify font-light">
+        <li class="text-lg lg:text-3xl text-justify font-light">
           {{ $t("participation_criteria.criteria1") }}
         </li>
-        <li class="text-lg lg:text-4xl text-justify font-light">
+        <li class="text-lg lg:text-3xl text-justify font-light">
           {{ $t("participation_criteria.criteria1") }}
         </li>
       </ol>
