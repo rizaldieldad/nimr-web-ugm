@@ -26,6 +26,10 @@ const router = createRouter({
         {
           path: "/consent",
           component: () => import("./pages/Consent.vue"),
+        },
+        {
+          path: "/thankyou-not-participate",
+          component: () => import("./pages/DeclinedThankYou.vue"),
         }
       ]
     }
