@@ -30,6 +30,10 @@ const router = createRouter({
         {
           path: "/thankyou-not-participate",
           component: () => import("./pages/DeclinedThankYou.vue"),
+        },
+        {
+          path: "/personal-data",
+          component: () => import("./pages/PersonalData.vue"),
         }
       ]
     }

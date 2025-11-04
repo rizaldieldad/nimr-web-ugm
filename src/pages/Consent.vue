@@ -42,7 +42,7 @@ const handleNext = () => router.push("#");
           {{ $t("buttons.disagree") }} ❌
         </RouterLink>
         <RouterLink
-          to="#"
+          to="/personal-data"
           class="border border-sky-500 hover:bg-green-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
         >
           {{ $t("buttons.agree") }} ✅
