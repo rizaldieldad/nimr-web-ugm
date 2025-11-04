@@ -32,11 +32,22 @@
     "fields": {
       "fullname": "Nama beserta title pendidikan",
       "email": "Email",
-      "gender": "Jenis Kelamin",
+      "gender": {
+        "title": "Jenis Kelamin",
+        "male": "Laki-laki",
+        "female": "Perempuan"
+      },
       "age": "Umur",
       "affiliation": "Afiliasi",
-      "occupation": "Pekerjaan",
-      "length_employment": "Lama Bekerja"
+      "occupation": {
+        "title": "Pekerjaan",
+        "doctor": "Dokter",
+        "non_doctor": "Non-Dokter"
+      },
+      "length_employment": {
+        "title": "Lama Bekerja",
+        "placeholder": "Contoh: 5 tahun"
+      }
     }
   },
   "questionnaire_hint": "Jawab pertanyaan-pertanyaan berikut yang sesuai dengan kondisi Anda sesungguhnya. Skala satu (1) menyatakan “SANGAT TIDAK SETUJU”, skala lima (5) menyatakan “SANGAT SETUJU”.",

@@ -32,11 +32,22 @@
     "fields": {
       "fullname": "Full Name and Academic Title",
       "email": "Email",
-      "gender": "Gender",
+      "gender": {
+        "title": "Gender",
+        "male": "Male",
+        "female": "Female"
+      },
       "age": "Age",
       "affiliation": "Affiliation",
-      "occupation": "Occupation",
-      "length_employment": "Length of Employment"
+      "occupation": {
+        "title": "Occupation",
+        "doctor": "Doctor",
+        "non_doctor": "Non-Doctor"
+      },
+      "length_employment": {
+        "title": "Length of Employment",
+        "placeholder": "Example: 5 years"
+      }
     }
   },
   "questionnaire_hint": "Please answer the following questions according to your actual condition. A score of one (1) indicates “STRONGLY DISAGREE,” while a score of five (5) indicates “STRONGLY AGREE.”",
