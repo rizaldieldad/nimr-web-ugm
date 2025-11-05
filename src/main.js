@@ -10,7 +10,7 @@ import MainLayout from "./layout/MainLayout.vue"
 // Pages
 import Home from "./pages/Home.vue"
 import Instruction1 from './pages/survey/Instruction1.vue'
-import Comitment from './pages/survey/Comitment.vue'
+import Comitment from './pages/survey/commitment/Comitment1.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -61,7 +61,7 @@ const router = createRouter({
                     component: Instruction1
                 },
                 {
-                    path: "comitment",
+                    path: "comitment-1",
                     component: Comitment
                 }
             ]

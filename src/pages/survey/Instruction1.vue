@@ -4,7 +4,7 @@ import { useRouter } from "vue-router"
 const router = useRouter();
 
 const handleNext = () => {
-    router.push("/survey/comitment");
+    router.push("/survey/comitment-1");
 }
 </script>
 
