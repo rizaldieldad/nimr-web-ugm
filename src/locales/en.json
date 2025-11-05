@@ -72,7 +72,7 @@
     }
   },
   "case_hint": {
-    "description": "This session aims to understand your perceptions and experiences in using the Integrated Medical Record system through case scenarios that reflect real-world conditions. Each section begins with a brief case, followed by several statements related to that situation.",
+    "description": "This session aims to understand your perceptions and experiences in using the Integrated Medical Record system through <b>case scenarios</b> that reflect real-world conditions. Each section begins with a brief case, followed by several statements related to that situation.",
     "note": "Please read each case carefully and respond according to your personal experience or perspective. There are no right or wrong answers all responses will be kept confidential and used solely for academic research purposes."
   },
   "case1": {
