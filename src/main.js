@@ -9,7 +9,6 @@ import MainLayout from "./layout/MainLayout.vue"
 
 // Pages
 import Home from "./pages/Home.vue"
-import Instruction1 from './pages/survey/Instruction1.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -57,7 +56,7 @@ const router = createRouter({
                 },
                 {
                     path: "instruction-1",
-                    component: Instruction1
+                    component: () => import("./pages/survey/instructions/Instruction1.vue")
                 },
                 {
                     path: "comitment-1",
@@ -74,7 +73,11 @@ const router = createRouter({
                 {
                     path: "big-data-2",
                     component: () => import('./pages/survey/big-data/BigData2.vue')
-                }
+                },
+                {
+                    path: "instruction-2",
+                    component: () => import('./pages/survey/instructions/Instruction2.vue')
+                },
             ]
         }
       ]
