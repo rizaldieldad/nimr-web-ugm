@@ -67,6 +67,10 @@ const router = createRouter({
                 {
                     path: "commitment-2",
                     component: () => import('./pages/survey/commitment/Commitment2.vue')
+                },
+                {
+                    path: "big-data-1",
+                    component: () => import('./pages/survey/big-data/BigData1.vue')
                 }
             ]
         }
