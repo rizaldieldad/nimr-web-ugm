@@ -50,7 +50,7 @@
       }
     }
   },
-  "questionnaire_hint": "Please answer the following questions according to your actual condition. A score of one (1) indicates “STRONGLY DISAGREE,” while a score of five (5) indicates “STRONGLY AGREE.”",
+  "questionnaire_hint": "Please answer the following questions according to your actual condition. A score of one (1) indicates <b>“STRONGLY DISAGREE,”</b> while a score of five (5) indicates <b>“STRONGLY AGREE.”</b>",
   "commitment": {
     "title": "Commitment",
     "question": {

@@ -5,8 +5,12 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from "vue-router"
 import i18n from './i18n.js'
 
-import Home from "./pages/Home.vue"
 import MainLayout from "./layout/MainLayout.vue"
+
+// Pages
+import Home from "./pages/Home.vue"
+import Instruction1 from './pages/Survey/Instruction1.vue'
+import Comitment from './pages/survey/Comitment.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -28,12 +32,30 @@ const router = createRouter({
           component: () => import("./pages/Consent.vue"),
         },
         {
-          path: "/thankyou-not-participate",
+          path: "/not-participate",
           component: () => import("./pages/DeclinedThankYou.vue"),
         },
         {
           path: "/personal-data",
           component: () => import("./pages/PersonalData.vue"),
+        },
+        {
+            path: "/survey",
+            component: () => import("./pages/Survey.vue"),
+            children: [
+                {
+                    path: "",
+                    redirect: "/survey/instruction-1"
+                },
+                {
+                    path: "instruction-1",
+                    component: Instruction1
+                },
+                {
+                    path: "comitment",
+                    component: Comitment
+                }
+            ]
         }
       ]
     }
