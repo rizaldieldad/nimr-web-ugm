@@ -7,10 +7,9 @@ const handleNext = () => router.push("#");
 </script>
 
 <template>
-  <section
-    class="mx-auto max-w-5xl flex items-center justify-center min-h-screen p-10 lg:p-20"
-  >
-    <div class="w-full justify-between space-y-10 lg:space-y-20">
+    <section class="w-full bg-[url('./src/assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./src/assets/images/backgrounds/bg_primary.png')] bg-cover bg-center transition-all duration-500">
+        <div class="max-w-5xl mx-auto flex items-center justify-center min-h-screen p-10 lg:p-20">
+            <div class="w-full justify-between space-y-10 lg:space-y-20">
       <h1 class="text-4xl lg:text-6xl font-bold text-center">
         {{ $t("explanation_consent.title") }}
       </h1>
@@ -36,7 +35,7 @@ const handleNext = () => router.push("#");
 
       <div class="flex flex-col lg:flex-row justify-center items-center gap-2">
         <RouterLink
-          to="#"
+          to="/not-participate"
           class="border border-sky-500 hover:bg-rose-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
         >
           {{ $t("buttons.disagree") }} ❌
@@ -49,7 +48,8 @@ const handleNext = () => router.push("#");
         </RouterLink>
       </div>
     </div>
-  </section>
+        </div>
+    </section>
 </template>
 
 <style scoped></style>

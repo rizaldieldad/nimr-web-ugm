@@ -2,9 +2,9 @@
 
 <template>
   <div
-    class="min-h-screen w-full bg-[url('./src/assets/images/sec_background.png')] lg:bg-[url('./src/assets/images/background.png')] bg-cover bg-center text-white transition-all duration-500"
+    class="min-h-screen w-full"
   >
-    <main class="container mx-auto text-black">
+    <main>
       <router-view />
     </main>
   </div>

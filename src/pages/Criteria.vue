@@ -8,10 +8,10 @@ const handleNext = () => router.push("/consent");
 
 <template>
   <section
-    class="mx-auto max-w-5xl flex items-center justify-center min-h-screen p-10 lg:p-20"
+    class="w-full bg-[url('./src/assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./src/assets/images/backgrounds/bg_primary.png')] bg-cover bg-center transition-all duration-500"
   >
-    <div class="w-full justify-between space-y-20">
-      <h1 class="text-4xl lg:text-6xl font-bold text-center">
+    <div class="mx-auto max-w-5xl h-screen flex flex-col justify-between p-10 lg:p-20 text-center">
+        <h1 class="text-4xl lg:text-6xl font-bold text-center">
         {{ $t("participation_criteria.title") }}
       </h1>
 
@@ -32,7 +32,7 @@ const handleNext = () => router.push("/consent");
           {{ $t("buttons.next") }}
         </button>
       </div>
-    </div>
+    </div>      
   </section>
 </template>
 
