@@ -3,7 +3,23 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-const handleNext = () => router.push("#");
+const handleDecline = () => {
+    // Set decline flag in sessionStorage
+    sessionStorage.setItem("userDeclined", "true");
+    sessionStorage.removeItem("userConsent");
+
+    // Redirect to declined route
+    router.push("/not-participate");
+}
+
+const handleAgree = () => {
+    // Set consent flag in sessionStorage
+    sessionStorage.setItem("userConsent", "true");
+    sessionStorage.removeItem("userDeclined");
+
+    // Redirect to personal data
+    router.push("/personal-data");
+}
 </script>
 
 <template>
@@ -34,7 +50,7 @@ const handleNext = () => router.push("#");
       </p>
 
       <div class="flex flex-col lg:flex-row justify-center items-center gap-2">
-        <RouterLink
+        <!-- <RouterLink
           to="/not-participate"
           class="border border-sky-500 hover:bg-rose-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
         >
@@ -45,7 +61,19 @@ const handleNext = () => router.push("#");
           class="border border-sky-500 hover:bg-green-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
         >
           {{ $t("buttons.agree") }} ✅
-        </RouterLink>
+        </RouterLink> -->
+        <button
+          @click="handleDecline"
+          class="border border-sky-500 hover:bg-rose-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
+        >
+          {{ $t("buttons.disagree") }} ❌
+        </button>
+        <button
+            @click="handleAgree"
+          class="border border-sky-500 hover:bg-green-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
+        >
+          {{ $t("buttons.agree") }} ✅
+        </button>
       </div>
     </div>
         </div>

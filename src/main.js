@@ -34,14 +34,23 @@ const router = createRouter({
         {
           path: "/not-participate",
           component: () => import("./pages/DeclinedThankYou.vue"),
+          meta: {
+            requiredDecline: true
+          }
         },
         {
           path: "/personal-data",
           component: () => import("./pages/PersonalData.vue"),
+          meta: {
+            requiredConsent: true
+          }
         },
         {
             path: "/survey",
             component: () => import("./pages/Survey.vue"),
+            meta: {
+                requiredConsent: true
+            },
             children: [
                 {
                     path: "",
@@ -60,6 +69,30 @@ const router = createRouter({
       ]
     }
   ],
+})
+
+// Navigation guard
+router.beforeEach((to, from, next) => {
+    const hasDeclined = sessionStorage.getItem("userDeclined");
+    const hasConsented = sessionStorage.getItem("userConsent");
+
+    // Check if route requires decline
+    if (to.matched.some(record => record.meta.requiredDecline)) {
+        if (hasDeclined === 'true') {
+            next()
+        } else {
+            next("/consent")
+        }
+    // Check if route requires consent
+    } else if (to.matched.some(record => record.meta.requiredConsent)) {
+        if (hasConsented === 'true') {
+            next()
+        } else {
+            next("/consent")
+        }
+    } else {
+        next()
+    }
 })
 
 const app = createApp(App)
