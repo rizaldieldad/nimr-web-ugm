@@ -21,13 +21,15 @@ const changeLanguage = (lang) => {
       @click="changeLanguage('id')"
       class="border border-sky-500 hover:bg-sky-500 hover:text-white px-5 py-2 rounded-full cursor-pointer"
     >
-      Indonesia 🇮🇩
+      Indonesia 
+      <img src="https://flagcdn.com/w20/id.png" alt="Indonesian flag" class="inline w-4 h-3 ml-2">
     </button>
     <button
       @click="changeLanguage('en')"
       class="border border-sky-500 hover:bg-sky-500 hover:text-white px-5 py-2 rounded-full cursor-pointer"
     >
-      English 🇬🇧
+      English 
+      <img src="https://flagcdn.com/w20/gb.png" alt="English flag" class="inline w-4 h-3 ml-2">
     </button>
   </div>
 </template>

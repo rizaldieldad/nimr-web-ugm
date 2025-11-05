@@ -50,7 +50,7 @@
       }
     }
   },
-  "questionnaire_hint": "Jawab pertanyaan-pertanyaan berikut yang sesuai dengan kondisi Anda sesungguhnya. Skala satu (1) menyatakan “SANGAT TIDAK SETUJU”, skala lima (5) menyatakan “SANGAT SETUJU”.",
+  "questionnaire_hint": "Jawab pertanyaan-pertanyaan berikut yang sesuai dengan kondisi Anda sesungguhnya. Skala satu (1) menyatakan <b>SANGAT TIDAK SETUJU</b>, skala lima (5) menyatakan <b>SANGAT SETUJU</b>.",
   "commitment": {
     "title": "Komitmen",
     "question": {
