@@ -70,6 +70,10 @@ const router = createRouter({
                 {
                     path: "big-data-1",
                     component: () => import('./pages/survey/big-data/BigData1.vue')
+                },
+                {
+                    path: "big-data-2",
+                    component: () => import('./pages/survey/big-data/BigData2.vue')
                 }
             ]
         }
