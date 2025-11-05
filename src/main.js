@@ -63,6 +63,10 @@ const router = createRouter({
                 {
                     path: "comitment-1",
                     component: Comitment1
+                },
+                {
+                    path: "commitment-2",
+                    component: () => import('./pages/survey/commitment/Commitment2.vue')
                 }
             ]
         }
