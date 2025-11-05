@@ -4,7 +4,7 @@ import ChooseLanguage from "../components/ChooseLanguage.vue";
 
 <template>
     <section
-        class="w-full bg-[url('./src/assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./src/assets/images/backgrounds/bg_primary.png')] bg-cover bg-center transition-all duration-500"
+        class="w-full bg-[url('./assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./assets/images/backgrounds/bg_primary.png')] bg-cover bg-center transition-all duration-500"
     >
         <div class="mx-auto max-w-5xl h-screen flex flex-col justify-between p-10 lg:p-20 text-center">
             <h1 class="text-4xl lg:text-6xl font-bold">HALLO!</h1>

@@ -11,7 +11,7 @@ const handleSubmit = () => {
 
 <template>
     <section 
-        class="w-full bg-[url('./src/assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./src/assets/images/backgrounds/bg_respondent.png')] bg-cover bg-center transition-all duration-500"
+        class="w-full bg-[url('./assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./assets/images/backgrounds/bg_respondent.png')] bg-cover bg-center transition-all duration-500"
     >
         <div class="max-w-6xl mx-auto flex justify-center min-h-screen p-10 lg:p-20">
             <div class="w-full space-y-8 lg:space-y-10">

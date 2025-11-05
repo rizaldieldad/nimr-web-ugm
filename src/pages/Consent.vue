@@ -7,7 +7,7 @@ const handleNext = () => router.push("#");
 </script>
 
 <template>
-    <section class="w-full bg-[url('./src/assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./src/assets/images/backgrounds/bg_primary.png')] bg-cover bg-center transition-all duration-500">
+    <section class="w-full bg-[url('./assets/images/backgrounds/bg_secondary.png')] lg:bg-[url('./assets/images/backgrounds/bg_primary.png')] bg-cover bg-center transition-all duration-500">
         <div class="max-w-5xl mx-auto flex items-center justify-center min-h-screen p-10 lg:p-20">
             <div class="w-full justify-between space-y-10 lg:space-y-20">
       <h1 class="text-4xl lg:text-6xl font-bold text-center">
