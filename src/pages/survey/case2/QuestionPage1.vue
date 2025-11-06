@@ -3,7 +3,7 @@ import NextButton from "../../../components/buttons/NextButton.vue"
 </script>
 
 <template>
-    <div class="max-w-4xl mx-auto p-4 md:p-8 space-y-6">
+    <div class="max-w-4xl mx-auto flex flex-col justify-center min-h-screen p-4 md:p-8 space-y-6">
       <!-- Header -->
       <div class="mb-8 md:mb-12">
         <h1 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-2 flex items-center">
