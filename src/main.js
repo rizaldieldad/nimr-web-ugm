@@ -117,6 +117,14 @@ const router = createRouter({
                 {
                     path: "case4/question-2",
                     component: () => import('./pages/survey/case4/QuestionPage2.vue')
+                },
+                {
+                    path: "case5",
+                    component: () => import('./pages/survey/case5/Description.vue')
+                },
+                {
+                    path: "case5/question-1",
+                    component: () => import('./pages/survey/case5/QuestionPage1.vue')
                 }
             ]
         }
