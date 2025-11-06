@@ -4,7 +4,6 @@ import { useRouter} from "vue-router"
 const router = useRouter();
 
 const handleSubmit = () => {
-  alert("Data saved");
   router.push("/survey/instruction-1")
 };
 </script>
