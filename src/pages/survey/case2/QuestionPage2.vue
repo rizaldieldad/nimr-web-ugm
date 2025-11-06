@@ -21,8 +21,8 @@ import NextButton from "../../../components/buttons/NextButton.vue"
 
         <!-- Rating Scale -->
         <div class="flex justify-center items-center gap-3 md:gap-6">
-          <button class="px-12 py-2 border border-pink-300 hover:bg-pink-300 font-bold rounded-full cursor-pointer">{{ $t('buttons.yes') }}</button>
-          <button class="px-12 py-2 border border-pink-300 hover:bg-pink-300 font-bold rounded-full cursor-pointer">{{ $t('buttons.no') }}</button>
+            <button class="px-12 py-2 border border-pink-300 hover:bg-pink-300 font-bold rounded-full cursor-pointer">{{ $t('buttons.no') }}</button>
+            <button class="px-12 py-2 border border-pink-300 hover:bg-pink-300 font-bold rounded-full cursor-pointer">{{ $t('buttons.yes') }}</button>
         </div>
       </div>
 
