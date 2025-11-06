@@ -11,7 +11,7 @@
                     src="../assets/images/thankyou/thankyou2.png"
                     alt=""
                 />
-                <p class="text-2xl md:text-3xl lg:text-5xl text-justify text-[#8ca6e3] font-extrabold">
+                <p class="text-2xl md:text-3xl lg:text-5xl text-[#8ca6e3] font-extrabold">
                     {{ $t("thank_you.participate") }}
                 </p>
             </div>
