@@ -4,7 +4,7 @@ import { useRouter } from "vue-router"
 const router = useRouter();
 
 const handleNext = () => {
-    router.push("/survey/comitment");
+    router.push("/survey/comitment-1");
 }
 </script>
 
@@ -13,7 +13,7 @@ const handleNext = () => {
         <div class="w-full flex flex-col justify-center items-center lg:items-end lg:flex-row">
             <img
                 class="w-60 h-60 lg:w-120 lg:h-120 object-cover lg:-mr-10 z-10" 
-                src="../../assets/images/instructions/instruction1.png"
+                src="../../../assets/images/instructions/instruction1.png"
                 alt=""
             >
             <div class="flex items-center px-4 lg:mb-12">   

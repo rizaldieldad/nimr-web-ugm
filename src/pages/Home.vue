@@ -10,15 +10,11 @@ import ChooseLanguage from "../components/ChooseLanguage.vue";
             <h1 class="text-4xl lg:text-6xl font-bold">HALLO!</h1>
 
             <p class="text-lg lg:text-4xl text-justify">
-                Perkenalkan nama saya Esa Panganti, website ini dibuat sebagai bagian dari
-                proses penelitian saya untuk melihat seberapa jauh urgensi penerapan
-                Nationally Integrated Medical Records (NIMR) di Indonesia, partisipasi dan
-                dukungan Anda sangat berarti bagi kelancaran dan keberhasilan penelitian
-                ini.
+                {{ $t("greeting") }}
             </p>
 
             <div class="flex flex-col items-center gap-y-5">
-                <p class="text-2xl tracking-widest">Pemilihan Bahasa</p>
+                <p class="text-2xl tracking-widest">{{ $t("lang_selection") }}</p>
                 <ChooseLanguage />
             </div>
         </div>      

@@ -9,8 +9,6 @@ import MainLayout from "./layout/MainLayout.vue"
 
 // Pages
 import Home from "./pages/Home.vue"
-import Instruction1 from './pages/survey/Instruction1.vue'
-import Comitment from './pages/survey/Comitment.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -34,14 +32,23 @@ const router = createRouter({
         {
           path: "/not-participate",
           component: () => import("./pages/DeclinedThankYou.vue"),
+          meta: {
+            requiredDecline: true
+          }
         },
         {
           path: "/personal-data",
           component: () => import("./pages/PersonalData.vue"),
+          meta: {
+            requiredConsent: true
+          }
         },
         {
             path: "/survey",
             component: () => import("./pages/Survey.vue"),
+            meta: {
+                requiredConsent: true
+            },
             children: [
                 {
                     path: "",
@@ -49,17 +56,141 @@ const router = createRouter({
                 },
                 {
                     path: "instruction-1",
-                    component: Instruction1
+                    component: () => import("./pages/survey/instructions/Instruction1.vue")
                 },
                 {
-                    path: "comitment",
-                    component: Comitment
+                    path: "comitment-1",
+                    component: () => import('./pages/survey/commitment/Commitment1.vue')
+                },
+                {
+                    path: "commitment-2",
+                    component: () => import('./pages/survey/commitment/Commitment2.vue')
+                },
+                {
+                    path: "big-data-1",
+                    component: () => import('./pages/survey/big-data/BigData1.vue')
+                },
+                {
+                    path: "big-data-2",
+                    component: () => import('./pages/survey/big-data/BigData2.vue')
+                },
+                {
+                    path: "instruction-2",
+                    component: () => import('./pages/survey/instructions/Instruction2.vue')
+                },
+                {
+                    path: "case1",
+                    component: () => import('./pages/survey/case1/Description.vue')
+                },
+                {
+                    path: "case1/question-1",
+                    component: () => import('./pages/survey/case1/QuestionPage1.vue')
+                },
+                {
+                    path: "case2",
+                    component: () => import('./pages/survey/case2/Description.vue')
+                },
+                {
+                    path: "case2/question-1",
+                    component: () => import('./pages/survey/case2/QuestionPage1.vue')
+                },
+                {
+                    path: "case2/question-2",
+                    component: () => import('./pages/survey/case2/QuestionPage2.vue')
+                },
+                {
+                    path: "case3",
+                    component: () => import('./pages/survey/case3/Description.vue')
+                },
+                {
+                    path: "case3/question-1",
+                    component: () => import('./pages/survey/case3/QuestionPage1.vue')
+                },
+                {
+                    path: "case4",
+                    component: () => import('./pages/survey/case4/Description.vue')
+                },
+                {
+                    path: "case4/question-1",
+                    component: () => import('./pages/survey/case4/QuestionPage1.vue')
+                },
+                {
+                    path: "case4/question-2",
+                    component: () => import('./pages/survey/case4/QuestionPage2.vue')
+                },
+                {
+                    path: "case5",
+                    component: () => import('./pages/survey/case5/Description.vue')
+                },
+                {
+                    path: "case5/question-1",
+                    component: () => import('./pages/survey/case5/QuestionPage1.vue')
+                },
+                {
+                    path: "case6",
+                    component: () => import('./pages/survey/case6/Description.vue')
+                },
+                {
+                    path: "case6/question-1",
+                    component: () => import('./pages/survey/case6/QuestionPage1.vue')
+                },
+                {
+                    path: "case6/question-2",
+                    component: () => import('./pages/survey/case6/QuestionPage2.vue')
+                },
+                {
+                    path: "case7",
+                    component: () => import('./pages/survey/case7/Description.vue')
+                },
+                {
+                    path: "case7/question-1",
+                    component: () => import('./pages/survey/case7/QuestionPage1.vue')
+                },
+                {
+                    path: "case8",
+                    component: () => import('./pages/survey/case8/Description.vue')
+                },
+                {
+                    path: "case8/question-1",
+                    component: () => import('./pages/survey/case8/QuestionPage1.vue')
+                },
+                {
+                    path: "case8/question-2",
+                    component: () => import('./pages/survey/case8/QuestionPage2.vue')
+                },
+                {
+                    path: "thankyou",
+                    component: () => import('./pages/ThankYou.vue')
                 }
             ]
         }
       ]
     }
   ],
+})
+
+// Navigation guard
+router.beforeEach((to, from, next) => {
+    const hasDeclined = sessionStorage.getItem("userDeclined");
+    const hasConsented = sessionStorage.getItem("userConsent");
+
+    // Check if route requires decline
+    if (to.matched.some(record => record.meta.requiredDecline)) {
+        if (hasDeclined === 'true') {
+            next()
+        } else {
+            next("/consent")
+        }
+    // Check if route requires consent
+    } else if (to.matched.some(record => record.meta.requiredConsent)) {
+        if (hasConsented === 'true') {
+            next()
+        } else {
+            next("/consent")
+        }
+    } else {
+        next()
+    }
 })
 
 const app = createApp(App)

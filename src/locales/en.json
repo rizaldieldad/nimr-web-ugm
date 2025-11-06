@@ -72,7 +72,7 @@
     }
   },
   "case_hint": {
-    "description": "This session aims to understand your perceptions and experiences in using the Integrated Medical Record system through case scenarios that reflect real-world conditions. Each section begins with a brief case, followed by several statements related to that situation.",
+    "description": "This session aims to understand your perceptions and experiences in using the Integrated Medical Record system through <b>case scenarios</b> that reflect real-world conditions. Each section begins with a brief case, followed by several statements related to that situation.",
     "note": "Please read each case carefully and respond according to your personal experience or perspective. There are no right or wrong answers all responses will be kept confidential and used solely for academic research purposes."
   },
   "case1": {
@@ -86,7 +86,7 @@
     "title": "Case 2",
     "description": "The same patient, with a history of diabetes, had previously been prescribed antibiotics during hospitalization. Shortly after the administration of the medication, the patient experienced a severe allergic reaction that required immediate medical attention. Further investigation revealed that the patient had been treated at another hospital in the past, where an allergy to the same type of antibiotic had already been recorded. Unfortunately, since the hospital information system was not yet connected nationally through the National Integrated Medical Record (NIMR), the prescribing physician did not have access to this allergy record. This incident later became a serious concern during the hospital’s internal audit. The evaluation concluded that the event could have been prevented if a fully implemented and interconnected digital medical record system such as the NIMR had been in place.",
     "questions": {
-      "q1": "How important do you think it is to have access to integrated medical records in emergency situations like this?",
+      "q1": "To what extent do you think the error occurred due to the absence of the National Integrated Medical Record (NIMR)?",
       "q2": "If the NIMR (Integrated Medical Record) were available, would you be confident in implementing it to prevent a similar incident?",
       "q3": "Based on the two previous cases, would you implement the National Integrated Medical Record (NIMR) system in your hospital?"
     }
