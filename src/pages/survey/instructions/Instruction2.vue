@@ -29,7 +29,7 @@ import NextButton from '../../../components/buttons/NextButton.vue';
 
             <!-- Note Section -->
             <div class="mt-6 lg:mt-8 px-4 sm:px-8 lg:px-12">
-                <p class="text-sm lg:text-base italic text-gray-600 text-center lg:text-right">
+                <p class="lg:text-lg italic text-gray-600 text-center lg:text-right">
                     {{ $t('case_hint.note') }}
                 </p>
             </div>
