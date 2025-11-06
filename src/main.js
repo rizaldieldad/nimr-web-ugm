@@ -98,6 +98,14 @@ const router = createRouter({
                     path: "case2/question-2",
                     component: () => import('./pages/survey/case2/QuestionPage2.vue')
                 },
+                {
+                    path: "case3",
+                    component: () => import('./pages/survey/case3/Description.vue')
+                },
+                {
+                    path: "case3/question-1",
+                    component: () => import('./pages/survey/case3/QuestionPage1.vue')
+                }
             ]
         }
       ]
