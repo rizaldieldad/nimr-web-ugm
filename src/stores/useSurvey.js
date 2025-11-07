@@ -114,6 +114,18 @@ export const useSurvey = defineStore("survey", () => {
         { deep: true }
     )
 
+    // Method to start survey (call when user first enters)
+    const startSurvey = () => {
+        if (!surveyState.metadata.startedAt) {
+            surveyState.metadata.startedAt = new Date().toISOString()
+        }
+    }
+
+    // Method to finish survey (call on final submission)
+    const finishSurvey = () => {
+        surveyState.metadata.finishedAt = new Date().toISOString()
+    }
+
     // Method to clear the survey data
     const clearSurvey = () => {
         surveyState.respondentInfo = {
@@ -181,6 +193,8 @@ export const useSurvey = defineStore("survey", () => {
 
     return {
         surveyState,
+        startSurvey, 
+        finishSurvey,
         clearSurvey
     }
 })
