@@ -1,7 +1,11 @@
 <script setup>
 import { useRouter} from "vue-router"
 
+// Add store
+import { useSurvey } from "../stores/useSurvey"
+
 const router = useRouter();
+const { surveyState } = useSurvey()
 
 const handleSubmit = () => {
   router.push("/survey/instruction-1")
@@ -31,6 +35,7 @@ const handleSubmit = () => {
                         <!-- Field: Full name and Academic Title -->
                         <div class="relative w-72">
                         <input
+                            v-model="surveyState.respondentInfo.fullNameTitle"
                             type="text"
                             id="name"
                             placeholder=" "
@@ -47,6 +52,7 @@ const handleSubmit = () => {
                         <!-- Field: Email -->
                         <div class="relative w-72">
                         <input
+                            v-model="surveyState.respondentInfo.email"
                             type="email"
                             id="email"
                             placeholder=" "
@@ -63,6 +69,7 @@ const handleSubmit = () => {
                         <!-- Field: Gender -->
                         <div class="relative w-72">
                         <select
+                            v-model="surveyState.respondentInfo.gender"
                             name="gender"
                             id="gender"
                             class="peer w-full border-2 border-pink-300 rounded-full px-8 pt-8 pb-2 appearance-none focus:outline-none focus:border-pink-500"
@@ -111,6 +118,7 @@ const handleSubmit = () => {
                         <!-- Field: Age -->
                         <div class="relative w-72">
                         <input
+                            v-model="surveyState.respondentInfo.age"
                             type="text"
                             id="age"
                             placeholder=" "
@@ -127,6 +135,7 @@ const handleSubmit = () => {
                         <!-- Field: Affiliation -->
                         <div class="relative w-72">
                         <input
+                            v-model="surveyState.respondentInfo.affiliation"
                             type="text"
                             id="affiliation"
                             placeholder=" "
@@ -143,6 +152,7 @@ const handleSubmit = () => {
                         <!-- Field: Occupation -->
                         <div class="relative w-72">
                         <select
+                            v-model="surveyState.respondentInfo.occupation"
                             name="occupation"
                             id="occupation"
                             class="peer w-full border-2 border-pink-300 rounded-full px-8 pt-8 pb-2 appearance-none focus:outline-none focus:border-pink-500"
@@ -188,6 +198,7 @@ const handleSubmit = () => {
                         <!-- Field: Length of Employment -->
                         <div class="relative w-72">
                         <input
+                            v-model="surveyState.respondentInfo.lengthEmployment"
                             type="text"
                             id="ln_of_employment"
                             :placeholder="
