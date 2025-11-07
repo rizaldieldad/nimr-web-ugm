@@ -1,11 +1,16 @@
 <script setup>
 import { useRouter} from "vue-router"
+import { onMounted } from "vue"
 
 // Add store
 import { useSurvey } from "../stores/useSurvey"
 
 const router = useRouter();
-const { surveyState } = useSurvey()
+const { surveyState, startSurvey } = useSurvey()
+
+onMounted(() => {
+    startSurvey()
+})
 
 const handleSubmit = () => {
   router.push("/survey/instruction-1")
