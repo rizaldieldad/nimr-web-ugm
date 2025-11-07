@@ -1,5 +1,27 @@
 <script setup>
 import NextButton from "../../../components/buttons/NextButton.vue"
+
+// Add store
+import { useSurvey } from "../../../stores/useSurvey"
+
+const { surveyState } = useSurvey()
+
+// Initialize case7 page1 answers if not exists
+if (!surveyState.answers["case7"]) {
+    surveyState.answers.case7 = {
+        q1: null
+    }
+}
+
+// Function to handle answer selection
+const selectAnswer = (questionNumber, value) => {
+    surveyState.answers.case7[`q${questionNumber}`] = value
+}
+
+// Function to check if a value is selected
+const isSelected = (questionNumber, value) => {
+    return surveyState.answers.case7[`q${questionNumber}`] === value
+}
 </script>
 
 <template>
@@ -32,7 +54,13 @@ import NextButton from "../../../components/buttons/NextButton.vue"
           <button
             v-for="value in 5"
             :key="value"
-            class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110 bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50"
+            @click="selectAnswer(1, value)"
+            :class="[
+              'w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110',
+              isSelected(1, value)
+                ? 'bg-indigo-500 border-indigo-500 text-white'
+                : 'bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50'
+            ]"
           >
             {{ value }}
           </button>
