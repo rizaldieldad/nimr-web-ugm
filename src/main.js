@@ -195,7 +195,7 @@ router.beforeEach((to, from, next) => {
 
                 if (surveyStateString) {
                     try {
-                        const surveyState = JSON.parse(surveyStateStr);
+                        const surveyState = JSON.parse(surveyStateString);
                         hasPersonalData = !!(
                             surveyState.respondentInfo.fullNameTitle &&
                             surveyState.respondentInfo.email &&
