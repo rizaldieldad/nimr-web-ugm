@@ -1,5 +1,6 @@
 <script setup>
 import NextButton from "../../../components/buttons/NextButton.vue"
+import BackButton from "../../../components/buttons/BackButton.vue"
 
 // Add store
 import { useSurvey } from "../../../stores/useSurvey"
@@ -67,8 +68,13 @@ const isSelected = (questionNumber, value) => {
         </div>
       </div>
 
-      <!-- Next Button -->
-      <NextButton class="justify-end" next-route="/survey/case2"/>
+      <div class="flex justify-end gap-6">
+        <!-- Back Button -->
+        <BackButton back-route="/survey/case1"/>
+
+        <!-- Next Button -->
+        <NextButton next-route="/survey/case2"/>
+      </div>
     </div>
 </template>
 
