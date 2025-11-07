@@ -50,7 +50,8 @@ const router = createRouter({
             path: "/survey",
             component: () => import("./pages/Survey.vue"),
             meta: {
-                requiredConsent: true
+                requiredConsent: true,
+                requiredPersonalData: true
             },
             children: [
                 {
@@ -187,7 +188,34 @@ router.beforeEach((to, from, next) => {
     // Check if route requires consent
     } else if (to.matched.some(record => record.meta.requiredConsent)) {
         if (hasConsented === 'true') {
-            next()
+            // Check if route requires personal data
+            if (to.matched.some(record => record.meta.requiredPersonalData)) {
+                const surveyStateString = localStorage.getItem("survey-state");
+                let hasPersonalData = false;
+
+                if (surveyStateString) {
+                    try {
+                        const surveyState = JSON.parse(surveyStateStr);
+                        hasPersonalData = !!(
+                            surveyState.respondentInfo.fullNameTitle &&
+                            surveyState.respondentInfo.email &&
+                            surveyState.respondentInfo.age &&
+                            surveyState.respondentInfo.affiliation &&
+                            surveyState.respondentInfo.occupation
+                        );
+                    } catch (error) {
+                        console.error("Failed to parse stored survey state:", error);
+                    }
+                }
+
+                if (hasPersonalData) {
+                    next()
+                } else {
+                    next("/personal-data")
+                }
+            } else {
+                next()
+            }
         } else {
             next("/consent")
         }
