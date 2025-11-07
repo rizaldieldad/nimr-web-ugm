@@ -63,7 +63,7 @@ const router = createRouter({
                     component: () => import("./pages/survey/instructions/Instruction1.vue")
                 },
                 {
-                    path: "comitment-1",
+                    path: "commitment-1",
                     component: () => import('./pages/survey/commitment/Commitment1.vue')
                 },
                 {
