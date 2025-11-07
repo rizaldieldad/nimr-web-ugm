@@ -1,11 +1,5 @@
 <script setup>
-import { useRouter } from "vue-router"
-
-const router = useRouter();
-
-const handleNext = () => {
-    router.push("/survey/comitment-1");
-}
+import NextButton from '../../../components/buttons/NextButton.vue';
 </script>
 
 <template>
@@ -23,14 +17,7 @@ const handleNext = () => {
             </div>
         </div>
 
-        <div class="flex justify-center my-10">
-            <button
-                @click="() => handleNext()"
-                class="w-16 h-16 border-2 border-sky-500 hover:bg-sky-500 hover:text-white text-pink-400 font-semibold rounded-full transition-colors cursor-pointer"
-            >
-                {{ $t("buttons.next") }}
-            </button>
-        </div>
+        <NextButton class="my-10" next-route="/survey/commitment-1"/>
     </div>
 </template>
 
