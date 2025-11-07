@@ -4,11 +4,14 @@ import App from './App.vue'
 
 import { createRouter, createWebHistory } from "vue-router"
 import i18n from './i18n.js'
+import { createPinia } from "pinia"
 
 import MainLayout from "./layout/MainLayout.vue"
 
 // Pages
 import Home from "./pages/Home.vue"
+
+const pinia = createPinia()
 
 const router = createRouter({
   history: createWebHistory(),
@@ -197,4 +200,5 @@ const app = createApp(App)
 
 app.use(router)
 app.use(i18n)
+app.use(pinia)
 app.mount('#app')
