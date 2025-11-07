@@ -1,5 +1,27 @@
 <script setup>
 import NextButton from "../../../components/buttons/NextButton.vue"
+
+// Add store
+import { useSurvey } from "../../../stores/useSurvey"
+
+const { surveyState } = useSurvey()
+
+// Initalize case2 answers if not exists
+if (!surveyState.answers["case2"]) {
+    surveyState.answers.case2 = {
+        q3: null
+    }
+}
+
+// Function to handle Yes/No answer selection
+const selectAnswer = (questionNumber, value) => {
+    surveyState.answers.case2[`q${questionNumber}`] = value
+}
+
+// Function to check if a value is selected
+const isSelected = (questionNumber, value) => {
+    return surveyState.answers.case2[`q${questionNumber}`] === value
+}
 </script>
 
 <template>
@@ -21,8 +43,20 @@ import NextButton from "../../../components/buttons/NextButton.vue"
 
         <!-- Rating Scale -->
         <div class="flex justify-center items-center gap-3 md:gap-6">
-            <button class="px-12 py-2 border border-pink-300 hover:bg-pink-300 font-bold rounded-full cursor-pointer">{{ $t('buttons.no') }}</button>
-            <button class="px-12 py-2 border border-pink-300 hover:bg-pink-300 font-bold rounded-full cursor-pointer">{{ $t('buttons.yes') }}</button>
+            <button @click="selectAnswer(3, 'no')"
+              :class="[
+                'px-12 py-2 border font-bold rounded-full cursor-pointer transition-all',
+                isSelected(3, 'no')
+                  ? 'bg-pink-300 border-pink-300 text-white'
+                  : 'border-pink-300 hover:bg-pink-300 text-gray-700'
+              ]">{{ $t('buttons.no') }}</button>
+            <button @click="selectAnswer(3, 'yes')"
+              :class="[
+                'px-12 py-2 border font-bold rounded-full cursor-pointer transition-all',
+                isSelected(3, 'yes')
+                  ? 'bg-pink-300 border-pink-300 text-white'
+                  : 'border-pink-300 hover:bg-pink-300 text-gray-700'
+              ]">{{ $t('buttons.yes') }}</button>
         </div>
       </div>
 
