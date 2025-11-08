@@ -1,11 +1,11 @@
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted } from "vue"
 import { useRouter } from "vue-router"
 import { useSurvey } from "../../../stores/useSurvey"
 import BackButton from "../../../components/buttons/BackButton.vue"
 
 const router = useRouter()
-const { surveyState, finishSurvey } = useSurvey()
+const { surveyState, finishSurvey, isSessionSubmitted, markSessionSubmitted } = useSurvey()
 
 // Loading and error states
 const isSubmitting = ref(false)
@@ -14,6 +14,14 @@ const submitSuccess = ref(false)
 
 // Google Apps Script Web App 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxm-Cy4PwLJXTHEQNkih5gzajTkaiBq6qyP_gSmT_j7vm2ZJ-9Skw-QF_u-rum-sX9i/exec'
+
+// Check if already submitted when component mounts
+onMounted(() => {
+    if (isSessionSubmitted()) {
+        // Already submitted, redirect immediately
+        router.replace("/survey/thankyou")
+    }
+})
 
 // Initialize case8 page2 answers if not exists
 if (!surveyState.answers["case8"]) {
@@ -34,6 +42,13 @@ const isSelected = (questionNumber, value) => {
 
 // Function to submit data to Google Sheets
 const submitToGoogleSheets = async () => {
+    // Check if already submitted
+    if (isSessionSubmitted()) {
+        console.log('Survey already submitted in this browser session.')
+        router.push("/survey/thankyou")
+        return 
+    }
+
     isSubmitting.value = true
     submitError.value = null
     
@@ -50,6 +65,9 @@ const submitToGoogleSheets = async () => {
         // Note: With no-cors mode, we can't read the response
         // We assume success if no error is thrown
         submitSuccess.value = true
+
+        // Mark session as submitted
+        markSessionSubmitted()
         
         console.log('Survey data submitted successfully!')
         
@@ -70,6 +88,12 @@ const submitToGoogleSheets = async () => {
 
 // Handle final submission
 const handleFinish = async () => {
+    // Check again before submission (double protection)
+    if (isSessionSubmitted()) {
+        router.push("/survey/thankyou")
+        return
+    }
+
     // Mark survey as finished
     finishSurvey()
     
