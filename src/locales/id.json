@@ -5,9 +5,10 @@
     "agree": "YA, saya bersedia",
     "disagree": "TIDAK, saya tidak bersedia ",
     "next": "lanjut",
-    "back": "kembali",
+    "back": "kembali ke kasus",
     "yes": "YA",
-    "no": "TIDAK"
+    "no": "TIDAK",
+    "finish": "SELESAI"
   },
   "thank_you": {
     "not_participate": "Saya menghormati sepenuhnya keputusan yang telah Bapak/Ibu sampaikan. Terima kasih atas respons yang diberikan. Apabila di kemudian hari terdapat hal lain yang dapat saya bantu, saya dengan senang hati siap untuk dihubungi.",
@@ -47,6 +48,34 @@
       "length_employment": {
         "title": "Lama Bekerja",
         "placeholder": "Contoh: 5 tahun"
+      }
+    },
+    "errors": {
+      "fullname": {
+        "required": "Nama lengkap dan title pendidikan wajib diisi!",
+        "min": "Nama lengkap dan title pendidikan minimal 5 karakter!"
+      },
+      "email": {
+        "required": "Email wajib diisi!",
+        "email": "Mohon massukkan email yang valid!"
+      },
+      "gender": {
+        "required": "Jenis kelamin wajib diisi!"
+      },
+      "age": {
+        "required": "Umur wajib diisi!",
+        "number": "Umur harus berupa angka!",
+        "min": "Mohon masukkan umur yang valid!"
+      },
+      "affiliation": {
+        "required": "Afiliasi wajib diisi!",
+        "min": "Afiliasi minimal 5 karakter!"
+      },
+      "occupation": {
+        "required": "Pekerjaan wajib diisi!"
+      },
+      "length_employment": {
+        "required": "Lama bekerja wajib diisi!"
       }
     }
   },

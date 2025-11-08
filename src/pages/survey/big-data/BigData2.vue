@@ -1,5 +1,35 @@
 <script setup>
+import { computed } from "vue"
 import NextButton from "../../../components/buttons/NextButton.vue"
+
+// Add store
+import { useSurvey } from "../../../stores/useSurvey"
+
+const { surveyState } = useSurvey()
+
+// Intialize big data answers if not exists
+if (!surveyState.answers["bigData"]) {
+    surveyState.answers.bigData = {
+        q4: null,
+        q5: null
+    }
+}
+
+// Function to handle answer selection
+const selectAnswer = (questionNumber, value) => {
+    surveyState.answers.bigData[`q${questionNumber}`] = value
+}
+
+// Function to check if a value is selected
+const isSelected = (questionNumber, value) => {
+    return surveyState.answers.bigData[`q${questionNumber}`] === value
+}
+
+// Computed property to checck if all questions are answered
+const isNextDisabled = computed(() => {
+    return surveyState.answers.bigData.q4 === null || 
+           surveyState.answers.bigData.q5 === null
+})
 </script>
 
 <template>
@@ -32,7 +62,13 @@ import NextButton from "../../../components/buttons/NextButton.vue"
           <button
             v-for="value in 5"
             :key="value"
-            class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110 bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50"
+            @click="selectAnswer(4, value)"
+            :class="[
+              'w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110',
+              isSelected(4, value)
+                ? 'bg-indigo-500 border-indigo-500 text-white'
+                : 'bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50'
+            ]"
           >
             {{ value }}
           </button>
@@ -58,7 +94,13 @@ import NextButton from "../../../components/buttons/NextButton.vue"
           <button
             v-for="value in 5"
             :key="value"
-            class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110 bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50"
+            @click="selectAnswer(5, value)"
+            :class="[
+              'w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110',
+              isSelected(5, value)
+                ? 'bg-indigo-500 border-indigo-500 text-white'
+                : 'bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50'
+            ]"
           >
             {{ value }}
           </button>
@@ -66,7 +108,7 @@ import NextButton from "../../../components/buttons/NextButton.vue"
       </div>
 
       <!-- Next Button -->
-      <NextButton class="justify-end" next-route="/survey/instruction-2"/>
+      <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/instruction-2"/>
     </div>
 </template>
 

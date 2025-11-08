@@ -5,9 +5,10 @@
     "agree": "YES, I agree",
     "disagree": "NO, I do not agree",
     "next": "next",
-    "back": "back",
+    "back": "back to case",
     "yes": "YES",
-    "no": "NO"
+    "no": "NO",
+    "finish": "FINISH"
   },
   "thank_you": {
     "not_participate": "I fully respect the decision you have made. Thank you for your response. Should there be anything I can assist you with in the future, please do not hesitate to contact me.",
@@ -47,6 +48,34 @@
       "length_employment": {
         "title": "Length of Employment",
         "placeholder": "Example: 5 years"
+      }
+    },
+    "errors": {
+      "fullname": {
+        "required": "Full Name and Title are required!",
+        "min": "Full name and Title must be at least 5 characters!"
+      },
+      "email": {
+        "required": "Email is required!",
+        "email": "Please enter a valid email!"
+      },
+      "gender": {
+        "required": "Gender is required!"
+      },
+      "age": {
+        "required": "Age is required!",
+        "number": "Age must be a number!",
+        "min": "Please enter a valid age!"
+      },
+      "affiliation": {
+        "required": "Affiliation is required!",
+        "min": "Affiliation must be at least 5 characters!"
+      },
+      "occupation": {
+        "required": "Occupation is required!"
+      },
+      "length_employment": {
+        "required": "Length of Employment is required!"
       }
     }
   },

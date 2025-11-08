@@ -4,11 +4,14 @@ import App from './App.vue'
 
 import { createRouter, createWebHistory } from "vue-router"
 import i18n from './i18n.js'
+import { createPinia } from "pinia"
 
 import MainLayout from "./layout/MainLayout.vue"
 
 // Pages
 import Home from "./pages/Home.vue"
+
+const pinia = createPinia()
 
 const router = createRouter({
   history: createWebHistory(),
@@ -47,7 +50,8 @@ const router = createRouter({
             path: "/survey",
             component: () => import("./pages/Survey.vue"),
             meta: {
-                requiredConsent: true
+                requiredConsent: true,
+                requiredPersonalData: true
             },
             children: [
                 {
@@ -59,7 +63,7 @@ const router = createRouter({
                     component: () => import("./pages/survey/instructions/Instruction1.vue")
                 },
                 {
-                    path: "comitment-1",
+                    path: "commitment-1",
                     component: () => import('./pages/survey/commitment/Commitment1.vue')
                 },
                 {
@@ -173,6 +177,24 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const hasDeclined = sessionStorage.getItem("userDeclined");
     const hasConsented = sessionStorage.getItem("userConsent");
+    const isSubmitted = sessionStorage.getItem("surveySubmitted");
+
+    // Protect thank you page - only accessible after submission
+    if (to.path === '/survey/thankyou') {
+        if (isSubmitted === 'true') {
+            next()
+        } else {
+            // Not submitted yet, redirect to survey start
+            next('/survey')
+        }
+        return
+    }
+
+    // If survey is already submitted, prevent going back to survey pages
+    if (isSubmitted === 'true' && to.path.startsWith('/survey') && to.path !== '/survey/thankyou') {
+        next('/survey/thankyou')
+        return
+    }
 
     // Check if route requires decline
     if (to.matched.some(record => record.meta.requiredDecline)) {
@@ -184,7 +206,34 @@ router.beforeEach((to, from, next) => {
     // Check if route requires consent
     } else if (to.matched.some(record => record.meta.requiredConsent)) {
         if (hasConsented === 'true') {
-            next()
+            // Check if route requires personal data
+            if (to.matched.some(record => record.meta.requiredPersonalData)) {
+                const surveyStateString = localStorage.getItem("survey-state");
+                let hasPersonalData = false;
+
+                if (surveyStateString) {
+                    try {
+                        const surveyState = JSON.parse(surveyStateString);
+                        hasPersonalData = !!(
+                            surveyState.respondentInfo.fullNameTitle &&
+                            surveyState.respondentInfo.email &&
+                            surveyState.respondentInfo.age &&
+                            surveyState.respondentInfo.affiliation &&
+                            surveyState.respondentInfo.occupation
+                        );
+                    } catch (error) {
+                        console.error("Failed to parse stored survey state:", error);
+                    }
+                }
+
+                if (hasPersonalData) {
+                    next()
+                } else {
+                    next("/personal-data")
+                }
+            } else {
+                next()
+            }
         } else {
             next("/consent")
         }
@@ -197,4 +246,5 @@ const app = createApp(App)
 
 app.use(router)
 app.use(i18n)
+app.use(pinia)
 app.mount('#app')
