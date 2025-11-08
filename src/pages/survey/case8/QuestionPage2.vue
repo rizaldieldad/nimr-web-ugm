@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue"
+import { ref, computed } from "vue"
 import { useRouter } from "vue-router"
 import { useSurvey } from "../../../stores/useSurvey"
 import BackButton from "../../../components/buttons/BackButton.vue"
@@ -31,6 +31,11 @@ const selectAnswer = (questionNumber, value) => {
 const isSelected = (questionNumber, value) => {
     return surveyState.answers.case8[`q${questionNumber}`] === value
 }
+
+// Computed property to checck if all questions are answered
+const isFinishDisabled = computed(() => {
+    return surveyState.answers.case8.q3 === null || isSubmitting.value
+})
 
 // Function to submit data to Google Sheets
 const submitToGoogleSheets = async () => {
@@ -183,10 +188,10 @@ const handleFinish = async () => {
             <div class="flex justify-end">
                 <button
                 @click="handleFinish"
-                :disabled="isSubmitting"
+                :disabled="isFinishDisabled"
                 :class="[
                     'px-8 py-3 font-bold rounded-full transition-all transform shadow-lg',
-                    isSubmitting 
+                    isFinishDisabled 
                     ? 'bg-gray-400 cursor-not-allowed' 
                     : 'bg-green-500 hover:bg-green-600 hover:scale-105 text-white'
                 ]"
