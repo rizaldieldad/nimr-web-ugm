@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from "vue"
 import NextButton from "../../../components/buttons/NextButton.vue"
 import BackButton from "../../../components/buttons/BackButton.vue"
 
@@ -23,6 +24,11 @@ const selectAnswer = (questionNumber, value) => {
 const isSelected = (questionNumber, value) => {
     return surveyState.answers.case3[`q${questionNumber}`] === value
 }
+
+// Computed property to checck if all questions are answered
+const isNextDisabled = computed(() => {
+    return surveyState.answers.case3.q1 === null
+})
 </script>
 
 <template>
@@ -73,7 +79,7 @@ const isSelected = (questionNumber, value) => {
        <BackButton back-route="/survey/case3"/>
 
         <!-- Next Button -->
-        <NextButton class="justify-end" next-route="/survey/case4"/>
+        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/case4"/>
       </div>
     </div>
 </template>

@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from "vue"
 import NextButton from "../../../components/buttons/NextButton.vue"
 
 // Add store
@@ -23,6 +24,12 @@ const selectAnswer = (questionNumber, value) => {
 const isSelected = (questionNumber, value) => {
     return surveyState.answers.commitment[`q${questionNumber}`] === value
 }
+
+// Computed property to checck if all questions are answered
+const isNextDisabled = computed(() => {
+    return surveyState.answers.commitment.q4 === null || 
+           surveyState.answers.commitment.q5 === null 
+})
 </script>
 
 <template>
@@ -101,7 +108,7 @@ const isSelected = (questionNumber, value) => {
       </div>
 
       <!-- Next Button -->
-      <NextButton class="justify-end" next-route="/survey/big-data-1"/>
+      <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/big-data-1"/>
     </div>
 </template>
 
