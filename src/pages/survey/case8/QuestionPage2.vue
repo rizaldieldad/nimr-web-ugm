@@ -5,7 +5,7 @@ import { useSurvey } from "../../../stores/useSurvey"
 import BackButton from "../../../components/buttons/BackButton.vue"
 
 const router = useRouter()
-const { surveyState, finishSurvey, isSessionSubmitted, markSessionSubmitted } = useSurvey()
+const { surveyState, finishSurvey, clearSurvey, isSessionSubmitted, markSessionSubmitted } = useSurvey()
 
 // Loading and error states
 const isSubmitting = ref(false)
@@ -14,14 +14,6 @@ const submitSuccess = ref(false)
 
 // Google Apps Script Web App 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxm-Cy4PwLJXTHEQNkih5gzajTkaiBq6qyP_gSmT_j7vm2ZJ-9Skw-QF_u-rum-sX9i/exec'
-
-// Check if already submitted when component mounts
-onMounted(() => {
-    if (isSessionSubmitted()) {
-        // Already submitted, redirect immediately
-        router.replace("/survey/thankyou")
-    }
-})
 
 // Initialize case8 page2 answers if not exists
 if (!surveyState.answers["case8"]) {
@@ -71,8 +63,8 @@ const submitToGoogleSheets = async () => {
         
         console.log('Survey data submitted successfully!')
         
-        // Optional: Clear the survey data after successful submission
-        // clearSurvey()
+        // Clear the survey data after successful submission
+        clearSurvey()
         
         // Navigate to success page or show message
         setTimeout(() => {
