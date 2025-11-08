@@ -126,6 +126,16 @@ export const useSurvey = defineStore("survey", () => {
         surveyState.metadata.finishedAt = new Date().toISOString()
     }
 
+    // Method to check if current session is already submitted
+    const isSessionSubmitted = () => {
+        return sessionStorage.getItem("surveySubmitted") === "true";
+    }
+
+    // Method to mark session as submitted
+    const markSessionSubmitted = () => {
+        sessionStorage.setItem("surveySubmitted", "true");
+    }
+
     // Method to clear the survey data
     const clearSurvey = () => {
         surveyState.respondentInfo = {
@@ -195,6 +205,8 @@ export const useSurvey = defineStore("survey", () => {
         surveyState,
         startSurvey, 
         finishSurvey,
-        clearSurvey
+        clearSurvey,
+        isSessionSubmitted,
+        markSessionSubmitted
     }
 })
