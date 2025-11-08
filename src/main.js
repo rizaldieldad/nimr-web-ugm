@@ -177,6 +177,24 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const hasDeclined = sessionStorage.getItem("userDeclined");
     const hasConsented = sessionStorage.getItem("userConsent");
+    const isSubmitted = sessionStorage.getItem("surveySubmitted");
+
+    // Protect thank you page - only accessible after submission
+    if (to.path === '/survey/thankyou') {
+        if (isSubmitted === 'true') {
+            next()
+        } else {
+            // Not submitted yet, redirect to survey start
+            next('/survey')
+        }
+        return
+    }
+
+    // If survey is already submitted, prevent going back to survey pages
+    if (isSubmitted === 'true' && to.path.startsWith('/survey') && to.path !== '/survey/thankyou') {
+        next('/survey/thankyou')
+        return
+    }
 
     // Check if route requires decline
     if (to.matched.some(record => record.meta.requiredDecline)) {
