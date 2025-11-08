@@ -49,6 +49,34 @@
         "title": "Lama Bekerja",
         "placeholder": "Contoh: 5 tahun"
       }
+    },
+    "errors": {
+      "fullname": {
+        "required": "Nama lengkap dan title pendidikan wajib diisi!",
+        "min": "Nama lengkap dan title pendidikan minimal 5 karakter!"
+      },
+      "email": {
+        "required": "Email wajib diisi!",
+        "email": "Mohon massukkan email yang valid!"
+      },
+      "gender": {
+        "required": "Jenis kelamin wajib diisi!"
+      },
+      "age": {
+        "required": "Umur wajib diisi!",
+        "number": "Umur harus berupa angka!",
+        "min": "Mohon masukkan umur yang valid!"
+      },
+      "affiliation": {
+        "required": "Afiliasi wajib diisi!",
+        "min": "Afiliasi minimal 5 karakter!"
+      },
+      "occupation": {
+        "required": "Pekerjaan wajib diisi!"
+      },
+      "length_employment": {
+        "required": "Lama bekerja wajib diisi!"
+      }
     }
   },
   "questionnaire_hint": "Jawab pertanyaan-pertanyaan berikut yang sesuai dengan kondisi Anda sesungguhnya. Skala satu (1) menyatakan <b>SANGAT TIDAK SETUJU</b>, skala lima (5) menyatakan <b>SANGAT SETUJU</b>.",

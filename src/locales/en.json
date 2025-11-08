@@ -49,6 +49,34 @@
         "title": "Length of Employment",
         "placeholder": "Example: 5 years"
       }
+    },
+    "errors": {
+      "fullname": {
+        "required": "Full Name and Title are required!",
+        "min": "Full name and Title must be at least 5 characters!"
+      },
+      "email": {
+        "required": "Email is required!",
+        "email": "Please enter a valid email!"
+      },
+      "gender": {
+        "required": "Gender is required!"
+      },
+      "age": {
+        "required": "Age is required!",
+        "number": "Age must be a number!",
+        "min": "Please enter a valid age!"
+      },
+      "affiliation": {
+        "required": "Affiliation is required!",
+        "min": "Affiliation must be at least 5 characters!"
+      },
+      "occupation": {
+        "required": "Occupation is required!"
+      },
+      "length_employment": {
+        "required": "Length of Employment is required!"
+      }
     }
   },
   "questionnaire_hint": "Please answer the following questions according to your actual condition. A score of one (1) indicates <b>“STRONGLY DISAGREE,”</b> while a score of five (5) indicates <b>“STRONGLY AGREE.”</b>",
