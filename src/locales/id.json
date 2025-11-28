@@ -106,34 +106,122 @@
   },
   "case1": {
     "title": "Case 1",
-    "description": "Seorang pasien datang ke rumah sakit dengan keluhan utama berupa <b>tubuh yang terasa sangat lemas serta luka di bagian kaki yang tidak kunjung sembuh selama beberapa minggu</b>. Setelah dilakukan wawancara singkat dengan keluarga, baru diketahui bahwa pasien telah mengidap <b>Diabetes Mellitus Tipe 2 selama lebih dari lima tahun</b>. Namun, informasi penting ini <b>tidak tersedia</b> secara otomatis di sistem rumah sakit karena tidak adanya koneksi ke National Integrated Medical Record (NIMR). Akibatnya, dokter yang menangani <b>tidak dapat melihat riwayat medis</b> atau hasil pemeriksaan laboratorium terdahulu yang berkaitan dengan kondisi gula darah, status kontrol penyakit, maupun pengobatan rutin pasien. Hal ini menyebabkan <b>seluruh proses pemeriksaan harus dimulai kembali dari awal</b>, termasuk tes laboratorium dan evaluasi kondisi luka. Penundaan ini berdampak pada <b>keterlambatan dalam pengambilan keputusan klinis</b>, sehingga intervensi medis yang seharusnya dapat dilakukan lebih cepat menjadi tertunda.",
+    "description": "Seorang pasien datang ke rumah sakit dengan keluhan lemas berat dan luka kaki yang tidak kunjung sembuh. Dari keluarga, baru diketahui bahwa pasien memiliki Diabetes Mellitus Tipe 2 selama lebih dari lima tahun. Namun informasi penting tersebut tidak muncul otomatis di sistem karena tidak terhubung dengan NIMR. Pemeriksaan pun harus dimulai ulang: kontrol gula darah, pemeriksaan luka, dan evaluasi pengobatan. Beberapa waktu sebelumnya, pasien juga sempat mendapat antibiotik di fasilitas kesehatan lain. Tak lama setelah pemberian obat, muncul reaksi alergi berat. Setelah ditelusuri, riwayat alergi itu sebenarnya sudah tercatat di rumah sakit lain tetapi tidak terbaca di sistem saat ini. Ketiadaan integrasi membuat proses klinis tertunda, pilihan terapi tidak optimal, dan penanganan antar fasilitas menjadi tidak selaras.",
     "questions": {
       "q1": " Sejauh mana anda merasa bahwa integrasi rekam medis akan mempermudah penanganan kasus ini ?"
+    },
+    "cards_text": {
+      "card1": "“Keluhan utama: tubuh lemas dan luka kaki kanan tidak membaik selama 3 minggu.”",
+      "card2": "“Informasi penyakit kronis didapat melalui wawancara keluarga.”",
+      "card3": "“Riwayat DM tidak muncul otomatis pada sistem.”",
+      "card4": "“Dokter harus menggali ulang riwayat obat yang pernah dikonsumsi pasien.”",
+      "card5": "“Dokter dapat melihat pola HbA1c dari kunjungan-kunjungan sebelumnya.”",
+      "card6": "“Hasil laboratorium lama tidak dapat ditemukan di komputer.”",
+      "card7": "“Tren gula darah 6 bulan terakhir tersedia pada sistem.”",
+      "card8": "“Kondisi luka: ulkus 4 cm, dasar nekrotik, keluar cairan seropurulen.”",
+      "card9": "“Dokter harus meminta foto rontgen baru karena data lama tidak tersedia.”",
+      "card10": "“Dokter dapat melihat foto rontgen dari fasilitas kesehatan berbeda.”",
+      "card11": "“Waktu anamnesis bertambah karena pemeriksaan ulang diperlukan.”",
+      "card12": "“Keputusan klinis dapat dibuat lebih cepat karena data terkumpul lengkap.”",
+      "card13": "“Riwayat komplikasi terkait DM dapat dilihat dalam satu tampilan dashboard.”",
+      "card14": "“Penjelasan alergi obat perlu dikonfirmasi ulang pada keluarga.”",
+      "card15": "“Evaluasi awal lebih cepat karena hasil pemeriksaan sebelumnya muncul otomatis.”"
+    },
+    "results": {
+      "a": "“Riwayat Diabetes Mellitus Tipe 2 selama lima tahun tidak muncul di sistem sehingga dokter harus mengulang seluruh proses dari awal: pemeriksaan kadar glukosa, evaluasi neuropati perifer, dan penilaian kondisi ulkus kaki. Informasi alergi antibiotik tidak terlihat sehingga risiko pemberian obat yang tidak sesuai meningkat. Tidak adanya integrasi membuat dugaan komplikasi tertunda, terapi luka tidak langsung optimal, dan klinisi harus berhati-hati karena riwayat pengobatan sebelumnya tidak dapat dipastikan.”",
+      "b": "“Riwayat DM kronis, pola kontrol glikemik, dan catatan ulkus kaki dari fasilitas sebelumnya muncul otomatis dalam sistem. Informasi alergi antibiotik langsung terdeteksi sehingga terapi dapat disesuaikan sejak awal. Dokter dapat segera menentukan stratifikasi risiko luka, memilih antibiotik yang aman, serta menyusun penanganan yang konsisten antar fasilitas tanpa perlu pemeriksaan ulang yang tidak perlu.”",
+      "balanced": "“Sebagian informasi penting seperti kadar glukosa terakhir dan obat rutin muncul otomatis, tetapi riwayat alergi dan detail terapi luka sebelumnya tidak tersedia. Pengambilan keputusan masih dapat dilakukan namun membutuhkan waktu tambahan untuk konfirmasi manual. Perencanaan terapi tetap berjalan, tetapi harus disertai pemantauan ketat untuk menghindari reaksi obat dan memastikan perawatan luka tetap tepat arah.”"
     }
   },
   "case2": {
     "title": "Case 2",
-    "description": "Pasien yang sama, dengan riwayat diabetes, sempat mendapatkan resep antibiotik dari dokter saat dirawat di rumah sakit. Namun tak lama setelah pemberian obat, pasien mengalami <b>reaksi alergi parah</b> yang memerlukan penanganan segera. Setelah dilakukan penelusuran, diketahui bahwa pasien <b>sebelumnya pernah dirawat di rumah sakit lain dan sudah tercatat memiliki alergi terhadap jenis antibiotik yang diberikan saat ini</b>. Sayangnya, karena sistem informasi rumah sakit belum terhubung secara nasional melalui NIMR, dokter yang meresepkan <b>tidak memiliki akses terhadap catatan alergi tersebut</b>. Insiden ini kemudian menjadi perhatian serius dalam audit internal rumah sakit. Dari hasil evaluasi, disimpulkan bahwa kejadian tersebut sebenarnya bisa dicegah jika sistem rekam medis digital yang terintegrasi antar fasilitas seperti NIMR telah diterapkan dan digunakan secara menyeluruh.",
+    "description": "Seorang pria 40 tahun datang ke UGD dengan sesak napas berat. Ia memiliki riwayat asma persisten yang sebelumnya ditangani di rumah sakit lain. Dalam satu bulan terakhir, pasien kembali mengalami perburukan gejala setelah memperoleh terapi berbeda dari sebuah klinik swasta. Karena tidak ada akses lintas fasilitas, dokter rumah sakit tidak mengetahui bahwa pasien sudah mendapat obat asma dengan dosis tinggi. Kombinasi terapi dari dua fasilitas menyebabkan efek samping seperti takikardia dan iritasi lambung. Dari audit internal, tim medis menyimpulkan bahwa masalah ini dapat dicegah apabila riwayat terapi pasien otomatis tersedia melalui sistem NIMR yang terhubung antar fasilitas.",
     "questions": {
       "q1": "Sejauh mana kesalahan tersebut menurut anda disebabkan oleh tidak adanya NIMR (National Integrated Medical Record) ?",
       "q2": "Jika NIMR ( Integrated Medical Record) tersedia, apakah Anda yakin akan menerapkannya untuk mencegah hal serupa ?",
       "q3": "Bedasarkan dua kasus sebelumnya, apakah anda akan mengimplementasikan sistem Rekam Medis Terintegrasi Nasional (NIMR / National Integrated Medical Record ) di rumah sakit anda ?"
+    },
+    "cards_text": {
+      "card1": "“Keluhan utama: sesak napas berat dan pasien tampak sulit berbicara panjang.”",
+      "card2": "“Riwayat asma persisten didapat dari penjelasan keluarga di UGD.”",
+      "card3": "“Catatan kunjungan pasien ke rumah sakit lain tidak muncul otomatis di sistem.”",
+      "card4": "“Dokter harus menanyakan ulang obat inhalasi apa yang digunakan sebelumnya.”",
+      "card5": "“Riwayat kunjungan pasien ke UGD karena asma sebelumnya tersedia dalam ringkasan sistem.”",
+      "card6": "“Tidak ditemukan informasi terapi dari klinik swasta pada komputer rumah sakit.”",
+      "card7": "“Dokter dapat melihat tren penggunaan obat kontrol asma selama 3 bulan terakhir.”",
+      "card8": "“Penilaian awal menunjukkan pasien mengalami perburukan pada pola napas.”",
+      "card9": "“Dokter perlu melakukan pemeriksaan penunjang ulang karena hasil sebelumnya tidak tersedia.”",
+      "card10": "“Hasil spirometri dan rontgen dari fasilitas lain dapat terlihat dalam sistem.”",
+      "card11": "“Waktu anamnesis bertambah karena dokter harus menggali ulang riwayat terapi.”",
+      "card12": "“Keputusan penyesuaian obat dapat dilakukan lebih cepat ketika data riwayat muncul lengkap.”",
+      "card13": "“Dashboard sistem menampilkan riwayat serangan asma, obat kontrol, dan pemicu potensial.”",
+      "card14": "“Informasi alergi obat harus dikonfirmasi langsung kepada pasien dan keluarga.”",
+      "card15": "“Evaluasi pengobatan menjadi lebih cepat ketika riwayat terapi dapat diakses langsung.”"
+    },
+    "results": {
+      "a": "“Riwayat asma persisten dan terapi bronkodilator dosis tinggi dari fasilitas sebelumnya tidak muncul di sistem sehingga dokter UGD harus memulai asesmen dari awal: evaluasi tingkat keparahan eksaserbasi, riwayat serangan terakhir, serta kemungkinan pemicu. Tanpa catatan terapi sebelumnya, dokter tidak mengetahui bahwa pasien sudah menerima obat asma dengan dosis besar dari klinik swasta. Kombinasi obat yang tidak terpantau meningkatkan risiko efek samping seperti takikardia dan iritasi lambung. Ketiadaan integrasi membuat keputusan klinis tertunda dan rentan terjadi pengobatan ganda.”",
+      "b": "“Riwayat asma persisten, pola eksaserbasi, serta catatan terapi bronkodilator dan kortikosteroid dari rumah sakit maupun klinik sebelumnya langsung muncul di sistem. Informasi dosis tinggi yang baru diberikan terdeteksi otomatis sehingga dokter dapat menyesuaikan penanganan dan menghindari politerapi berlebihan. Asesmen keparahan dapat dilakukan cepat, pilihan obat dapat dipastikan aman, dan perawatan antar fasilitas menjadi selaras tanpa perlu pemeriksaan ulang yang tidak perlu.”",
+      "balanced": "“Sebagian data penting seperti riwayat eksaserbasi dan kontrol asma sebelumnya tersedia, namun rincian terapi terakhir dari fasilitas luar tidak muncul. Dokter masih dapat melanjutkan penanganan, tetapi membutuhkan waktu tambahan untuk mengonfirmasi dosis obat yang telah diberikan. Keputusan medis tetap dapat diambil, namun dengan kewaspadaan lebih besar terhadap kemungkinan efek samping dan duplikasi terapi.”"
     }
   },
   "case3": {
     "title": "Case 3",
-    "description": "Seorang pria berusia 40 tahun datang ke Unit Gawat Darurat (UGD) dengan keluhan utama berupa <b>sesak napas berat</b>. Setelah dilakukan anamnesis singkat, diketahui bahwa pasien memiliki <b>riwayat asma persisten yang sudah berlangsung bertahun-tahun dan sebelumnya tercatat di rumah sakit lain</b>. Namun, karena tidak adanya sistem Rekam Medis Terintegrasi Nasional (NIRM), dokter yang bertugas <b>tidak memiliki akses terhadap catatan riwayat medis pasien tersebut</b>, termasuk frekuensi eksaserbasi, pengobatan rutin yang biasa digunakan, serta respons tubuh pasien terhadap jenis terapi tertentu. Ketiadaan data ini menyebabkan keterlambatan dalam pengambilan keputusan medis dan pemberian terapi yang seharusnya bisa lebih cepat dan tepat sasaran. Waktu penanganan pun menjadi lebih panjang, dan pasien harus menjalani observasi lebih lama karena dokter perlu memulai seluruh tahapan penilaian klinis dari awal.",
+    "description": "Seorang anak dibawa ke IGD dengan demam tinggi dan nyeri menelan. Orang tua menyampaikan bahwa anak ini baru saja diperiksakan di dua klinik berbeda dalam beberapa hari terakhir. Namun, karena tidak ada integrasi data antar fasilitas, dokter IGD tidak bisa melihat pemeriksaan atau terapi sebelumnya, sehingga seluruh proses harus diulang, termasuk pemeriksaan laboratorium. Beberapa hari kemudian, anak kembali berobat ke fasilitas lain dan tanpa disadari menerima antibiotik kedua. Karena tidak ada akses terhadap riwayat obat sebelumnya, dokter rumah sakit tidak mengetahui paparan antibiotik tersebut. Terapi ganda ini menimbulkan mual hebat dan diare. Evaluasi medis menunjukkan bahwa efek ini dapat dicegah jika riwayat pengobatan pasien dapat diakses lintas fasilitas.",
     "questions": {
       "q1": "Sejauh mana menurut Anda kasus ini menunjukkan pentingnya sistem rekam medis nasional yang terintegrasi?"
+    },
+    "cards_text": {
+      "card1": "“Keluhan utama: demam tinggi dan nyeri menelan selama beberapa hari.”",
+      "card2": "“Pasien sebelumnya sudah diperiksakan di dua klinik berbeda.”",
+      "card3": "“Hasil pemeriksaan dari fasilitas sebelumnya tidak muncul otomatis di sistem.”",
+      "card4": "“Dokter perlu menanyakan ulang riwayat obat yang sudah dikonsumsi pasien.”",
+      "card5": "“Proses diagnosis bergantung pada pemeriksaan ulang di IGD.”",
+      "card6": "“Pemeriksaan laboratorium perlu diulang karena data sebelumnya tidak tersedia.”",
+      "card7": "“Ringkasan riwayat pengobatan tidak dapat ditelusuri lintas fasilitas.”",
+      "card8": "“Dokter perlu berhati-hati menentukan terapi karena informasi lengkap belum jelas.”",
+      "card9": "“Pasien menerima terapi antibiotik dari tenaga medis sebelumnya.”",
+      "card10": "“Dokter rumah sakit tidak mengetahui terapi antibiotik yang telah diberikan sebelumnya.”",
+      "card11": "“Penanganan berulang menyebabkan waktu pelayanan lebih panjang.”",
+      "card12": "“Pasien mengalami mual hebat dan diare setelah terapi antibiotik kedua.”",
+      "card13": "“Evaluasi medis menemukan adanya risiko penggunaan antibiotik ganda.”",
+      "card14": "Ketidakterhubungan data antar fasilitas membuat riwayat terapi sulit dipantau.”",
+      "card15": "“Akses informasi yang lengkap dapat membantu penyesuaian dosis dan mencegah efek samping.”"
+    },
+    "results": {
+      "a": "“Riwayat kunjungan anak ke dua klinik sebelumnya tidak muncul di sistem, sehingga dokter IGD harus mengulang seluruh proses penilaian: pemeriksaan fisik, laboratorium, serta evaluasi kemungkinan infeksi bakteri atau virus. Ketidakterhubungan data membuat terapi antibiotik yang sudah diberikan di fasilitas sebelumnya tidak terpantau. Pada kunjungan berikutnya, pasien memperoleh antibiotik kedua tanpa penyesuaian dosis. Kombinasi terapi yang tidak terpantau ini memicu mual hebat dan diare. Evaluasi menunjukkan bahwa ketidakhadiran integrasi informasi lintas fasilitas meningkatkan risiko pengobatan ganda dan menurunkan efektivitas penanganan.”",
+      "b": "“Catatan kunjungan anak dari dua klinik sebelumnya muncul otomatis: hasil pemeriksaan, indikasi pemberian antibiotik pertama, dan respons klinis setelah terapi. Saat tiba di IGD, dokter dapat langsung mengevaluasi riwayat obat tersebut dan menghindari pemberian antibiotik ganda. Informasi dosis, durasi, dan jenis antibiotik membantu dokter menyesuaikan terapi sehingga keputusan klinis dapat diambil cepat dan aman. Integrasi data mempercepat proses diagnostik, mengurangi biaya pemeriksaan ulang, dan mencegah efek samping yang tidak perlu.”",
+      "balanced": "“Beberapa informasi penting seperti hasil pemeriksaan awal dan riwayat kunjungan klinik muncul, tetapi catatan terapi antibiotik sebelumnya tidak terekam sepenuhnya. Dokter tetap dapat menentukan arah penanganan, namun perlu verifikasi tambahan terkait riwayat obat. Keputusan klinis bisa dibuat, tetapi risiko ketidaktepatan tetap ada karena sebagian data tidak lengkap.”"
     }
   },
   "case4": {
     "title": "Case 4",
-    "description": "Kurang dari satu bulan setelah kunjungan pertamanya ke UGD, pasien yang sama <b>kembali menjalani perawatan</b> di rumah sakit karena <b>kondisi asma yang kembali memburuk</b>. Sebelum dirujuk ke rumah sakit, pasien sempat berkonsultasi dan mendapatkan penanganan dari seorang dokter di klinik swasta, di mana pendekatan terapi yang digunakan berbeda dari standar yang diterapkan di rumah sakit. Karena tidak ada sistem yang menghubungkan catatan medis antar fasilitas, dokter di rumah sakit <b>tidak mengetahui bahwa pasien telah mendapatkan pengobatan dari tempat lain</b> dengan jenis dan dosis obat yang berbeda. Akibatnya, <b>kombinasi pengobatan yang diberikan justru menimbulkan efek samping yang cukup serius, termasuk peningkatan detak jantung dan gangguan lambung</b>. Audit internal tim medis kemudian menyimpulkan bahwa kesalahan pengobatan tersebut sebenarnya dapat dihindari apabila informasi riwayat terapi pasien dapat diakses dengan mudah oleh tenaga medis melalui sistem NIRM yang terintegrasi secara nasional.",
+    "description": "Seorang pasien datang ke Puskesmas dengan demam tinggi dan batuk berdahak. Ia belum pernah tercatat di fasilitas tersebut, dan karena tidak ada rekam medis terintegrasi, petugas tidak mengetahui riwayat penyakit, alergi obat, maupun pengobatan yang sedang dijalani. Diagnosis harus dilakukan dari awal, dan pemilihan terapi menjadi lebih lambat karena dokter harus berhati-hati tanpa riwayat lengkap. Dua minggu kemudian, pasien datang ke rumah sakit dengan keluhan ruam kulit dan mual menetap. Belakangan diketahui bahwa pasien sebelumnya mengonsumsi obat yang memicu alergi ringan. Namun karena data antar fasilitas tidak terhubung, pasien kembali menerima obat yang sama sehingga gejalanya memburuk. Evaluasi medis menegaskan bahwa ketiadaan riwayat alergi yang dapat diakses lintas fasilitas menjadi faktor utama terjadinya kesalahan terapi.",
     "questions": {
       "q1": "Seberapa besar menurut Anda kegagalan ini disebabkan oleh tidak adanya sistem integrasi data rekam medis?",
       "q2": "Jika Anda menghadapi kasus serupa, apakah Anda akan menerapkan sistem NIRM sebagai bentuk pencegahan?",
       "q3": "Bedasarkan dua kasus sebelumnya, apakah anda akan mengimplementasikan sistem Rekam Medis Terintegrasi Nasional (NIMR / National Integrated Medical Record ) di rumah sakit anda ?"
+    },
+    "cards_text": {
+      "card1": "“Keluhan utama: demam tinggi dan batuk berdahak selama beberapa hari.”",
+      "card2": "“Diagnosis awal ISPA ditegakkan berdasarkan pemeriksaan fisik di Puskesmas.”",
+      "card3": "“Riwayat kunjungan pasien ke fasilitas kesehatan lain tidak muncul otomatis di sistem.”",
+      "card4": "“Petugas harus menanyakan ulang apakah pasien sedang mengonsumsi obat tertentu.”",
+      "card5": "“Data imunisasi, kunjungan terakhir, dan obat yang pernah diberikan terlihat dalam ringkasan sistem.”",
+      "card6": "“Tidak tersedia informasi alergi obat dari fasilitas kesehatan sebelumnya.”",
+      "card7": "“Dokter dapat melihat riwayat pengobatan pasien dalam beberapa bulan terakhir.”",
+      "card8": "“Proses anamnesis memakan waktu lebih lama karena riwayat kesehatan tidak dapat ditelusuri otomatis.”",
+      "card9": "“Dokter perlu mengulang pemeriksaan laboratorium yang pernah dilakukan di tempat lain.”",
+      "card10": "“Hasil pemeriksaan dari fasilitas sebelumnya tersedia sehingga tidak perlu dilakukan ulang.”",
+      "card11": "“Penentuan terapi harus dilakukan hati-hati karena riwayat alergi belum jelas.”",
+      "card12": "“Keputusan pengobatan dapat lebih cepat ketika informasi riwayat obat langsung tersedia.”",
+      "card13": "“Ringkasan kunjungan sebelumnya menampilkan riwayat alergi, obat yang pernah dikonsumsi, dan efek samping yang tercatat.”",
+      "card14": "“Dokter rumah sakit tidak mengetahui bahwa pasien telah mengalami reaksi alergi ringan dari obat sebelumnya.",
+      "card15": "“Evaluasi dan pemilihan terapi menjadi lebih cepat ketika data lintas fasilitas dapat diakses langsung.”"
+    },
+    "results": {
+      "a": "“Riwayat kesehatan pasien tidak muncul saat kunjungan pertama di Puskesmas. Petugas harus melakukan seluruh proses dari awal anamnesis, evaluasi alergi, hingga pemeriksaan komorbid—karena tidak tersedia informasi penyakit sebelumnya maupun terapi yang sedang dikonsumsi. Ketidaklengkapan data membuat dokter harus lebih berhati-hati dalam menentukan obat, sehingga proses penanganan berjalan lebih lambat. Pada kunjungan kedua di rumah sakit, data alergi obat dari fasilitas pertama tidak dapat diakses. Tanpa mengetahui adanya reaksi alergi ringan sebelumnya, pasien kembali memperoleh obat yang sama dan mengalami ruam kulit serta mual berat. Evaluasi medis menegaskan bahwa ketidakterhubungan data antar fasilitas berperan besar dalam terjadinya kesalahan terapi.”",
+      "b": "“Riwayat kunjungan pertama pasien terekam otomatis di sistem: hasil pemeriksaan ISPA, obat yang diberikan, serta catatan alergi ringan yang muncul setelah terapi. Saat pasien datang ke rumah sakit dua minggu kemudian, dokter langsung melihat riwayat tersebut dan menghindari pemberian obat yang sama.Akses data lintas fasilitas mempercepat proses penanganan, mengurangi pemeriksaan ulang, dan membantu dokter memilih terapi yang aman tanpa risiko memperburuk kondisi. Integrasi informasi membuat penentuan diagnosis dan perencanaan terapi jauh lebih tepat dan efisien.”",
+      "balanced": "“Sebagian data penting seperti hasil pemeriksaan awal tersedia, tetapi riwayat alergi dan terapi sebelumnya tidak muncul sepenuhnya. Dokter tetap dapat menentukan arah penanganan, namun diperlukan konfirmasi tambahan agar tidak salah memilih obat. Walaupun keputusan klinis masih bisa dibuat, risiko ketidaktepatan tetap ada karena informasi tidak sepenuhnya lengkap.”"
     }
   },
   "case5": {
