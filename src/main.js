@@ -14,163 +14,211 @@ import Home from "./pages/Home.vue"
 const pinia = createPinia()
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes: [
-    {
-      path: "/",
-      component: MainLayout,
-      children: [
+    history: createWebHistory(),
+    routes: [
         {
-          path: "",
-          component: Home,
-        },
-        {
-          path: "/criteria",
-          component: () => import("./pages/Criteria.vue"),
-        },
-        {
-          path: "/consent",
-          component: () => import("./pages/Consent.vue"),
-        },
-        {
-          path: "/not-participate",
-          component: () => import("./pages/DeclinedThankYou.vue"),
-          meta: {
-            requiredDecline: true
-          }
-        },
-        {
-          path: "/personal-data",
-          component: () => import("./pages/PersonalData.vue"),
-          meta: {
-            requiredConsent: true
-          }
-        },
-        {
-            path: "/survey",
-            component: () => import("./pages/Survey.vue"),
-            meta: {
-                requiredConsent: true,
-                requiredPersonalData: true
-            },
+            path: "/",
+            component: MainLayout,
             children: [
                 {
                     path: "",
-                    redirect: "/survey/instruction-1"
+                    component: Home,
                 },
                 {
-                    path: "instruction-1",
-                    component: () => import("./pages/survey/instructions/Instruction1.vue")
+                    path: "/criteria",
+                    component: () => import("./pages/Criteria.vue"),
                 },
                 {
-                    path: "commitment-1",
-                    component: () => import('./pages/survey/commitment/Commitment1.vue')
+                    path: "/consent",
+                    component: () => import("./pages/Consent.vue"),
                 },
                 {
-                    path: "commitment-2",
-                    component: () => import('./pages/survey/commitment/Commitment2.vue')
+                    path: "/not-participate",
+                    component: () => import("./pages/DeclinedThankYou.vue"),
+                    meta: {
+                        requiredDecline: true
+                    }
                 },
                 {
-                    path: "big-data-1",
-                    component: () => import('./pages/survey/big-data/BigData1.vue')
+                    path: "/personal-data",
+                    component: () => import("./pages/PersonalData.vue"),
+                    meta: {
+                        requiredConsent: true
+                    }
                 },
                 {
-                    path: "big-data-2",
-                    component: () => import('./pages/survey/big-data/BigData2.vue')
-                },
-                {
-                    path: "instruction-2",
-                    component: () => import('./pages/survey/instructions/Instruction2.vue')
-                },
-                {
-                    path: "case1",
-                    component: () => import('./pages/survey/case1/Description.vue')
-                },
-                {
-                    path: "case1/question-1",
-                    component: () => import('./pages/survey/case1/QuestionPage1.vue')
-                },
-                {
-                    path: "case2",
-                    component: () => import('./pages/survey/case2/Description.vue')
-                },
-                {
-                    path: "case2/question-1",
-                    component: () => import('./pages/survey/case2/QuestionPage1.vue')
-                },
-                {
-                    path: "case2/question-2",
-                    component: () => import('./pages/survey/case2/QuestionPage2.vue')
-                },
-                {
-                    path: "case3",
-                    component: () => import('./pages/survey/case3/Description.vue')
-                },
-                {
-                    path: "case3/question-1",
-                    component: () => import('./pages/survey/case3/QuestionPage1.vue')
-                },
-                {
-                    path: "case4",
-                    component: () => import('./pages/survey/case4/Description.vue')
-                },
-                {
-                    path: "case4/question-1",
-                    component: () => import('./pages/survey/case4/QuestionPage1.vue')
-                },
-                {
-                    path: "case4/question-2",
-                    component: () => import('./pages/survey/case4/QuestionPage2.vue')
-                },
-                {
-                    path: "case5",
-                    component: () => import('./pages/survey/case5/Description.vue')
-                },
-                {
-                    path: "case5/question-1",
-                    component: () => import('./pages/survey/case5/QuestionPage1.vue')
-                },
-                {
-                    path: "case6",
-                    component: () => import('./pages/survey/case6/Description.vue')
-                },
-                {
-                    path: "case6/question-1",
-                    component: () => import('./pages/survey/case6/QuestionPage1.vue')
-                },
-                {
-                    path: "case6/question-2",
-                    component: () => import('./pages/survey/case6/QuestionPage2.vue')
-                },
-                {
-                    path: "case7",
-                    component: () => import('./pages/survey/case7/Description.vue')
-                },
-                {
-                    path: "case7/question-1",
-                    component: () => import('./pages/survey/case7/QuestionPage1.vue')
-                },
-                {
-                    path: "case8",
-                    component: () => import('./pages/survey/case8/Description.vue')
-                },
-                {
-                    path: "case8/question-1",
-                    component: () => import('./pages/survey/case8/QuestionPage1.vue')
-                },
-                {
-                    path: "case8/question-2",
-                    component: () => import('./pages/survey/case8/QuestionPage2.vue')
-                },
-                {
-                    path: "thankyou",
-                    component: () => import('./pages/ThankYou.vue')
+                    path: "/survey",
+                    component: () => import("./pages/Survey.vue"),
+                    meta: {
+                        requiredConsent: true,
+                        requiredPersonalData: true
+                    },
+                    children: [
+                        {
+                            path: "",
+                            redirect: "/survey/instruction-1"
+                        },
+                        {
+                            path: "instruction-1",
+                            component: () => import("./pages/survey/instructions/Instruction1.vue")
+                        },
+                        {
+                            path: "commitment-1",
+                            component: () => import('./pages/survey/commitment/Commitment1.vue')
+                        },
+                        {
+                            path: "commitment-2",
+                            component: () => import('./pages/survey/commitment/Commitment2.vue')
+                        },
+                        {
+                            path: "big-data-1",
+                            component: () => import('./pages/survey/big-data/BigData1.vue')
+                        },
+                        {
+                            path: "big-data-2",
+                            component: () => import('./pages/survey/big-data/BigData2.vue')
+                        },
+                        {
+                            path: "instruction-2",
+                            component: () => import('./pages/survey/instructions/Instruction2.vue')
+                        },
+                        {
+                            path: "case1",
+                            component: () => import('./pages/survey/case1/Description.vue')
+                        },
+                        {
+                            path: "case1/intro",
+                            component: () => import('./pages/survey/case1/GameIntro.vue')
+                        },
+                        {
+                            path: "case1/game",
+                            component: () => import('./pages/survey/case1/Game.vue')
+                        },
+                        {
+                            path: "case1/score",
+                            component: () => import('./pages/survey/case1/GameScore.vue')
+                        },
+                        {
+                            path: "case1/question-1",
+                            component: () => import('./pages/survey/case1/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case2",
+                            component: () => import('./pages/survey/case2/Description.vue')
+                        },
+                        {
+                            path: "case2/intro",
+                            component: () => import('./pages/survey/case2/GameIntro.vue')
+                        },
+                        {
+                            path: "case2/game",
+                            component: () => import('./pages/survey/case2/Game.vue')
+                        },
+                        {
+                            path: "case2/score",
+                            component: () => import('./pages/survey/case2/GameScore.vue')
+                        },
+                        {
+                            path: "case2/question-1",
+                            component: () => import('./pages/survey/case2/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case2/question-2",
+                            component: () => import('./pages/survey/case2/QuestionPage2.vue')
+                        },
+                        {
+                            path: "case3",
+                            component: () => import('./pages/survey/case3/Description.vue')
+                        },
+                        {
+                            path: "case3/intro",
+                            component: () => import('./pages/survey/case3/GameIntro.vue')
+                        },
+                        {
+                            path: "case3/game",
+                            component: () => import('./pages/survey/case3/Game.vue')
+                        },
+                        {
+                            path: "case3/score",
+                            component: () => import('./pages/survey/case3/GameScore.vue')
+                        },
+                        {
+                            path: "case3/question-1",
+                            component: () => import('./pages/survey/case3/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case4",
+                            component: () => import('./pages/survey/case4/Description.vue')
+                        },
+                        {
+                            path: "case4/intro",
+                            component: () => import('./pages/survey/case4/GameIntro.vue')
+                        },
+                        {
+                            path: "case4/game",
+                            component: () => import('./pages/survey/case4/Game.vue')
+                        },
+                        {
+                            path: "case4/score",
+                            component: () => import('./pages/survey/case4/GameScore.vue')
+                        },
+                        {
+                            path: "case4/question-1",
+                            component: () => import('./pages/survey/case4/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case4/question-2",
+                            component: () => import('./pages/survey/case4/QuestionPage2.vue')
+                        },
+                        {
+                            path: "case5",
+                            component: () => import('./pages/survey/case5/Description.vue')
+                        },
+                        {
+                            path: "case5/question-1",
+                            component: () => import('./pages/survey/case5/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case6",
+                            component: () => import('./pages/survey/case6/Description.vue')
+                        },
+                        {
+                            path: "case6/question-1",
+                            component: () => import('./pages/survey/case6/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case6/question-2",
+                            component: () => import('./pages/survey/case6/QuestionPage2.vue')
+                        },
+                        {
+                            path: "case7",
+                            component: () => import('./pages/survey/case7/Description.vue')
+                        },
+                        {
+                            path: "case7/question-1",
+                            component: () => import('./pages/survey/case7/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case8",
+                            component: () => import('./pages/survey/case8/Description.vue')
+                        },
+                        {
+                            path: "case8/question-1",
+                            component: () => import('./pages/survey/case8/QuestionPage1.vue')
+                        },
+                        {
+                            path: "case8/question-2",
+                            component: () => import('./pages/survey/case8/QuestionPage2.vue')
+                        },
+                        {
+                            path: "thankyou",
+                            component: () => import('./pages/ThankYou.vue')
+                        }
+                    ]
                 }
             ]
         }
-      ]
-    }
-  ],
+    ],
 })
 
 // Navigation guard
@@ -203,7 +251,7 @@ router.beforeEach((to, from, next) => {
         } else {
             next("/consent")
         }
-    // Check if route requires consent
+        // Check if route requires consent
     } else if (to.matched.some(record => record.meta.requiredConsent)) {
         if (hasConsented === 'true') {
             // Check if route requires personal data

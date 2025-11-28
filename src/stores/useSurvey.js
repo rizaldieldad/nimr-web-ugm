@@ -64,19 +64,35 @@ export const useSurvey = defineStore("survey", () => {
                 },
                 case1: {
                     q1: null,
+                    sideA: [],
+                    sideB: [],
+                    sideAScore: 0,
+                    sideBScore: 0
                 },
                 case2: {
                     q1: null,
                     q2: null,
-                    q3: null
+                    q3: null,
+                    sideA: [],
+                    sideB: [],
+                    sideAScore: 0,
+                    sideBScore: 0
                 },
                 case3: {
                     q1: null,
+                    sideA: [],
+                    sideB: [],
+                    sideAScore: 0,
+                    sideBScore: 0
                 },
                 case4: {
                     q1: null,
                     q2: null,
-                    q3: null
+                    q3: null,
+                    sideA: [],
+                    sideB: [],
+                    sideAScore: 0,
+                    sideBScore: 0
                 },
                 case5: {
                     q1: null,
@@ -163,19 +179,35 @@ export const useSurvey = defineStore("survey", () => {
             },
             case1: {
                 q1: null,
+                sideA: [],
+                sideB: [],
+                sideAScore: 0,
+                sideBScore: 0
             },
             case2: {
                 q1: null,
                 q2: null,
-                q3: null
+                q3: null,
+                sideA: [],
+                sideB: [],
+                sideAScore: 0,
+                sideBScore: 0
             },
             case3: {
                 q1: null,
+                sideA: [],
+                sideB: [],
+                sideAScore: 0,
+                sideBScore: 0
             },
             case4: {
                 q1: null,
                 q2: null,
-                q3: null
+                q3: null,
+                sideA: [],
+                sideB: [],
+                sideAScore: 0,
+                sideBScore: 0
             },
             case5: {
                 q1: null,
@@ -203,7 +235,7 @@ export const useSurvey = defineStore("survey", () => {
 
     return {
         surveyState,
-        startSurvey, 
+        startSurvey,
         finishSurvey,
         clearSurvey,
         isSessionSubmitted,
