@@ -11,7 +11,8 @@ const props = defineProps({
     },
     nextRoute: {
         type: String,
-        required: true
+        required: false,
+        default: null
     }
 })
 
@@ -36,60 +37,57 @@ const result = () => {
 </script>
 
 <template>
-    <div class="max-w-4xl mx-auto flex flex-col justify-center items-center min-h-screen p-4 md:p-8 space-y-8">
-        <!-- Score Display -->
-        <div class="w-full bg-white rounded-lg shadow-lg p-8 space-y-6">
-            <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">Your Score</h1>
-            
-            <div class="space-y-4">
-                <!-- Side A Score -->
-                <div 
-                    :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'a' ? 'winner-card-pink' : 'bg-pink-100 border-pink-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-pink' : '']"
-                >
-                    <!-- Winner Badge -->
-                    <div v-if="result() === 'a'" class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
-                        👑 
-                    </div>
-                    <div>
-                        <span class="text-xl font-semibold text-gray-700">A</span>
-                        <p class="text-xs text-gray-500 mt-1">Re-elicited manually</p>
-                    </div>
-                    <span
-                        :class="['text-3xl font-bold transition-all duration-300', result() === 'a' ? 'text-pink-700 scale-110' : 'text-pink-600']"
-                    >
-                        {{ formattedSideAScore }}
-                    </span>
+    <div class="w-full bg-white rounded-lg shadow-lg p-8 space-y-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">Your Score</h1>
+        
+        <div class="space-y-4">
+            <!-- Side A Score -->
+            <div 
+                :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'a' ? 'winner-card-pink' : 'bg-pink-100 border-pink-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-pink' : '']"
+            >
+                <!-- Winner Badge -->
+                <div v-if="result() === 'a'" class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
+                    👑 
                 </div>
-                
-                <!-- Side B Score -->
-                <div 
-                    :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'b' ? 'winner-card-teal' : 'bg-teal-100 border-teal-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-teal' : '']"
-                >
-                    <!-- Winner Badge -->
-                    <div v-if="result() === 'b'" class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
-                        👑 
-                    </div>
-                    <div>
-                        <span class="text-xl font-semibold text-gray-700">B</span>
-                        <p class="text-xs text-gray-500 mt-1">Automatically available</p>
-                    </div>
-                    <span
-                        :class="['text-3xl font-bold transition-all duration-300', result() === 'b' ? 'text-teal-700 scale-110' : 'text-teal-600']"
-                    >
-                        {{ formattedSideBScore }}
-                    </span>
+                <div>
+                    <span class="text-xl font-semibold text-gray-700">A</span>
+                    <p class="text-xs text-gray-500 mt-1">Re-elicited manually</p>
                 </div>
-
-                <!-- Result based on scores -->
-                <h3 class="font-bold text-lg text-gray-600">🔹 Based on your score:</h3>
-                <p class="text-justify">{{ $t(`${props.caseKey}.results.${result()}`) }}</p>
+                <span
+                    :class="['text-3xl font-bold transition-all duration-300', result() === 'a' ? 'text-pink-700 scale-110' : 'text-pink-600']"
+                >
+                    {{ formattedSideAScore }}
+                </span>
             </div>
-        </div>
+            
+            <!-- Side B Score -->
+            <div 
+                :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'b' ? 'winner-card-teal' : 'bg-teal-100 border-teal-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-teal' : '']"
+            >
+                <!-- Winner Badge -->
+                <div v-if="result() === 'b'" class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
+                    👑 
+                </div>
+                <div>
+                    <span class="text-xl font-semibold text-gray-700">B</span>
+                    <p class="text-xs text-gray-500 mt-1">Automatically available</p>
+                </div>
+                <span
+                    :class="['text-3xl font-bold transition-all duration-300', result() === 'b' ? 'text-teal-700 scale-110' : 'text-teal-600']"
+                >
+                    {{ formattedSideBScore }}
+                </span>
+            </div>
 
-        <!-- Next Button -->
-        <div class="w-full flex justify-center">
-            <NextButton :next-route="nextRoute" />
+            <!-- Result based on scores -->
+            <h3 class="font-bold text-lg text-gray-600">🔹 Based on your score:</h3>
+            <p class="text-justify">{{ $t(`${props.caseKey}.results.${result()}`) }}</p>
         </div>
+    </div>
+
+    <!-- Next Button (optional) -->
+    <div v-if="nextRoute" class="w-full flex justify-center">
+        <NextButton :next-route="nextRoute" />
     </div>
 </template>
 
