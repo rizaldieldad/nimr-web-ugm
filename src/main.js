@@ -151,6 +151,18 @@ const router = createRouter({
                             component: () => import('./pages/survey/case4/Description.vue')
                         },
                         {
+                            path: "case4/intro",
+                            component: () => import('./pages/survey/case4/GameIntro.vue')
+                        },
+                        {
+                            path: "case4/game",
+                            component: () => import('./pages/survey/case4/Game.vue')
+                        },
+                        {
+                            path: "case4/score",
+                            component: () => import('./pages/survey/case4/GameScore.vue')
+                        },
+                        {
                             path: "case4/question-1",
                             component: () => import('./pages/survey/case4/QuestionPage1.vue')
                         },
