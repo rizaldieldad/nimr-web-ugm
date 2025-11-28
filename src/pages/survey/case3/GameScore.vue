@@ -3,5 +3,7 @@ import ScoreBoard from '../../../components/game/ScoreBoard.vue';
 </script>
 
 <template>
-    <ScoreBoard case-key="case3" next-route="/survey/case4" />
+    <div class="max-w-4xl mx-auto flex flex-col justify-center items-center min-h-screen p-4 md:p-8 space-y-8">
+        <ScoreBoard case-key="case3" next-route="/survey/case4" />
+    </div>
 </template>
