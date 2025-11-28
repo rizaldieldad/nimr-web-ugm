@@ -17,7 +17,7 @@ import NextButton from '../../../components/buttons/NextButton.vue';
        <p class="text-lg lg:text-3xl text-justify" v-html="$t('case2.description')"></p>
       
        <!-- Next Button -->
-      <NextButton class="justify-end mt-6 md:mt-15" next-route="/survey/case2/question-1"/>
+      <NextButton class="justify-end mt-6 md:mt-15" next-route="/survey/case2/intro"/>
     </div>
 </template>
 
