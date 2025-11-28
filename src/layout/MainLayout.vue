@@ -1,10 +1,8 @@
 <script setup></script>
 
 <template>
-  <div
-    class="min-h-screen w-full"
-  >
-    <main>
+  <div class="min-h-screen w-full">
+    <main class="relative">
       <router-view />
     </main>
   </div>
