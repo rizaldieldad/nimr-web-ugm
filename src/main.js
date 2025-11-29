@@ -221,8 +221,51 @@ const router = createRouter({
     ],
 })
 
+// Helper function to check if localStorage has valid structure
+const checkAndValidateStorage = () => {
+    const CURRENT_VERSION = "2.0.0"
+    const stored = localStorage.getItem('survey-state')
+    
+    if (!stored) {
+        return true // No stored data is fine
+    }
+    
+    try {
+        const parsedData = JSON.parse(stored)
+        
+        // Check version
+        if (parsedData.version !== CURRENT_VERSION) {
+            return false
+        }
+        
+        // Check structure
+        if (!parsedData.respondentInfo || !parsedData.answers || !parsedData.metadata) {
+            return false
+        }
+        
+        return true
+    } catch (e) {
+        return false // Invalid JSON
+    }
+}
+
 // Navigation guard
 router.beforeEach((to, from, next) => {
+    // FIRST: Check if localStorage has old/invalid structure
+    // This should run before any other checks
+    if (!checkAndValidateStorage()) {
+        // Clear everything
+        localStorage.clear()
+        sessionStorage.clear()
+        
+        // Only redirect to home if we're not already there
+        if (to.path !== '/') {
+            console.log('Old data structure detected, redirecting to home...')
+            next('/')
+            return
+        }
+    }
+    
     const hasDeclined = sessionStorage.getItem("userDeclined");
     const hasConsented = sessionStorage.getItem("userConsent");
     const isSubmitted = sessionStorage.getItem("surveySubmitted");
