@@ -255,5 +255,6 @@
       "q2": "If you were to encounter a similar case, would you implement the NIMR system as a preventive measure?",
       "q3": "Based on the two previous cases, would you implement the National Integrated Medical Record (NIMR) system in your hospital?"
     }
-  }
+  },
+  "game_instruction": "Drag the card to the desired area. Press and hold the card (mouse or touch), then slide it to the target area (A or B)."
 }

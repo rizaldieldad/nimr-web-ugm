@@ -255,5 +255,6 @@
       "q2": "Jika Anda menghadapi kasus serupa, apakah Anda akan menerapkan sistem NIRM sebagai bentuk pencegahan?",
       "q3": "Bedasarkan dua kasus sebelumnya, apakah anda akan mengimplementasikan sistem Rekam Medis Terintegrasi Nasional (NIMR / National Integrated Medical Record ) di rumah sakit anda ?"
     }
-  }
+  },
+  "game_instruction": "Geser kartu ke area yang diinginkan. Tekan dan tahan kartu (menggunakan mouse atau sentuhan), lalu geser ke area tujuan (A atau B)."
 }
