@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, computed } from "vue"
+import { ref, onMounted, computed, onUnmounted } from "vue"
 import NextButton from "../buttons/NextButton.vue"
 import BackButton from "../buttons/BackButton.vue"
 
@@ -32,6 +32,8 @@ const props = defineProps({
 
 const draggedCard = ref(null)
 const scrollInterval = ref(null)
+const touchStartY = ref(0)
+const currentTouchY = ref(0)
 
 // Computed properties to get cards for each area
 const centerCards = computed(() => {
@@ -50,12 +52,17 @@ const sideB = computed(() => props.surveyState.answers[props.caseKey].sideB)
 const handleTouchMove = (e) => {
     if (!draggedCard.value) return
     
+    // Prevent default scrolling behavior
+    e.preventDefault()
+    
     const touch = e.touches[0]
-    const scrollThreshold = 100 // pixels from edge to trigger scroll
-    const scrollSpeed = 10
+    const scrollThreshold = 80 // pixels from edge to trigger scroll
+    const scrollSpeed = 15
     
     const viewportHeight = window.innerHeight
     const touchY = touch.clientY
+    
+    currentTouchY.value = touchY
     
     // Clear any existing scroll interval
     if (scrollInterval.value) {
@@ -66,14 +73,20 @@ const handleTouchMove = (e) => {
     // Scroll down if near bottom
     if (touchY > viewportHeight - scrollThreshold) {
         scrollInterval.value = setInterval(() => {
-            window.scrollBy(0, scrollSpeed)
-        }, 16)
+            window.scrollBy({
+                top: scrollSpeed,
+                behavior: 'auto'
+            })
+        }, 20)
     }
     // Scroll up if near top
     else if (touchY < scrollThreshold) {
         scrollInterval.value = setInterval(() => {
-            window.scrollBy(0, -scrollSpeed)
-        }, 16)
+            window.scrollBy({
+                top: -scrollSpeed,
+                behavior: 'auto'
+            })
+        }, 20)
     }
 }
 
@@ -90,8 +103,9 @@ const startDrag = (card, e) => {
     
     // For touch events, add touch move listener
     if (e.type === 'touchstart') {
+        touchStartY.value = e.touches[0].clientY
         document.addEventListener('touchmove', handleTouchMove, { passive: false })
-        document.addEventListener('touchend', stopAutoScroll)
+        document.addEventListener('touchend', handleTouchEnd)
     }
 }
 
@@ -119,7 +133,7 @@ const dropCard = (target) => {
     
     // Clean up touch listeners
     document.removeEventListener('touchmove', handleTouchMove)
-    document.removeEventListener('touchend', stopAutoScroll)
+    document.removeEventListener('touchend', handleTouchEnd)
 }
 
 // Touch-specific handlers for drop zones
@@ -139,7 +153,7 @@ const handleTouchEnd = (e) => {
         draggedCard.value = null
         stopAutoScroll()
         document.removeEventListener('touchmove', handleTouchMove)
-        document.removeEventListener('touchend', stopAutoScroll)
+        document.removeEventListener('touchend', handleTouchEnd)
     }
 }
 
@@ -151,6 +165,13 @@ const calculateScores = () => {
 // Initialize scores on mount
 onMounted(() => {
     calculateScores()
+})
+
+// Cleanup on unmount
+onUnmounted(() => {
+    stopAutoScroll()
+    document.removeEventListener('touchmove', handleTouchMove)
+    document.removeEventListener('touchend', handleTouchEnd)
 })
 </script>
 
@@ -235,8 +256,7 @@ onMounted(() => {
                 <div class="border-2 border-black bg-pink-100 rounded-md p-4 min-h-[300px]" 
                      data-drop-zone="A"
                      @drop="dropCard('A')" 
-                     @dragover.prevent
-                     @touchend="handleTouchEnd($event, 'A')">
+                     @dragover.prevent>
                     <h2 class="text-5xl font-bold mb-2">A</h2>
                     <p class="text-xs mb-4">The information must be re-elicited manually.</p>
 
@@ -245,11 +265,10 @@ onMounted(() => {
                     </div>
                     <div v-for="card in sideA" 
                          :key="card.key" 
-                         class="p-3 bg-white shadow rounded mb-2 text-center hover:shadow-lg touch-card active:opacity-50 active:scale-95 transition-all" 
+                         class="p-3 bg-white shadow rounded mb-2 text-center touch-card hover:shadow-lg active:opacity-50 active:scale-95 transition-all" 
                          draggable="true" 
                          @dragstart="startDrag(card, $event)"
-                         @touchstart="startDrag(card, $event)"
-                         @touchend="handleTouchEnd($event)">
+                         @touchstart="startDrag(card, $event)">
                         {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                     </div>
                 </div>
@@ -259,8 +278,7 @@ onMounted(() => {
                 <div class="bg-sky-50 rounded-md p-4 min-h-[200px]" 
                      data-drop-zone="center"
                      @drop="dropCard('center')" 
-                     @dragover.prevent
-                     @touchend="handleTouchEnd($event, 'center')">
+                     @dragover.prevent>
                     <h3 class="text-lg font-semibold mb-4 text-center">Available Cards</h3>
                     <div v-if="centerCards.length === 0" class="text-gray-400 text-center mt-8">
                         All cards have been sorted
@@ -271,8 +289,7 @@ onMounted(() => {
                              class="p-3 bg-white shadow rounded text-center touch-card hover:shadow-lg active:opacity-50 active:scale-95 transition-all"
                              draggable="true"
                              @dragstart="startDrag(card, $event)"
-                             @touchstart="startDrag(card, $event)"
-                             @touchend="handleTouchEnd($event)">
+                             @touchstart="startDrag(card, $event)">
                             {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                         </div>
                     </div>
@@ -282,8 +299,7 @@ onMounted(() => {
                 <div class="border-2 border-black bg-teal-100 rounded-md p-4 min-h-[300px]" 
                      data-drop-zone="B"
                      @drop="dropCard('B')" 
-                     @dragover.prevent
-                     @touchend="handleTouchEnd($event, 'B')">
+                     @dragover.prevent>
                     <h2 class="text-5xl font-bold mb-2">B</h2>
                     <p class="text-xs mb-4">The information is automatically available within the system.</p>
 
@@ -292,11 +308,10 @@ onMounted(() => {
                     </div>
                     <div v-for="card in sideB" 
                          :key="card.key" 
-                         class="p-3 bg-white shadow rounded mb-2 text-center hover:shadow-lg touch-card active:opacity-50 active:scale-95 transition-all" 
+                         class="p-3 bg-white shadow rounded mb-2 text-center touch-card hover:shadow-lg active:opacity-50 active:scale-95 transition-all" 
                          draggable="true" 
                          @dragstart="startDrag(card, $event)"
-                         @touchstart="startDrag(card, $event)"
-                         @touchend="handleTouchEnd($event)">
+                         @touchstart="startDrag(card, $event)">
                         {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                     </div>
                 </div>
