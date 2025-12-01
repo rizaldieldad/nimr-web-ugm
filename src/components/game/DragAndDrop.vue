@@ -31,6 +31,7 @@ const props = defineProps({
 })
 
 const draggedCard = ref(null)
+const autoScrollInterval = ref(null)
 
 // Computed properties to get cards for each area
 const centerCards = computed(() => {
@@ -48,6 +49,16 @@ const sideB = computed(() => props.surveyState.answers[props.caseKey].sideB)
 // Drag and drop handlers
 const startDrag = (card) => {
     draggedCard.value = card
+}
+
+const onDragEnd = () => {
+    draggedCard.value = null
+    stopAutoScroll()
+}
+
+const onDragOver = (e) => {
+    e.preventDefault()
+    handleAutoScroll(e)
 }
 
 const dropCard = (target) => {
@@ -70,6 +81,38 @@ const dropCard = (target) => {
     calculateScores()
 
     draggedCard.value = null
+
+    // Stop auto-scrolling
+    stopAutoScroll()
+}
+
+const handleAutoScroll = (e) => {
+    const threshold = 100;
+    const speed = 10;
+    const viewportHeight = window.innerHeight;
+
+    if (e.clientY < threshold) {
+        startAutoScroll(-speed);
+    } else if (e.clientY > viewportHeight - threshold) {
+        startAutoScroll(speed);
+    } else {
+        stopAutoScroll();
+    }
+}
+
+const startAutoScroll = (speed) => {
+    if (autoScrollInterval.value) return // already scrolling
+
+    autoScrollInterval.value = setInterval(() => {
+        window.scrollBy(0, speed);
+    }, 20);
+}
+
+const stopAutoScroll = () => {
+    if (autoScrollInterval.value) {
+        clearInterval(autoScrollInterval.value)
+        autoScrollInterval.value = null
+    }
 }
 
 const calculateScores = () => {
@@ -96,42 +139,51 @@ onMounted(() => {
             <!-- Desktop Layout -->
             <div class="hidden lg:grid lg:grid-cols-[300px_1fr_300px] gap-6 items-start">
                 <!-- Side A -->
-                <div class="border-2 border-black bg-pink-100 rounded-md p-4 min-h-[800px]" @drop="dropCard('A')" @dragover.prevent>
+                <div class="border-2 border-black bg-pink-100 rounded-md p-4 min-h-[800px]" @dragover="onDragOver"
+                    @drop.prevent="dropCard('A')">
                     <h2 class="text-7xl font-bold mb-4">A</h2>
                     <p class="text-sm -mt-3 mb-4">The information must be re-elicited manually.</p>
 
                     <div v-if="sideA.length === 0" class="text-gray-400 text-center mt-8">
                         Drag cards here
                     </div>
-                    <div v-for="card in sideA" :key="card.key" class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true" @dragstart="startDrag(card)">
+                    <div v-for="card in sideA" :key="card.key"
+                        class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"
+                        @dragstart="startDrag(card)" @dragend="onDragEnd">
                         {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                     </div>
                 </div>
 
                 <!-- Cards Section -->
-                <div class="bg-sky-50 rounded-md p-4 min-h-[200px]" @drop="dropCard('center')" @dragover.prevent>
+                <div class="bg-sky-50 rounded-md p-4 min-h-[200px]" @dragover="onDragOver"
+                    @drop.prevent="dropCard('center')">
                     <h3 class="text-lg font-semibold mb-4 text-center">Available Cards</h3>
                     <div v-if="centerCards.length === 0" class="text-gray-400 text-center mt-8">
                         All cards have been placed
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div v-for="card in centerCards" :key="card.key" class="min-h-24 p-3 bg-white shadow rounded text-center cursor-move flex items-center justify-center hover:shadow-lg transition-shadow" draggable="true" @dragstart="startDrag(card)">
+                        <div v-for="card in centerCards" :key="card.key"
+                            class="min-h-24 p-3 bg-white shadow rounded text-center cursor-move flex items-center justify-center hover:shadow-lg transition-shadow"
+                            draggable="true" @dragstart="startDrag(card)" @dragend="onDragEnd">
                             <span class="text-sm leading-tight">
                                 {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                             </span>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Side B -->
-                <div class="border-2 border-black bg-teal-100 rounded-md p-4 min-h-[800px]" @drop="dropCard('B')" @dragover.prevent>
+                <div class="border-2 border-black bg-teal-100 rounded-md p-4 min-h-[800px]" @dragover="onDragOver"
+                    @drop.prevent="dropCard('B')">
                     <h2 class="text-7xl font-bold mb-4">B</h2>
                     <p class="text-sm -mt-3 mb-4">The information is automatically available within the system.</p>
 
                     <div v-if="sideB.length === 0" class="text-gray-400 text-center mt-8">
                         Drag cards here
                     </div>
-                    <div v-for="card in sideB" :key="card.key" class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true" @dragstart="startDrag(card)">
+                    <div v-for="card in sideB" :key="card.key"
+                        class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"
+                        @dragstart="startDrag(card)" @dragend="onDragEnd">
                         {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                     </div>
                 </div>
@@ -140,21 +192,25 @@ onMounted(() => {
             <!-- Mobile Layout -->
             <div class="lg:hidden space-y-6">
                 <!-- Side A -->
-                <div class="border-2 border-black bg-pink-100 rounded-md p-4 min-h-[300px]" @drop="dropCard('A')" @dragover.prevent>
+                <div class="border-2 border-black bg-pink-100 rounded-md p-4 min-h-[300px]" @dragover="onDragOver"
+                    @drop.prevent="dropCard('A')">
                     <h2 class="text-5xl font-bold mb-2">A</h2>
                     <p class="text-xs mb-4">The information must be re-elicited manually.</p>
 
                     <div v-if="sideA.length === 0" class="text-gray-400 text-center mt-8">
                         Drag cards here
                     </div>
-                    <div v-for="card in sideA" :key="card.key" class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true" @dragstart="startDrag(card)">
+                    <div v-for="card in sideA" :key="card.key"
+                        class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"
+                        @dragstart="startDrag(card)" @dragend="onDragEnd">
                         {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                     </div>
                 </div>
 
-                
+
                 <!-- Cards Section -->
-                <div class="bg-sky-50 rounded-md p-4 min-h-[200px]" @drop="dropCard('center')" @dragover.prevent>
+                <div class="bg-sky-50 rounded-md p-4 min-h-[200px]" @dragover="onDragOver"
+                    @drop.prevent="dropCard('center')">
                     <h3 class="text-lg font-semibold mb-4 text-center">Available Cards</h3>
                     <div v-if="centerCards.length === 0" class="text-gray-400 text-center mt-8">
                         All cards have been sorted
@@ -162,27 +218,28 @@ onMounted(() => {
                     <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div v-for="card in centerCards" :key="card.key"
                             class="p-3 bg-white shadow rounded text-center cursor-move hover:shadow-lg transition-shadow"
-                            draggable="true"
-                            @dragstart="startDrag(card)"
-                        >
+                            draggable="true" @dragstart="startDrag(card)" @dragend="onDragEnd">
                             {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Side B -->
-                <div class="border-2 border-black bg-teal-100 rounded-md p-4 min-h-[300px]" @drop="dropCard('B')" @dragover.prevent>
+                <div class="border-2 border-black bg-teal-100 rounded-md p-4 min-h-[300px]" @dragover="onDragOver"
+                    @drop.prevent="dropCard('B')">
                     <h2 class="text-5xl font-bold mb-2">B</h2>
                     <p class="text-xs mb-4">The information is automatically available within the system.</p>
 
                     <div v-if="sideB.length === 0" class="text-gray-400 text-center mt-8">
                         Drag cards here
                     </div>
-                    <div v-for="card in sideB" :key="card.key" class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true" @dragstart="startDrag(card)">
+                    <div v-for="card in sideB" :key="card.key"
+                        class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"
+                        @dragstart="startDrag(card)" @dragend="onDragEnd">
                         {{ $t(`${caseKey}.${translationPrefix}.${card.key}`) }}
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
 </template>
