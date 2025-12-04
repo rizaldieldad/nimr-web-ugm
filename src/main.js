@@ -83,6 +83,10 @@ const router = createRouter({
                             component: () => import('./pages/survey/cust-identification/Page2.vue')
                         },
                         {
+                            path: "customer-internalization",
+                            component: () => import('./pages/survey/cust-internalization/Page1.vue')
+                        },
+                        {
                             path: "instruction-2",
                             component: () => import('./pages/survey/instructions/Instruction2.vue')
                         },
