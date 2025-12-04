@@ -87,6 +87,10 @@ const router = createRouter({
                             component: () => import('./pages/survey/cust-internalization/Page1.vue')
                         },
                         {
+                            path: "customer-compliance",
+                            component: () => import('./pages/survey/cust-compliance/Page1.vue')
+                        },
+                        {
                             path: "instruction-2",
                             component: () => import('./pages/survey/instructions/Instruction2.vue')
                         },
