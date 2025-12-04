@@ -3,62 +3,61 @@ import { reactive, watch } from "vue"
 
 export const useSurvey = defineStore("survey", () => {
     // Define the current version of your data structure
-    const CURRENT_VERSION = "2.0.0"
-    
+    const CURRENT_VERSION = "3.0.0"
+
     // Function to validate if the stored data has the correct structure
     const isValidStructure = (data) => {
         // Check if version exists and matches
         if (data.version !== CURRENT_VERSION) {
             return false
         }
-        
+
         // Check if all required top-level properties exist
         if (!data.respondentInfo || !data.answers || !data.metadata) {
             return false
         }
-        
+
         // Check if answers object has all required case structures
-        const requiredCases = ['commitment', 'bigData', 'case1', 'case2', 'case3', 'case4', 'case5', 'case6', 'case7', 'case8']
+        const requiredCases = ['commitment', 'customerIdentification', 'customerInternalization', 'customerCompliance', 'case1', 'case2', 'case3', 'case4']
         for (const caseKey of requiredCases) {
             if (!data.answers[caseKey]) {
                 return false
             }
         }
-        
+
         return true
     }
-    
+
     // Function to clear old data and reset everything
     const clearOldData = () => {
         console.log('Detected old data structure. Clearing all storage...')
-        
+
         // Clear localStorage
         localStorage.removeItem('survey-state')
-        
+
         // Clear all sessionStorage items
         sessionStorage.removeItem('userDeclined')
         sessionStorage.removeItem('userConsent')
         sessionStorage.removeItem('surveySubmitted')
-        
+
         console.log('Old data cleared successfully')
     }
-    
+
     // Load initial state from localStorage or use defaults
     const getInitialState = () => {
         const stored = localStorage.getItem('survey-state')
-        
+
         if (stored) {
             try {
                 const parsedData = JSON.parse(stored)
-                
+
                 // Validate the structure
                 if (!isValidStructure(parsedData)) {
-                    console.warn('Invalid or outdated data structure detected')
                     clearOldData()
                     // Return default state after clearing
                     return getDefaultState()
                 }
-                
+
                 // If valid, return the stored data
                 return parsedData
             } catch (e) {
@@ -67,10 +66,10 @@ export const useSurvey = defineStore("survey", () => {
                 return getDefaultState()
             }
         }
-        
+
         return getDefaultState()
     }
-    
+
     // Separate function for default state to avoid duplication
     const getDefaultState = () => {
         return {
@@ -91,60 +90,44 @@ export const useSurvey = defineStore("survey", () => {
                     q4: null,
                     q5: null
                 },
-                bigData: {
+                customerIdentification: {
                     q1: null,
                     q2: null,
                     q3: null,
                     q4: null,
                     q5: null
                 },
-                case1: {
+                customerInternalization: {
                     q1: null,
+                    q2: null,
+                },
+                customerCompliance: {
+                    q1: null,
+                    q2: null,
+                },
+                case1: {
                     sideA: [],
                     sideB: [],
                     sideAScore: 0,
                     sideBScore: 0
                 },
                 case2: {
-                    q1: null,
-                    q2: null,
-                    q3: null,
                     sideA: [],
                     sideB: [],
                     sideAScore: 0,
                     sideBScore: 0
                 },
                 case3: {
-                    q1: null,
                     sideA: [],
                     sideB: [],
                     sideAScore: 0,
                     sideBScore: 0
                 },
                 case4: {
-                    q1: null,
-                    q2: null,
-                    q3: null,
                     sideA: [],
                     sideB: [],
                     sideAScore: 0,
                     sideBScore: 0
-                },
-                case5: {
-                    q1: null,
-                },
-                case6: {
-                    q1: null,
-                    q2: null,
-                    q3: null
-                },
-                case7: {
-                    q1: null
-                },
-                case8: {
-                    q1: null,
-                    q2: null,
-                    q3: null
                 }
             },
             metadata: {
