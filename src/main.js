@@ -95,10 +95,6 @@ const router = createRouter({
                             component: () => import('./pages/survey/case1/GameScore.vue')
                         },
                         {
-                            path: "case1/question-1",
-                            component: () => import('./pages/survey/case1/QuestionPage1.vue')
-                        },
-                        {
                             path: "case2",
                             component: () => import('./pages/survey/case2/Description.vue')
                         },
@@ -113,14 +109,6 @@ const router = createRouter({
                         {
                             path: "case2/score",
                             component: () => import('./pages/survey/case2/GameScore.vue')
-                        },
-                        {
-                            path: "case2/question-1",
-                            component: () => import('./pages/survey/case2/QuestionPage1.vue')
-                        },
-                        {
-                            path: "case2/question-2",
-                            component: () => import('./pages/survey/case2/QuestionPage2.vue')
                         },
                         {
                             path: "case3",
@@ -139,10 +127,6 @@ const router = createRouter({
                             component: () => import('./pages/survey/case3/GameScore.vue')
                         },
                         {
-                            path: "case3/question-1",
-                            component: () => import('./pages/survey/case3/QuestionPage1.vue')
-                        },
-                        {
                             path: "case4",
                             component: () => import('./pages/survey/case4/Description.vue')
                         },
@@ -157,14 +141,6 @@ const router = createRouter({
                         {
                             path: "case4/score",
                             component: () => import('./pages/survey/case4/GameScore.vue')
-                        },
-                        {
-                            path: "case4/question-1",
-                            component: () => import('./pages/survey/case4/QuestionPage1.vue')
-                        },
-                        {
-                            path: "case4/question-2",
-                            component: () => import('./pages/survey/case4/QuestionPage2.vue')
                         },
                         {
                             path: "thankyou",
