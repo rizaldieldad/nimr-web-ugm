@@ -63,6 +63,10 @@ const router = createRouter({
                             component: () => import("./pages/survey/instructions/Instruction1.vue")
                         },
                         {
+                            path: "simulation-instruction",
+                            component: () => import('./pages/survey/instructions/Simulation.vue')
+                        },
+                        {
                             path: "commitment-1",
                             component: () => import('./pages/survey/commitment/Commitment1.vue')
                         },
@@ -177,24 +181,24 @@ const router = createRouter({
 const checkAndValidateStorage = () => {
     const CURRENT_VERSION = "2.0.0"
     const stored = localStorage.getItem('survey-state')
-    
+
     if (!stored) {
         return true // No stored data is fine
     }
-    
+
     try {
         const parsedData = JSON.parse(stored)
-        
+
         // Check version
         if (parsedData.version !== CURRENT_VERSION) {
             return false
         }
-        
+
         // Check structure
         if (!parsedData.respondentInfo || !parsedData.answers || !parsedData.metadata) {
             return false
         }
-        
+
         return true
     } catch (e) {
         return false // Invalid JSON
@@ -209,7 +213,7 @@ router.beforeEach((to, from, next) => {
         // Clear everything
         localStorage.clear()
         sessionStorage.clear()
-        
+
         // Only redirect to home if we're not already there
         if (to.path !== '/') {
             console.log('Old data structure detected, redirecting to home...')
@@ -217,7 +221,7 @@ router.beforeEach((to, from, next) => {
             return
         }
     }
-    
+
     const hasDeclined = sessionStorage.getItem("userDeclined");
     const hasConsented = sessionStorage.getItem("userConsent");
     const isSubmitted = sessionStorage.getItem("surveySubmitted");

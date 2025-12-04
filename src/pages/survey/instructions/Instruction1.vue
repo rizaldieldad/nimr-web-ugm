@@ -10,19 +10,14 @@ import NextButton from '../../../components/buttons/NextButton.vue';
                 <div class="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-8">
                     <!-- Image Container -->
                     <div class="shrink-0 w-48 h-48 sm:w-56 sm:h-56 lg:w-72 lg:h-72">
-                        <img
-                            class="w-full h-full object-contain" 
-                            src="../../../assets/images/instructions/instruction1.png"
-                            alt=""
-                        >
+                        <img class="w-full h-full object-contain"
+                            src="../../../assets/images/instructions/instruction1.png" alt="">
                     </div>
-                    
+
                     <!-- Text Content -->
                     <div class="flex-1 flex flex-col justify-center">
-                        <div 
-                            class="text-base lg:text-3xl leading-relaxed text-gray-700"
-                            v-html="$t('case_hint.description')"
-                        ></div>
+                        <div class="text-base lg:text-3xl leading-relaxed text-gray-700"
+                            v-html="$t('case_hint.description')"></div>
                     </div>
                 </div>
             </div>
@@ -36,7 +31,7 @@ import NextButton from '../../../components/buttons/NextButton.vue';
 
             <!-- Next Button -->
             <div class="flex justify-center lg:justify-end mt-8 lg:mt-12 px-4">
-                <NextButton next-route="/survey/case1"/>
+                <NextButton next-route="/survey/simulation-instruction" />
             </div>
         </div>
     </div>
