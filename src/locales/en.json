@@ -90,26 +90,41 @@
       "q5": "I feel a sense of partnership with the Integrated Medical Record system that I use."
     }
   },
-  "big_data": {
-    "title": "Usefulness of Big Data",
+  "customer_identification": {
+    "title": "Customer Identification",
     "question": {
-      "q1": "At my workplace, most patient data such as demographic information, vital signs, diagnoses, medications, allergies, and smoking status are recorded electronically through the Integrated Medical Record system.",
-      "q2": "Clinical procedures and medication prescriptions for patients are generally carried out using a Computerized Provider Order Entry (CPOE) system within the Integrated Medical Record.",
-      "q3": "Clinical information such as diagnoses, laboratory results, supporting tests, and medical images can be exchanged electronically with external healthcare providers through the Integrated Medical Record system.",
-      "q4": "The Integrated Medical Record system used in my facility supports clinical decision-making, for instance, through allergy alerts or drug interaction warnings.",
-      "q5": "The Integrated Medical Record system enables data exchange with public health institutions, such as mandatory laboratory result reporting or immunization data."
+      "q1": "I feel that my professional values as a healthcare worker are aligned with the objectives of implementing the NIMR.",
+      "q2": "I feel professionally committed to the efforts to develop the NIMR in the healthcare facility where I work.",
+      "q3": "I have a strong sense of involvement in the initiative to implement the NIMR.",
+      "q4": "I consider myself to have a meaningful contribution to the process of implementing the NIMR.",
+      "q5": "I feel that my role is essential in supporting the successful implementation of the NIMR."
+    }
+  },
+  "customer_internalization": {
+    "title": "Customer Interalization",
+    "question": {
+      "q1": "I believe that the integration of a national medical record system is an important component of safe and quality medical practice.",
+      "q2": "I regard the urgency of the NIMR as part of how I conceptualize improvements in healthcare services in Indonesia."
+    }
+  },
+  "customer_compliance": {
+    "title": "Customer Complience",
+    "question": {
+      "q1": "I make an effort to follow procedures or policies that support the implementation of the NIMR when they are available.",
+      "q2": "I make an effort to follow procedures or policies that support the implementation of the NIMR when they are available."
     }
   },
   "case_hint": {
     "description": "This session aims to understand your perceptions and experiences in using the Integrated Medical Record system through <b>case scenarios</b> that reflect real-world conditions. Each section begins with a brief case, followed by several statements related to that situation.",
     "note": "Please read each case carefully and respond according to your personal experience or perspective. There are no right or wrong answers all responses will be kept confidential and used solely for academic research purposes."
   },
+  "simulation_hint": {
+    "p1": "In everyday clinical practice, we often encounter patients who arrive from various healthcare facilities—community health centers, clinics, hospitals, and even institutions outside the region. Unfortunately, their medical histories are not always available in a complete form when they present to our setting. At times, we must repeat examinations that have already been conducted elsewhere. Previous treatments may be unrecorded. Allergy histories may be missing. Certain medications may even be administered twice without our awareness. These situations not only impede the efficiency of clinical management but also have a direct impact on patient safety.",
+    "p2": "Today, you will participate in a series of mini-simulations. You will observe how complete versus fragmented information influences clinical processes. There are no right or wrong answers. You are simply asked to make decisions as though you are the healthcare professional receiving the patient."
+  },
   "case1": {
     "title": "Case 1",
     "description": "A patient arrived at the hospital with severe fatigue and a non-healing foot ulcer. Information obtained from the family revealed that the patient had been living with Type 2 Diabetes Mellitus for more than five years. However, this critical information did not automatically appear in the system because it was not connected to the National Integrated Medical Record (NIMR). As a result, the clinical assessment had to be restarted from the beginning: blood glucose monitoring, wound evaluation, and treatment review. Some time earlier, the patient had also received antibiotics at another healthcare facility. Shortly after the medication was administered, the patient developed a severe allergic reaction. Further investigation showed that the allergy history had actually been recorded at another hospital, but it was not visible in the current system. The lack of integration delayed clinical processes, led to suboptimal therapeutic decisions, and caused inconsistencies in care across facilities.",
-    "questions": {
-      "q1": "To what extent do you feel that the integration of medical records would facilitate the management of this case?"
-    },
     "cards_text": {
       "card1": "Chief complaint: profound fatigue and a right foot ulcer that has not improved for three weeks.",
       "card2": "“Information regarding chronic illness was obtained through a family interview.”",
@@ -136,11 +151,6 @@
   "case2": {
     "title": "Case 2",
     "description": "A 40-year-old man presented to the emergency department with severe shortness of breath. He had a history of persistent asthma that had previously been managed at another hospital. Over the past month, his symptoms had worsened after receiving a different treatment regimen from a private clinic. Due to the lack of cross-facility data access, clinicians at the hospital were unaware that the patient had already been prescribed high-dose asthma medications. The combined therapy from the two facilities resulted in adverse effects, including tachycardia and gastric irritation. Following an internal audit, the medical team concluded that this issue could have been prevented had the patient’s treatment history been automatically accessible through an interconnected National Integrated Medical Record (NIMR) system.",
-    "questions": {
-      "q1": "To what extent do you think the error occurred due to the absence of the National Integrated Medical Record (NIMR)?",
-      "q2": "If the NIMR (Integrated Medical Record) were available, would you be confident in implementing it to prevent a similar incident?",
-      "q3": "Based on the two previous cases, would you implement the National Integrated Medical Record (NIMR) system in your hospital?"
-    },
     "cards_text": {
       "card1": "“Chief complaint: severe shortness of breath, with the patient unable to speak in full sentences.”",
       "card2": "“The history of persistent asthma was obtained from the family’s report in the emergency department.”",
@@ -167,9 +177,6 @@
   "case3": {
     "title": "Case 3",
     "description": "A child was brought to the emergency department with high fever and painful swallowing. The parents reported that the child had been examined at two different clinics over the past few days. However, due to the lack of data integration across facilities, the emergency physician could not access previous examinations or treatments, requiring the entire process including laboratory testing to be repeated. A few days later, the child sought care at another facility and, unknowingly, received a second course of antibiotics. Without access to prior medication history, the hospital physician was unaware of the earlier antibiotic exposure. This duplicate therapy resulted in severe nausea and diarrhea. Medical evaluation concluded that these effects could have been prevented if the patient’s treatment history had been accessible across facilities.",
-    "questions": {
-      "q1": "To what extent do you think this case demonstrates the importance of a nationally integrated medical record system?"
-    },
     "cards_text": {
       "card1": "“Chief complaint: high fever and painful swallowing for several days.”",
       "card2": "“The patient had previously been examined at two different clinics.”",
@@ -196,11 +203,6 @@
   "case4": {
     "title": "Case 4",
     "description": "A patient presented to a community health center with high fever and productive cough. The patient had no prior record at the facility, and because there was no integrated medical record system, the healthcare staff could not access the patient’s medical history, drug allergies, or ongoing treatments. Diagnosis had to be initiated from the beginning, and therapy selection proceeded more slowly as the physician had to act cautiously in the absence of complete medical information. Two weeks later, the patient came to the hospital with complaints of a skin rash and persistent nausea. It was later discovered that the patient had previously taken a medication that triggered a mild allergic reaction. However, because data were not connected across facilities, the patient was prescribed the same medication again, worsening the symptoms. Medical evaluation confirmed that the absence of an accessible, cross-facility allergy history had been a major contributing factor to the therapeutic error.",
-    "questions": {
-      "q1": "To what extent do you think this failure was caused by the absence of an integrated medical record data system?",
-      "q2": "If you were to encounter a similar case, would you implement the NIMR system as a preventive measure?",
-      "q3": "Based on the two previous cases, would you implement the National Integrated Medical Record (NIMR) system in your hospital?"
-    },
     "cards_text": {
       "card1": "“Chief complaint: high fever and productive cough for several days.”",
       "card2": "“An initial diagnosis of an upper respiratory tract infection was established based on the physical examination at the community health center.”",
@@ -222,38 +224,6 @@
       "a": "“The patient’s medical history did not appear during the initial visit to the community health center. The healthcare staff had to repeat the entire process, including anamnesis, allergy evaluation, and assessment of comorbidities, because no prior disease history or ongoing treatments were available. The incompleteness of data required the physician to proceed cautiously when selecting medications, resulting in a slower clinical workflow. During the patient’s second visit to the hospital, allergy information from the first facility could not be accessed. Unaware of the patient’s previous mild allergic reaction, the clinician prescribed the same medication, leading to a skin rash and severe nausea. Medical evaluation indicated that the lack of data connectivity across facilities significantly contributed to the therapeutic error.”",
       "b": "“The record of the patient’s initial visit was automatically available in the system, including the respiratory infection assessment, medications provided, and the documentation of a mild allergic reaction following treatment. When the patient presented to the hospital two weeks later, the physician immediately accessed this information and avoided prescribing the same medication. Cross-facility data access accelerated clinical management, reduced the need for repeated examinations, and enabled safer therapeutic decisions without the risk of exacerbating the patient’s condition. Information integration substantially improved diagnostic accuracy and the efficiency of treatment planning.”",
       "balanced": "“Some essential information such as the initial examination results was available, but the allergy history and prior therapies were only partially recorded. Although the clinician could still determine the direction of management, additional verification was needed to avoid selecting an inappropriate medication. While clinical decisions were still feasible, the risk of inaccuracy remained due to incomplete information.”"
-    }
-  },
-  "case5": {
-    "title": "Case 5",
-    "description": "A child was brought by his parents to the hospital’s Emergency Department (ED) with complaints of a persistent high fever and pain when swallowing. According to the parents, the child had been examined twice at two different clinics within the past few days. Unfortunately, due to the absence of an integrated data system among healthcare facilities, the attending physician could not access the results or records of the previous consultations. As a result, the physician had to repeat the entire examination process, including laboratory tests, to establish an accurate diagnosis. This process not only required additional time but also led to extra costs that could have been avoided if the child’s medical records had been available digitally and accessible across facilities.",
-    "questions": {
-      "q1": "To what extent does this case demonstrate the importance of a national medical record system?"
-    }
-  },
-  "case6": {
-    "title": "Case 6",
-    "description": "In another case, a patient received treatment from two different doctors within a short period. Since each doctor worked at a separate healthcare facility and there was no integrated medical record system connecting them, the hospital physician was unaware that the patient had already been prescribed antibiotics by the previous doctor. Consequently, the patient received antibiotic therapy twice without coordination or dosage adjustment. After the second antibiotic administration, the patient developed serious gastrointestinal side effects, including severe nausea and diarrhea. A subsequent medical evaluation revealed that these adverse effects were likely caused by excessive and unmonitored antibiotic use. This case highlights the importance of having an information system that connects patient treatment histories across healthcare facilities to prevent duplicate and potentially harmful therapies.",
-    "questions": {
-      "q1": "To what extent do you think this error resulted from the absence of medical data integration?",
-      "q2": "Does this case strengthen your intention to implement such a system?",
-      "q3": "Based on the two previous cases, would you implement the National Integrated Medical Record (NIMR) system in your hospital?"
-    }
-  },
-  "case7": {
-    "title": "Case 7",
-    "description": "A patient visited a community health center (Puskesmas) with the main complaints of high fever and productive cough that had persisted for several days. Based on the initial examination, the patient was suspected of having an Acute Respiratory Infection (ARI). However, since the patient had never been registered at this healthcare facility and there was no integrated electronic medical record system, the medical staff did not have access to the patient’s previous health history. They were unaware of whether the patient had recently recovered from another illness, was currently undergoing treatment, or had a known history of drug allergies. As a result, the diagnostic process had to be conducted comprehensively from the beginning, taking longer than necessary. This also caused a delay in prescribing medication, as the physician had to exercise extra caution before determining the appropriate therapy.",
-    "questions": {
-      "q1": "To what extent do you think this case demonstrates the importance of a nationally integrated medical record system?"
-    }
-  },
-  "case8": {
-    "title": "Case 8",
-    "description": "Two weeks after the visit to the community health center, the same patient came to the regional general hospital with new symptoms, including skin rashes in several areas of the body and persistent nausea. After an interview and examination, it was found that the patient had previously taken medication that had triggered a mild allergic reaction. However, because the hospital also lacked access to the patient’s integrated medical records from other healthcare facilities, the attending physician was unaware of the patient’s allergy history. Consequently, the same medication was prescribed again, which worsened the patient’s clinical condition. The medical team’s evaluation concluded that the absence of accessible allergy history information led to an error in therapy selection and reduced the effectiveness of treatment.",
-    "questions": {
-      "q1": "To what extent do you think this failure was caused by the absence of an integrated medical record data system?",
-      "q2": "If you were to encounter a similar case, would you implement the NIMR system as a preventive measure?",
-      "q3": "Based on the two previous cases, would you implement the National Integrated Medical Record (NIMR) system in your hospital?"
     }
   },
   "game_instruction": "Drag the card to the desired area. Press and hold the card (mouse or touch), then slide it to the target area (A or B)."
