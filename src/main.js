@@ -71,14 +71,6 @@ const router = createRouter({
                             component: () => import('./pages/survey/commitment/Commitment2.vue')
                         },
                         {
-                            path: "big-data-1",
-                            component: () => import('./pages/survey/big-data/BigData1.vue')
-                        },
-                        {
-                            path: "big-data-2",
-                            component: () => import('./pages/survey/big-data/BigData2.vue')
-                        },
-                        {
                             path: "instruction-2",
                             component: () => import('./pages/survey/instructions/Instruction2.vue')
                         },
@@ -169,46 +161,6 @@ const router = createRouter({
                         {
                             path: "case4/question-2",
                             component: () => import('./pages/survey/case4/QuestionPage2.vue')
-                        },
-                        {
-                            path: "case5",
-                            component: () => import('./pages/survey/case5/Description.vue')
-                        },
-                        {
-                            path: "case5/question-1",
-                            component: () => import('./pages/survey/case5/QuestionPage1.vue')
-                        },
-                        {
-                            path: "case6",
-                            component: () => import('./pages/survey/case6/Description.vue')
-                        },
-                        {
-                            path: "case6/question-1",
-                            component: () => import('./pages/survey/case6/QuestionPage1.vue')
-                        },
-                        {
-                            path: "case6/question-2",
-                            component: () => import('./pages/survey/case6/QuestionPage2.vue')
-                        },
-                        {
-                            path: "case7",
-                            component: () => import('./pages/survey/case7/Description.vue')
-                        },
-                        {
-                            path: "case7/question-1",
-                            component: () => import('./pages/survey/case7/QuestionPage1.vue')
-                        },
-                        {
-                            path: "case8",
-                            component: () => import('./pages/survey/case8/Description.vue')
-                        },
-                        {
-                            path: "case8/question-1",
-                            component: () => import('./pages/survey/case8/QuestionPage1.vue')
-                        },
-                        {
-                            path: "case8/question-2",
-                            component: () => import('./pages/survey/case8/QuestionPage2.vue')
                         },
                         {
                             path: "thankyou",
