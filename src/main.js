@@ -75,6 +75,14 @@ const router = createRouter({
                             component: () => import('./pages/survey/commitment/Commitment2.vue')
                         },
                         {
+                            path: "customer-identification-1",
+                            component: () => import('./pages/survey/cust-identification/Page1.vue')
+                        },
+                        {
+                            path: "customer-identification-2",
+                            component: () => import('./pages/survey/cust-identification/Page2.vue')
+                        },
+                        {
                             path: "instruction-2",
                             component: () => import('./pages/survey/instructions/Instruction2.vue')
                         },

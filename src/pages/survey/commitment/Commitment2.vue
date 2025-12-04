@@ -108,7 +108,7 @@ const isNextDisabled = computed(() => {
       </div>
 
       <!-- Next Button -->
-      <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/big-data-1"/>
+      <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/customer-identification-1"/>
     </div>
 </template>
 
