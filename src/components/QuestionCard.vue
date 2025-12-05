@@ -11,6 +11,10 @@ const props = defineProps({
         type: String,
         required: true
     },
+    storeKey: {
+        type: String,
+        required: true
+    },
     selectedAnswer: {
         type: Number,
         default: null
@@ -21,7 +25,7 @@ const emit = defineEmits(['answer-selected'])
 
 // Function to check if a value is selected
 const isSelected = (value) => {
-    return surveyState.answers[props.topic]?.[`q${props.question.id}`] === value
+    return surveyState.answers[props.storeKey]?.[`q${props.question.id}`] === value
 }
 
 // Handle answer selection

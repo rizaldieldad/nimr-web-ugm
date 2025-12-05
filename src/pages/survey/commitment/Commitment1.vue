@@ -44,7 +44,7 @@ const isNextDisabled = computed(() => {
 
         <!-- Question 1 to 3 -->
         <QuestionCard v-for="question in questions" :key="question.id" :question="question" topic="commitment"
-            @answer-selected="selectAnswer" />
+            store-key="commitment" @answer-selected="selectAnswer" />
 
         <!-- Next Button -->
         <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/commitment-2" />
