@@ -3,6 +3,7 @@ import { computed, ref } from "vue"
 import { useRouter } from 'vue-router'
 import { useSurvey } from "../../../stores/useSurvey"
 import BackButton from "../../../components/buttons/BackButton.vue"
+import QuestionCard from "../../../components/QuestionCard.vue"
 
 const { surveyState, finishSurvey, clearSurvey, isSessionSubmitted, markSessionSubmitted } = useSurvey()
 const router = useRouter()
@@ -15,6 +16,8 @@ const submitSuccess = ref(false)
 // Google Apps Script Web App 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7XNVvZxFf7Cn2TV_GAFepI-z7jZYka5Cen0IqlMlIQ3Iat_S7vtTVOs42CjjzEb-J/exec'
 
+const questions = [{ id: 1 }, { id: 2 }]
+
 // Initialize answers if not exists
 if (!surveyState.answers.customerCompliance) {
     surveyState.answers.customerCompliance = {
@@ -24,13 +27,8 @@ if (!surveyState.answers.customerCompliance) {
 }
 
 // Function to handle answer selection
-const selectAnswer = (questionNumber, value) => {
-    surveyState.answers.customerCompliance[`q${questionNumber}`] = value
-}
-
-// Function to check if a value is selected
-const isSelected = (questionNumber, value) => {
-    return surveyState.answers.customerCompliance[`q${questionNumber}`] === value
+const selectAnswer = (questionId, answer) => {
+    surveyState.answers.customerCompliance[`q${questionId}`] = answer
 }
 
 // Computed property to checck if all questions are answered
@@ -44,12 +42,12 @@ const submitToGoogleSheets = async () => {
     if (isSessionSubmitted()) {
         console.log('Survey already submitted in this browser session.')
         router.push("/survey/thankyou")
-        return 
+        return
     }
 
     isSubmitting.value = true
     submitError.value = null
-    
+
     try {
         const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
@@ -59,24 +57,24 @@ const submitToGoogleSheets = async () => {
             },
             body: JSON.stringify(surveyState)
         })
-        
+
         // Note: With no-cors mode, we can't read the response
         // We assume success if no error is thrown
         submitSuccess.value = true
 
         // Mark session as submitted
         markSessionSubmitted()
-        
+
         console.log('Survey data submitted successfully!')
-        
+
         // Clear the survey data after successful submission
         clearSurvey()
-        
+
         // Navigate to success page or show message
         setTimeout(() => {
             router.push('/survey/thankyou')
         }, 1500)
-        
+
     } catch (error) {
         console.error('Error submitting to Google Sheets:', error)
         submitError.value = 'Failed to submit survey. Please try again.'
@@ -111,80 +109,31 @@ const handleFinish = async () => {
             </h1>
         </div>
 
-        <!-- Question 1 -->
-        <div class="bg-white rounded-3xl shadow-lg p-6 md:p-8 transition-all hover:shadow-xl">
-            <!-- Question Header -->
-            <div class="flex items-start gap-4 mb-6">
-                <div
-                    class="shrink-0 w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    1
-                </div>
-                <p class="text-lg md:text-xl text-gray-800 italic flex-1 pt-1">
-                    {{ $t('customer_compliance.question.q1') }}
-                </p>
-            </div>
+        <QuestionCard v-for="question in questions" :key="question.id" :question="question" topic="customer_compliance"
+            store-key="customerCompliance" @answer-selected="selectAnswer" />
 
-            <!-- Rating Scale -->
-            <div class="flex justify-center items-center gap-3 md:gap-6">
-                <button v-for="value in 5" :key="value" @click="selectAnswer(1, value)" :class="[
-                    'w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110',
-                    isSelected(1, value)
-                        ? 'bg-indigo-500 border-indigo-500 text-white'
-                        : 'bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50'
-                ]">
-                    {{ value }}
-                </button>
-            </div>
-        </div>
-
-        <!-- Question 2 -->
-        <div class="bg-white rounded-3xl shadow-lg p-6 md:p-8 transition-all hover:shadow-xl">
-            <!-- Question Header -->
-            <div class="flex items-start gap-4 mb-6">
-                <div
-                    class="shrink-0 w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    2
-                </div>
-                <p class="text-lg md:text-xl text-gray-800 italic flex-1 pt-1">
-                    {{ $t('customer_compliance.question.q2') }}
-                </p>
-            </div>
-
-            <!-- Rating Scale -->
-            <div class="flex justify-center items-center gap-3 md:gap-6">
-                <button v-for="value in 5" :key="value" @click="selectAnswer(2, value)" :class="[
-                    'w-12 h-12 md:w-16 md:h-16 rounded-full border-2 flex items-center justify-center text-lg md:text-xl font-semibold transition-all duration-200 transform hover:scale-110',
-                    isSelected(2, value)
-                        ? 'bg-indigo-500 border-indigo-500 text-white'
-                        : 'bg-white border-gray-300 text-gray-600 hover:border-indigo-400 hover:bg-indigo-50'
-                ]">
-                    {{ value }}
-                </button>
-            </div>
-        </div>
-
-         <!-- Finish Button -->
+        <!-- Finish Button -->
         <div class="flex justify-end">
-            <button
-            @click="handleFinish"
-            :disabled="isFinishDisabled"
-            :class="[
+            <button @click="handleFinish" :disabled="isFinishDisabled" :class="[
                 'px-8 py-3 font-bold rounded-full transition-all transform shadow-lg',
-                isFinishDisabled 
-                ? 'bg-gray-400 cursor-not-allowed' 
-                : 'bg-green-500 hover:bg-green-600 hover:scale-105 text-white'
-            ]"
-            >
-            <span v-if="isSubmitting">
-                <svg class="animate-spin inline-block w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Submitting...
-            </span>
-            <span v-else>
-                {{ $t('buttons.finish') || 'Finish Survey' }} ✓
-            </span>
+                isFinishDisabled
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-green-500 hover:bg-green-600 hover:scale-105 text-white'
+            ]">
+                <span v-if="isSubmitting">
+                    <svg class="animate-spin inline-block w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                        </circle>
+                        <path class="opacity-75" fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                        </path>
+                    </svg>
+                    Submitting...
+                </span>
+                <span v-else>
+                    {{ $t('buttons.finish') || 'Finish Survey' }} ✓
+                </span>
             </button>
         </div>
     </div>
