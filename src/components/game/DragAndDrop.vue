@@ -315,6 +315,7 @@ onMounted(() => {
 <style scoped>
 .cursor-move {
     cursor: move;
+    /* Disable text selection on mobile devices */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
