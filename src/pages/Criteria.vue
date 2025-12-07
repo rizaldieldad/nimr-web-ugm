@@ -9,7 +9,7 @@ const handleNext = () => {
     isLoading.value = true;
     setTimeout(() => {
         router.push("/consent");
-    }, 500);
+    }, 200);
 }
 </script>
 

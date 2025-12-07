@@ -30,6 +30,6 @@ const props = defineProps({
                 </p>
             </div>
         </div>
-        <NextButton :next-route="nextRoute"/>
+        <NextButton :next-route="nextRoute" mode="nav"/>
     </div>
 </template>

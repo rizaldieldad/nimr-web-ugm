@@ -31,7 +31,7 @@ import NextButton from '../../../components/buttons/NextButton.vue';
 
             <!-- Next Button -->
             <div class="flex justify-center lg:justify-end mt-8 lg:mt-12 px-4">
-                <NextButton next-route="/survey/simulation-instruction" />
+                <NextButton next-route="/survey/simulation-instruction" mode="nav"/>
             </div>
         </div>
     </div>

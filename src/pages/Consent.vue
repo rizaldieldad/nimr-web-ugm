@@ -14,7 +14,7 @@ const handleDecline = () => {
     // Redirect to declined route
     setTimeout(() => {
         router.push("/not-participate");
-    }, 500);
+    }, 200);
 }
 
 const handleAgree = () => {
@@ -26,7 +26,7 @@ const handleAgree = () => {
     // Redirect to personal data
     setTimeout(() => {
         router.push("/personal-data");
-    }, 500);
+    }, 200);
     
 }
 </script>

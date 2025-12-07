@@ -14,7 +14,7 @@ const changeLanguage = (lang) => {
   localStorage.setItem("locale", lang);
   setTimeout(() => {
     router.push({ path: "/criteria" });
-  }, 500);
+  }, 200);
 };
 </script>
 
