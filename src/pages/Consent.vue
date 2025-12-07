@@ -1,19 +1,25 @@
 <script setup>
 import { useRouter } from "vue-router";
+import { ref } from "vue";
 
 const router = useRouter();
+const loadingAction = ref("");
 
 const handleDecline = () => {
     // Set decline flag in sessionStorage
+    loadingAction.value = "decline";
     sessionStorage.setItem("userDeclined", "true");
     sessionStorage.removeItem("userConsent");
 
     // Redirect to declined route
-    router.push("/not-participate");
+    setTimeout(() => {
+        router.push("/not-participate");
+    }, 500);
 }
 
 const handleAgree = () => {
     // Set consent flag in sessionStorage
+    loadingAction.value = "agree";
     sessionStorage.setItem("userConsent", "true");
     sessionStorage.removeItem("userDeclined");
 
@@ -66,16 +72,46 @@ const handleAgree = () => {
           {{ $t("buttons.agree") }} ✅
         </RouterLink> -->
         <button
-          @click="handleDecline"
-          class="border border-sky-500 hover:bg-rose-300 hover:text-white px-5 py-2 rounded-full cursor-pointer active:scale-90 active:bg-sky-600 active:text-white"
+            @click="handleDecline"
+            :disabled="loadingAction !== ''"
+            :class="[
+                'border border-sky-500 px-5 py-2 rounded-full font-semibold min-w-[140px]',
+                'transition-all duration-200 ease-in-out flex items-center justify-center',
+                loadingAction === 'decline'
+                    ? 'bg-sky-50 text-sky-300 scale-95 cursor-wait' 
+                    : loadingAction !== '' 
+                        ? 'opacity-50 cursor-not-allowed' // Dim if the OTHER button is clicked
+                        : 'hover:bg-rose-300 hover:text-white cursor-pointer active:scale-90 active:bg-rose-400'
+            ]"
         >
-          {{ $t("buttons.disagree") }} ❌
+            <svg v-if="loadingAction === 'decline'" class="animate-spin h-6 w-6 text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span v-else>
+                {{ $t("buttons.disagree") }} ❌
+            </span>
         </button>
         <button
             @click="handleAgree"
-          class="border border-sky-500 hover:bg-green-300 hover:text-white px-5 py-2 rounded-full cursor-pointer active:scale-90 active:bg-sky-600 active:text-white"
+            :disabled="loadingAction !== ''"
+            :class="[
+                'border border-sky-500 px-5 py-2 rounded-full font-semibold min-w-[140px]',
+                'transition-all duration-200 ease-in-out flex items-center justify-center',
+                loadingAction === 'agree'
+                    ? 'bg-sky-50 text-sky-300 scale-95 cursor-wait' 
+                    : loadingAction !== '' 
+                        ? 'opacity-50 cursor-not-allowed' // Dim if the OTHER button is clicked
+                        : 'hover:bg-green-300 hover:text-white cursor-pointer active:scale-90 active:bg-green-400'
+            ]"
         >
-          {{ $t("buttons.agree") }} ✅
+            <svg v-if="loadingAction === 'agree'" class="animate-spin h-6 w-6 text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span v-else>
+                {{ $t("buttons.agree") }} ✅
+            </span>
         </button>
       </div>
     </div>
