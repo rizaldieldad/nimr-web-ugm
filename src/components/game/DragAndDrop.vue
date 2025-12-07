@@ -118,6 +118,8 @@ const touchStart = (card, e) => {
     touchStartX.value = touch.clientX
     touchStartY.value = touch.clientY
     e.target.style.opacity = '0.5'
+    
+    e.target.classList.add('dragging-ready')
 }
 
 // When the touch moves
@@ -135,6 +137,8 @@ const touchEnd = (e) => {
     
     if (e.target) {
         e.target.style.opacity = '1'
+        
+        e.target.classList.remove('dragging-ready')
     }
     
     if (!dropTarget) {
@@ -321,10 +325,24 @@ onMounted(() => {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
-
 
 .cursor-move:active {
     cursor: grabbing;
+}
+
+.dragging-ready {
+    transform: scale(1.05);
+    animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 </style>
