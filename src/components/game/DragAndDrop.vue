@@ -326,15 +326,12 @@ onMounted(() => {
     -ms-user-select: none;
     user-select: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
 }
 
 .cursor-move:active {
     cursor: grabbing;
-}
-
-.dragging-ready {
-    transform: scale(1.05);
-    animation: pulse 0.6s ease-in-out;
 }
 
 @keyframes pulse {
@@ -342,7 +339,11 @@ onMounted(() => {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
+}
+
+.dragging-ready {
+    animation: pulse 0.8s ease-in-out infinite;
 }
 </style>
