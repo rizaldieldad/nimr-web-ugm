@@ -112,6 +112,7 @@ const touchStartX = ref(0)
 
 // Where the touch started
 const touchStart = (card, e) => {
+    e.preventDefault()
     draggedCard.value = card
     const touch = e.touches[0]
     touchStartX.value = touch.clientX
@@ -314,7 +315,15 @@ onMounted(() => {
 <style scoped>
 .cursor-move {
     cursor: move;
+    /* Disable text selection on mobile devices */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: none;
 }
+
 
 .cursor-move:active {
     cursor: grabbing;
