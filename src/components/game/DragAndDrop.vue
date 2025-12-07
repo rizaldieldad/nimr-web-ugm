@@ -128,29 +128,33 @@ const touchMove = (e) => {
     e.preventDefault()
 }
 
-// Whene user drop/release their touch from card
+// When user drop/release their touch from card
 const touchEnd = (e) => {
+    // Always reset visual states first, regardless of what happens
+    if (e.target) {
+        e.target.style.opacity = '1'
+        e.target.classList.remove('dragging-ready')
+    }
+    
+    // If no card is being dragged, just return
     if (!draggedCard.value) return
     
     const touch = e.changedTouches[0]
     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY)
     
-    if (e.target) {
-        e.target.style.opacity = '1'
-        
-        e.target.classList.remove('dragging-ready')
-    }
-    
+    // If no valid drop target, reset and return
     if (!dropTarget) {
         draggedCard.value = null
         return
     }
     
+    // Check if dropped on a valid drop zone
     const dropZone = dropTarget.closest('[data-drop-zone]')
     if (dropZone) {
         const zone = dropZone.getAttribute('data-drop-zone')
         dropCard(zone)
     } else {
+        // Not a valid drop zone, just reset
         draggedCard.value = null
     }
 }
