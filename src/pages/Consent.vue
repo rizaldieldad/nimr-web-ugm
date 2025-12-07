@@ -18,7 +18,10 @@ const handleAgree = () => {
     sessionStorage.removeItem("userDeclined");
 
     // Redirect to personal data
-    router.push("/personal-data");
+    setTimeout(() => {
+        router.push("/personal-data");
+    }, 500);
+    
 }
 </script>
 
@@ -64,13 +67,13 @@ const handleAgree = () => {
         </RouterLink> -->
         <button
           @click="handleDecline"
-          class="border border-sky-500 hover:bg-rose-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
+          class="border border-sky-500 hover:bg-rose-300 hover:text-white px-5 py-2 rounded-full cursor-pointer active:scale-90 active:bg-sky-600 active:text-white"
         >
           {{ $t("buttons.disagree") }} ❌
         </button>
         <button
             @click="handleAgree"
-          class="border border-sky-500 hover:bg-green-300 hover:text-white px-5 py-2 rounded-full cursor-pointer"
+          class="border border-sky-500 hover:bg-green-300 hover:text-white px-5 py-2 rounded-full cursor-pointer active:scale-90 active:bg-sky-600 active:text-white"
         >
           {{ $t("buttons.agree") }} ✅
         </button>

@@ -10,8 +10,9 @@ const router = useRouter();
 const changeLanguage = (lang) => {
   locale.value = lang;
   localStorage.setItem("locale", lang);
-
-  router.push({ path: "/criteria" });
+  setTimeout(() => {
+    router.push({ path: "/criteria" });
+  }, 500);
 };
 </script>
 

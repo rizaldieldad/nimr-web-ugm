@@ -16,7 +16,9 @@ const props = defineProps({
 
 const handleNext = () => {
     if (!props.disabled) {
-        router.push(props.nextRoute);
+        setTimeout(() => {
+            router.push(props.nextRoute);
+        }, 500);
     }
 }
 </script>
