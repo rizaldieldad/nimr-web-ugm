@@ -235,7 +235,7 @@ onMounted(() => {
         <!-- Navigation Buttons -->
         <div class="w-full flex justify-between items-center">
             <BackButton :back-route="backRoute" />
-            <NextButton :next-route="nextRoute" :disabled="centerCards.length > 0" />
+            <NextButton :next-route="nextRoute" :disabled="centerCards.length > 0" mode="submit"/>
         </div>
 
         <!-- Game Area -->

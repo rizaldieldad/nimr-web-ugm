@@ -87,7 +87,7 @@ const result = () => {
 
     <!-- Next Button (optional) -->
     <div v-if="nextRoute" class="w-full flex justify-center">
-        <NextButton :next-route="nextRoute" />
+        <NextButton :next-route="nextRoute" mode="submit" />
     </div>
 </template>
 
