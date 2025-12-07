@@ -109,6 +109,8 @@ const dropCard = (target, e) => {
 // Data ref for touch X and Y
 const touchStartY = ref(0)
 const touchStartX = ref(0)
+const isDragReady = ref(false)
+const dragReadyTimeout = ref(null)
 
 // Where the touch started
 const touchStart = (card, e) => {
@@ -120,16 +122,30 @@ const touchStart = (card, e) => {
     e.target.style.opacity = '0.5'
     
     e.target.classList.add('dragging-ready')
+
+    dragReadyTimeout.value = setTimeout(() => {
+        isDragReady.value = true
+    }, 800)
 }
 
 // When the touch moves
 const touchMove = (e) => {
     if (!draggedCard.value) return
-    e.preventDefault()
+    
+    // Only prevent default (allow dragging) if ready
+    if (isDragReady.value) {
+        e.preventDefault()
+    }
 }
 
 // When user drop/release their touch from card
 const touchEnd = (e) => {
+    // Clear timeout if user releases before animation completes
+    if (dragReadyTimeout.value) {
+        clearTimeout(dragReadyTimeout.value)
+        dragReadyTimeout.value = null
+    }
+    
     // Always reset visual states first, regardless of what happens
     if (e.target) {
         e.target.style.opacity = '1'
@@ -139,12 +155,21 @@ const touchEnd = (e) => {
     // If no card is being dragged, just return
     if (!draggedCard.value) return
     
+    // Only allow drop if drag was ready
+    // Prevent dragging if not ready
+    if (!isDragReady.value) {
+        draggedCard.value = null
+        isDragReady.value = false
+        return
+    }
+    
     const touch = e.changedTouches[0]
     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY)
     
     // If no valid drop target, reset and return
     if (!dropTarget) {
         draggedCard.value = null
+        isDragReady.value = false
         return
     }
     
@@ -157,6 +182,9 @@ const touchEnd = (e) => {
         // Not a valid drop zone, just reset
         draggedCard.value = null
     }
+    
+    // Reset drag ready state
+    isDragReady.value = false
 }
 
 // MARK: Drag and Drop End
