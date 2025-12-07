@@ -3,7 +3,11 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-const handleNext = () => router.push("/consent");
+const handleNext = () => {
+    setTimeout(() => {
+        router.push("/consent");
+    }, 500);
+}
 </script>
 
 <template>
@@ -27,7 +31,7 @@ const handleNext = () => router.push("/consent");
       <div class="flex justify-center">
         <button
           @click="() => handleNext()"
-          class="w-16 h-16 border-2 border-sky-500 hover:bg-sky-500 hover:text-white text-pink-400 font-semibold rounded-full transition-colors cursor-pointer"
+          class="w-16 h-16 border-2 border-sky-500 hover:bg-sky-500 hover:text-white text-pink-400 font-semibold rounded-full transition-colors cursor-pointer active:scale-90 active:bg-sky-600 active:text-white"
         >
           {{ $t("buttons.next") }}
         </button>

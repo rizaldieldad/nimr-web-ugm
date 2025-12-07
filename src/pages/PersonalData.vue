@@ -159,7 +159,9 @@ const handleSubmit = () => {
         return
     }
 
-    router.push("/survey/instruction-1")
+    setTimeout(() => {
+        router.push("/survey/instruction-1")
+    }, 500);
 };
 </script>
 
@@ -449,7 +451,7 @@ const handleSubmit = () => {
                 <div class="flex justify-center">
                     <button
                     @click="() => handleSubmit()"
-                    class="w-16 h-16 border-2 border-sky-500 hover:bg-sky-500 hover:text-white text-pink-400 font-semibold rounded-full transition-colors cursor-pointer"
+                    class="w-16 h-16 border-2 border-sky-500 hover:bg-sky-500 hover:text-white text-pink-400 font-semibold rounded-full transition-colors cursor-pointer active:scale-90 active:bg-sky-600 active:text-white"
                     >
                     {{ $t("buttons.next") }}
                     </button>
