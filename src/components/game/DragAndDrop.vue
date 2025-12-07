@@ -112,7 +112,7 @@ const touchStartX = ref(0)
 
 // Where the touch started
 const touchStart = (card, e) => {
-    e.preventDefault()
+    // e.preventDefault()
     draggedCard.value = card
     const touch = e.touches[0]
     touchStartX.value = touch.clientX
@@ -321,7 +321,6 @@ onMounted(() => {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    touch-action: none;
 }
 
 
