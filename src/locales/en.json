@@ -91,7 +91,7 @@
     }
   },
   "customer_identification": {
-    "title": "Customer Identification",
+    "title": "User Identification",
     "question": {
       "q1": "I feel that my professional values as a healthcare worker are aligned with the objectives of implementing the NIMR.",
       "q2": "I feel professionally committed to the efforts to develop the NIMR in the healthcare facility where I work.",
@@ -101,14 +101,14 @@
     }
   },
   "customer_internalization": {
-    "title": "Customer Interalization",
+    "title": "User Interalization",
     "question": {
       "q1": "I believe that the integration of a national medical record system is an important component of safe and quality medical practice.",
       "q2": "I regard the urgency of the NIMR as part of how I conceptualize improvements in healthcare services in Indonesia."
     }
   },
   "customer_compliance": {
-    "title": "Customer Complience",
+    "title": "User Complience",
     "question": {
       "q1": "I make an effort to follow procedures or policies that support the implementation of the NIMR when they are available.",
       "q2": "I make an effort to follow procedures or policies that support the implementation of the NIMR when they are available."
@@ -122,13 +122,20 @@
     "p1": "In everyday clinical practice, we often encounter patients who arrive from various healthcare facilities—community health centers, clinics, hospitals, and even institutions outside the region. Unfortunately, their medical histories are not always available in a complete form when they present to our setting. At times, we must repeat examinations that have already been conducted elsewhere. Previous treatments may be unrecorded. Allergy histories may be missing. Certain medications may even be administered twice without our awareness. These situations not only impede the efficiency of clinical management but also have a direct impact on patient safety.",
     "p2": "Today, you will participate in a series of mini-simulations. You will observe how complete versus fragmented information influences clinical processes. There are no right or wrong answers. You are simply asked to make decisions as though you are the healthcare professional receiving the patient."
   },
+  "card_body": {
+    "cards_title_place": "Available Cards",
+    "card_title_empty": "All cards have been placed.",
+    "card_drop_a": "The information must be re-elicited manually.",
+    "card_drop_b": "The information is automatically available within the system.",
+    "card_drop_hint": "Drag cards here"
+  },
   "case1": {
     "title": "Case 1",
     "description": "A patient arrived at the hospital with severe fatigue and a non-healing foot ulcer. Information obtained from the family revealed that the patient had been living with Type 2 Diabetes Mellitus for more than five years. However, this critical information did not automatically appear in the system because it was not connected to the National Integrated Medical Record (NIMR). As a result, the clinical assessment had to be restarted from the beginning: blood glucose monitoring, wound evaluation, and treatment review. Some time earlier, the patient had also received antibiotics at another healthcare facility. Shortly after the medication was administered, the patient developed a severe allergic reaction. Further investigation showed that the allergy history had actually been recorded at another hospital, but it was not visible in the current system. The lack of integration delayed clinical processes, led to suboptimal therapeutic decisions, and caused inconsistencies in care across facilities.",
     "cards_text": {
-      "card1": "Chief complaint: profound fatigue and a right foot ulcer that has not improved for three weeks.",
+      "card1": "“Chief complaint: profound fatigue and a right foot ulcer that has not improved for three weeks.",
       "card2": "“Information regarding chronic illness was obtained through a family interview.”",
-      "card3": "The diabetes history did not automatically appear in the system.”",
+      "card3": "“The diabetes history did not automatically appear in the system.”",
       "card4": "“The clinician must re-elicit the patient’s medication history.”",
       "card5": "“The clinician can access the HbA1c trend from prior visits.”",
       "card6": "“Previous laboratory results could not be located in the system.”",
@@ -138,7 +145,7 @@
       "card10": "“The clinician can access the X-ray images from another healthcare facility.”",
       "card11": "“The duration of the clinical interview increases because repeat assessment is required.”",
       "card12": "“Clinical decisions can be made more rapidly because complete data are available.”",
-      "card13": "The history of diabetes-related complications can be viewed in a single dashboard display.”",
+      "card13": "“The history of diabetes-related complications can be viewed in a single dashboard display.”",
       "card14": "“Medication allergy information must be reconfirmed with the family.”",
       "card15": "“Initial evaluation is faster because previous examination results appear automatically.”"
     },
@@ -162,7 +169,7 @@
       "card8": "“Initial assessment indicates a worsening respiratory pattern.”",
       "card9": "“The clinician must repeat ancillary tests because previous results are unavailable.”",
       "card10": "“Spirometry and chest X-ray results from another facility are visible in the system.”",
-      "card11": "The duration of the clinical interview increases because the clinician must re-elicit the treatment history.”",
+      "card11": "“The duration of the clinical interview increases because the clinician must re-elicit the treatment history.”",
       "card12": "“Medication adjustments can be made more rapidly when the historical data are fully available.”",
       "card13": "“The system dashboard displays the history of asthma attacks, controller medications, and potential triggers.”",
       "card14": "“Medication allergy information must be confirmed directly with the patient and family.”",
