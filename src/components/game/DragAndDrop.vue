@@ -246,10 +246,10 @@ onMounted(() => {
                 <div data-drop-zone="A" class="border-2 border-black bg-pink-100 rounded-md p-4 min-h-[800px]" 
                     @dragover="onDragOver" @drop.prevent="dropCard('A', $event)">
                     <h2 class="text-7xl font-bold mb-4">A</h2>
-                    <p class="text-sm -mt-3 mb-4">The information must be re-elicited manually.</p>
+                    <p class="text-sm -mt-3 mb-4">{{ $t("card_body.card_drop_a") }}</p>
 
                     <div v-if="sideA.length === 0" class="text-gray-400 text-center mt-8">
-                        Drag cards here
+                        {{ $t("card_body.card_drop_hint") }}
                     </div>
                     <div v-for="card in sideA" :key="card.key"
                         class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"
@@ -261,9 +261,9 @@ onMounted(() => {
                 <!-- Cards Section -->
                 <div data-drop-zone="center" class="bg-sky-50 rounded-md p-4 min-h-[200px]" 
                     @dragover="onDragOver" @drop.prevent="dropCard('center', $event)">
-                    <h3 class="text-lg font-semibold mb-4 text-center">Available Cards</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-center">{{ $t("card_body.cards_title_place") }}</h3>
                     <div v-if="centerCards.length === 0" class="text-gray-400 text-center mt-8">
-                        All cards have been placed
+                        {{ $t("card_body.card_title_empty") }}
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div v-for="card in centerCards" :key="card.key"
@@ -280,10 +280,10 @@ onMounted(() => {
                 <div data-drop-zone="B" class="border-2 border-black bg-teal-100 rounded-md p-4 min-h-[800px]" 
                     @dragover="onDragOver" @drop.prevent="dropCard('B', $event)">
                     <h2 class="text-7xl font-bold mb-4">B</h2>
-                    <p class="text-sm -mt-3 mb-4">The information is automatically available within the system.</p>
+                    <p class="text-sm -mt-3 mb-4">{{ $t("card_body.card_drop_b") }}</p>
 
                     <div v-if="sideB.length === 0" class="text-gray-400 text-center mt-8">
-                        Drag cards here
+                        {{ $t("card_body.card_drop_hint") }}
                     </div>
                     <div v-for="card in sideB" :key="card.key"
                         class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"
@@ -299,10 +299,10 @@ onMounted(() => {
                 <div data-drop-zone="A" class="border-2 border-black bg-pink-100 rounded-md p-4 min-h-[300px]" @dragover="onDragOver"
                     @drop.prevent="dropCard('A', $event)">
                     <h2 class="text-5xl font-bold mb-2">A</h2>
-                    <p class="text-xs mb-4">The information must be re-elicited manually.</p>
+                    <p class="text-xs mb-4">{{ $t("card_body.card_drop_a") }}</p>
 
                     <div v-if="sideA.length === 0" class="text-gray-400 text-center mt-8">
-                        Drag cards here
+                        {{ $t("card_body.card_drop_hint") }}
                     </div>
                     <div v-for="card in sideA" :key="card.key"
                         class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"
@@ -315,9 +315,9 @@ onMounted(() => {
                 <!-- Cards Section -->
                 <div data-drop-zone="center" class="bg-sky-50 rounded-md p-4 min-h-[200px]" @dragover="onDragOver"
                     @drop.prevent="dropCard('center', $event)">
-                    <h3 class="text-lg font-semibold mb-4 text-center">Available Cards</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-center">{{ $t("card_body.cards_title_place") }}</h3>
                     <div v-if="centerCards.length === 0" class="text-gray-400 text-center mt-8">
-                        All cards have been sorted
+                        {{ $t("card_body.card_title_empty") }}
                     </div>
                     <div v-else class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div v-for="card in centerCards" :key="card.key"
@@ -332,10 +332,10 @@ onMounted(() => {
                 <div data-drop-zone="B" class="border-2 border-black bg-teal-100 rounded-md p-4 min-h-[300px]" @dragover="onDragOver"
                     @drop.prevent="dropCard('B', $event)">
                     <h2 class="text-5xl font-bold mb-2">B</h2>
-                    <p class="text-xs mb-4">The information is automatically available within the system.</p>
+                    <p class="text-xs mb-4">{{ $t("card_body.card_drop_b") }}</p>
 
                     <div v-if="sideB.length === 0" class="text-gray-400 text-center mt-8">
-                        Drag cards here
+                        {{ $t("card_body.card_drop_hint") }}
                     </div>
                     <div v-for="card in sideB" :key="card.key"
                         class="p-3 bg-white shadow rounded mb-2 text-center cursor-move" draggable="true"

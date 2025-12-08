@@ -12,7 +12,7 @@
   },
   "thank_you": {
     "not_participate": "Saya menghormati sepenuhnya keputusan yang telah Bapak/Ibu sampaikan. Terima kasih atas respons yang diberikan. Apabila di kemudian hari terdapat hal lain yang dapat saya bantu, saya dengan senang hati siap untuk dihubungi.",
-    "participate": "Thank you for your participation. May success always accompany your future endeavors."
+    "participate": "Terimakasih ataspartisipasi Anda, semoga kesuksesan selalu mengiringi rencana Anda kedepannya."
   },
   "participation_criteria": {
     "title": "Ketentuan Mengisi Kuesioner",
@@ -91,7 +91,7 @@
     }
   },
   "customer_identification": {
-    "title": "Identifikasi Pelanggan",
+    "title": "Identifikasi Pengguna",
     "question": {
       "q1": "Saya merasa nilai nilai profesional saya sebagai tenaga medis selaras dengan tujuan penerapan NIMR ",
       "q2": "Saya merasa terikat secara profesional dengan upaya pengembangan NIMR di fasilitas kesehatan tempat saya bekerja ",
@@ -101,14 +101,14 @@
     }
   },
   "customer_internalization": {
-    "title": "Internalisasi Pelanggan",
+    "title": "Internalisasi Pengguna",
     "question": {
       "q1": "Saya meyakini bahwa integrasi rekam medis nasional adalah bagian penting dari praktik medis yang aman dan berkualitas",
       "q2": "Saya memasukkan urgensi NIMR sebagai bagian dari cara saya memandang perbaikan pelanggan kesehatan di Indonesia"
     }
   },
   "customer_compliance": {
-    "title": "Kepatuhan Pelanggan",
+    "title": "Kepatuhan Pengguna",
     "question": {
       "q1": "Saya berupaya mengikuti prosedur atau kebijakan yang mendukung implementasi NIMR ketika bersedia ",
       "q2": "Saya bersedia menyesuaikan cara kerja saya jika NIMR diterapkan demi meningkatkan keselamatan pasien "
@@ -121,6 +121,13 @@
   "simulation_hint": {
     "p1": "Dalam praktik sehari-hari, kita semua pernah berhadapan dengan pasien yang datang dari berbagai fasilitas kesehatan Puskesmas, klinik, rumah sakit, bahkan fasilitas luar daerah. Sayangnya, tidak selalu riwayat medis mereka tersedia secara lengkap saat datang ke tempat kita. Kadang kita harus mengulang pemeriksaan yang sudah dilakukan sebelumnya. Kadang ada terapi yang tidak terekam. Ada riwayat alergi yang tidak terbaca. Ada obat yang diberikan dua kali tanpa disadari. Situasi ini tidak hanya menghambat kecepatan penanganan, tetapi juga berdampak langsung pada keselamatan pasien.",
     "p2": "Hari ini, Anda akan masuk ke dalam rangkaian mini-simulasi. Anda akan melihat bagaimana perbedaan informasi yang lengkap maupun yang terputus mempengaruhi proses klinis. Tidak ada jawaban benar atau salah. Anda hanya diminta mengambil keputusan seolah Anda adalah tenaga medis yang menerima pasien tersebut."
+  },
+  "card_body": {
+    "cards_title_place": "Kartu yang tersedia",
+    "card_title_empty": "Semua kartu sudah di pindahkan",
+    "card_drop_a": "Informasi harus digali ulang secara manual.",
+    "card_drop_b": "Informasi tersedia otomatis dalam sistem.",
+    "card_drop_hint": "Tarik kartu kesini"
   },
   "case1": {
     "title": "Case 1",
@@ -191,7 +198,7 @@
       "card11": "“Penanganan berulang menyebabkan waktu pelayanan lebih panjang.”",
       "card12": "“Pasien mengalami mual hebat dan diare setelah terapi antibiotik kedua.”",
       "card13": "“Evaluasi medis menemukan adanya risiko penggunaan antibiotik ganda.”",
-      "card14": "Ketidakterhubungan data antar fasilitas membuat riwayat terapi sulit dipantau.”",
+      "card14": "“Ketidakterhubungan data antar fasilitas membuat riwayat terapi sulit dipantau.”",
       "card15": "“Akses informasi yang lengkap dapat membantu penyesuaian dosis dan mencegah efek samping.”"
     },
     "results": {
