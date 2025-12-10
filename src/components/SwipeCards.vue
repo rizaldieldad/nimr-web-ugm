@@ -429,7 +429,9 @@ onUnmounted(() => {
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800"><span class="capitalize">{{ $t(`${caseKey}`) }}</span>
+                <h2 class="text-2xl font-bold text-gray-800"><span class="capitalize">Case {{
+                    $t(`${caseKey.substring(4)}`)
+                        }}</span>
                     Completed!</h2>
             </div>
 
