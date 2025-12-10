@@ -136,7 +136,7 @@ const router = createRouter({
                         },
                         {
                             path: "case3/game",
-                            component: () => import('./pages/survey/case3/Game.vue')
+                            component: () => import('./pages/survey/case3/Swipe.vue')
                         },
                         {
                             path: "case3/score",
@@ -152,7 +152,7 @@ const router = createRouter({
                         },
                         {
                             path: "case4/game",
-                            component: () => import('./pages/survey/case4/Game.vue')
+                            component: () => import('./pages/survey/case4/Swipe.vue')
                         },
                         {
                             path: "case4/score",
