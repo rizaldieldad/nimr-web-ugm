@@ -233,5 +233,20 @@
       "balanced": "“Some essential information such as the initial examination results was available, but the allergy history and prior therapies were only partially recorded. Although the clinician could still determine the direction of management, additional verification was needed to avoid selecting an inappropriate medication. While clinical decisions were still feasible, the risk of inaccuracy remained due to incomplete information.”"
     }
   },
-  "game_instruction": "Drag the card to the desired area. Press and hold the card (mouse or touch), then slide it to the target area (A or B)."
+  "game_instruction": {
+    "first": {
+      "title": "Using a mouse/touchpad, there are 2 ways:",
+      "points": {
+        "1": "Click and drag the card to the left (A) or to the right (B) using a mouse/touchpad",
+        "2": "Press the A button or the B button"
+      }
+    },
+    "second": {
+      "title": "Using a touchscreen, there are 2 ways:",
+      "points": {
+        "1": "Tap and drag the card to the left (A) or to the right (B)",
+        "2": "Press the A button or the B button"
+      }
+    }
+  }
 }

@@ -233,5 +233,20 @@
       "balanced": "“Sebagian data penting seperti hasil pemeriksaan awal tersedia, tetapi riwayat alergi dan terapi sebelumnya tidak muncul sepenuhnya. Dokter tetap dapat menentukan arah penanganan, namun diperlukan konfirmasi tambahan agar tidak salah memilih obat. Walaupun keputusan klinis masih bisa dibuat, risiko ketidaktepatan tetap ada karena informasi tidak sepenuhnya lengkap.”"
     }
   },
-  "game_instruction": "Geser kartu ke area yang diinginkan. Tekan dan tahan kartu (menggunakan mouse atau sentuhan), lalu geser ke area tujuan (A atau B)."
+  "game_instruction": {
+    "first": {
+      "title": "Menggunakan mouse/touchpad ada 2 cara:",
+      "points": {
+        "1": "Tekan dan geser kartu ke kiri (A) atau ke kanan (B) menggunakan mouse/touchpad",
+        "2": "Tekan tombol A atau tombol B"
+      }
+    },
+    "second": {
+      "title": "Menggunakan layar sentuk ada 2 cara:",
+      "points": {
+        "1": "Tekan dan geser kartu ke kiri (A) atau ke kanan (B)",
+        "2": "Tekan tombol A atau tombol B"
+      }
+    }
+  }
 }
