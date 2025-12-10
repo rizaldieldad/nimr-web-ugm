@@ -358,7 +358,7 @@ onUnmounted(() => {
                 <div class="flex items-center gap-2">
                     <!-- Sound Toggle -->
                     <button @click="toggleSound"
-                        class="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors"
+                        class="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer"
                         :class="isSoundEnabled ? 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100' : 'text-gray-400 bg-gray-50 hover:bg-gray-100'"
                         :aria-label="isSoundEnabled ? 'Mute sounds' : 'Unmute sounds'">
                         <svg v-if="isSoundEnabled" class="w-5 h-5" fill="none" stroke="currentColor"
@@ -374,7 +374,7 @@ onUnmounted(() => {
 
 
                     <button @click="toggleDescription"
-                        class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors">
+                        class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors cursor-pointer">
                         <svg :class="{ 'rotate-180': isDescriptionOpen }"
                             class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
@@ -469,7 +469,7 @@ onUnmounted(() => {
         <div v-if="!isCompleted" class="flex justify-between mt-8 mb-4">
             <div class="flex flex-col items-center space-y-3">
                 <button @click="chooseOption('A')"
-                    class="w-12 h-12 rounded-full border border-gray-300 bg-green-300 flex items-center justify-center text-xl cursor-pointer hover:bg-green-400 active:scale-95 transition-all">
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-green-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-green-400 active:scale-95 transition-all">
                     A
                 </button>
                 <p class="text-center text-slate-600 text-sm leading-tight">
@@ -479,7 +479,7 @@ onUnmounted(() => {
 
             <div class="flex flex-col items-center space-y-3">
                 <button @click="chooseOption('B')"
-                    class="w-12 h-12 rounded-full border border-gray-300 bg-red-300 flex items-center justify-center text-xl cursor-pointer hover:bg-red-400 active:scale-95 transition-all">
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-red-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-red-400 active:scale-95 transition-all">
                     B
                 </button>
                 <p class="text-center text-slate-600 text-sm leading-tight">
