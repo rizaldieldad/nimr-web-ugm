@@ -39,42 +39,40 @@ const result = () => {
 <template>
     <div class="w-full bg-white rounded-lg shadow-lg p-8 space-y-6">
         <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">{{ $t("score.title") }}</h1>
-        
+
         <div class="space-y-4">
             <!-- Side A Score -->
-            <div 
-                :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'a' ? 'winner-card-pink' : 'bg-pink-100 border-pink-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-pink' : '']"
-            >
+            <div
+                :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'a' ? 'winner-card-pink' : 'bg-pink-100 border-pink-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-pink' : '']">
                 <!-- Winner Badge -->
-                <div v-if="result() === 'a'" class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
-                    👑 
+                <div v-if="result() === 'a'"
+                    class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
+                    👑
                 </div>
-                <div>
+                <div class="max-w-1/2">
                     <span class="text-xl font-semibold text-gray-700">A</span>
                     <p class="text-xs text-gray-500 mt-1">{{ $t("score.side.a") }}</p>
                 </div>
                 <span
-                    :class="['text-3xl font-bold transition-all duration-300', result() === 'a' ? 'text-pink-700 scale-110' : 'text-pink-600']"
-                >
+                    :class="['text-3xl font-bold transition-all duration-300', result() === 'a' ? 'text-pink-700 scale-110' : 'text-pink-600']">
                     {{ formattedSideAScore }}
                 </span>
             </div>
-            
+
             <!-- Side B Score -->
-            <div 
-                :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'b' ? 'winner-card-teal' : 'bg-teal-100 border-teal-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-teal' : '']"
-            >
+            <div
+                :class="['relative flex justify-between items-center p-6 rounded-lg border-2 transition-all duration-300', result() === 'b' ? 'winner-card-teal' : 'bg-teal-100 border-teal-300 hover:shadow-md', result() === 'balanced' ? 'balanced-card-teal' : '']">
                 <!-- Winner Badge -->
-                <div v-if="result() === 'b'" class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
-                    👑 
+                <div v-if="result() === 'b'"
+                    class="absolute -top-3 -right-3 bg-yellow-100 text-yellow-900 font-bold px-3 py-1 rounded-full shadow-lg">
+                    👑
                 </div>
-                <div>
+                <div class="max-w-1/2">
                     <span class="text-xl font-semibold text-gray-700">B</span>
                     <p class="text-xs text-gray-500 mt-1">{{ $t("score.side.b") }}</p>
                 </div>
                 <span
-                    :class="['text-3xl font-bold transition-all duration-300', result() === 'b' ? 'text-teal-700 scale-110' : 'text-teal-600']"
-                >
+                    :class="['text-3xl font-bold transition-all duration-300', result() === 'b' ? 'text-teal-700 scale-110' : 'text-teal-600']">
                     {{ formattedSideBScore }}
                 </span>
             </div>
@@ -97,7 +95,7 @@ const result = () => {
     background: linear-gradient(145deg, #fce7f3, #fbcfe8);
     border-color: #ec4899;
     border-width: 3px;
-    box-shadow: 
+    box-shadow:
         0 10px 25px -5px rgba(236, 72, 153, 0.3),
         0 8px 10px -6px rgba(236, 72, 153, 0.2),
         inset 0 2px 4px rgba(255, 255, 255, 0.6);
@@ -107,7 +105,7 @@ const result = () => {
 
 .winner-card-pink:hover {
     transform: scale(1.08) translateY(-10px);
-    box-shadow: 
+    box-shadow:
         0 15px 35px -5px rgba(236, 72, 153, 0.4),
         0 12px 15px -6px rgba(236, 72, 153, 0.3),
         inset 0 2px 4px rgba(255, 255, 255, 0.6);
@@ -118,7 +116,7 @@ const result = () => {
     background: linear-gradient(145deg, #ccfbf1, #99f6e4);
     border-color: #14b8a6;
     border-width: 3px;
-    box-shadow: 
+    box-shadow:
         0 10px 25px -5px rgba(20, 184, 166, 0.3),
         0 8px 10px -6px rgba(20, 184, 166, 0.2),
         inset 0 2px 4px rgba(255, 255, 255, 0.6);
@@ -128,7 +126,7 @@ const result = () => {
 
 .winner-card-teal:hover {
     transform: scale(1.08) translateY(-10px);
-    box-shadow: 
+    box-shadow:
         0 15px 35px -5px rgba(20, 184, 166, 0.4),
         0 12px 15px -6px rgba(20, 184, 166, 0.3),
         inset 0 2px 4px rgba(255, 255, 255, 0.6);
@@ -138,7 +136,7 @@ const result = () => {
 .balanced-card-pink {
     background: linear-gradient(145deg, #fce7f3, #fbcfe8);
     border-color: #ec4899;
-    box-shadow: 
+    box-shadow:
         0 6px 15px -3px rgba(236, 72, 153, 0.2),
         inset 0 2px 4px rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
@@ -147,7 +145,7 @@ const result = () => {
 .balanced-card-teal {
     background: linear-gradient(145deg, #ccfbf1, #99f6e4);
     border-color: #14b8a6;
-    box-shadow: 
+    box-shadow:
         0 6px 15px -3px rgba(20, 184, 166, 0.2),
         inset 0 2px 4px rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
@@ -155,9 +153,12 @@ const result = () => {
 
 /* Float Animation */
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1.05) translateY(-8px);
     }
+
     50% {
         transform: scale(1.05) translateY(-12px);
     }
@@ -165,10 +166,13 @@ const result = () => {
 
 /* Pulse Animation for Badge */
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
         transform: scale(1);
     }
+
     50% {
         opacity: 0.8;
         transform: scale(1.05);

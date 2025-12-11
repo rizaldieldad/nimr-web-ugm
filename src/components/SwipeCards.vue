@@ -206,7 +206,7 @@ const handleTouchEnd = (e) => {
 
 const chooseOption = (option) => {
     // Prevent multiple simultaneous calls
-    if (isAnimating.value || isCompleted.value) return 
+    if (isAnimating.value || isCompleted.value) return
 
     isAnimating.value = true
 
@@ -367,8 +367,8 @@ onUnmounted(() => {
     <div class="max-w-3xl mx-auto min-h-screen flex flex-col justify-center  p-4 md:p-8 space-y-6">
         <!-- Page Header -->
         <div class="flex flex-col">
-            <div class="flex items-center justify-between mb-4">
-                <h1 class="text-3xl md:text-4xl font-bold text-indigo-600">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-4">
+                <h1 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-3 md:mb-0">
                     {{ t(`${caseKey}.title`) }}
                 </h1>
                 <div class="flex items-center gap-2">
@@ -418,7 +418,8 @@ onUnmounted(() => {
         <!-- Progress Indicator & Undo Button -->
         <div v-if="!isCompleted" class="flex items-center justify-center space-x-4">
             <span class="text-sm text-gray-600" role="status" aria-live="polite">
-                {{ $t("cards_info.card") }} {{ currentCardIndex + 1 }} {{ $t("cards_info.conjunction") }} {{ cards.length }}
+                {{ $t("cards_info.card") }} {{ currentCardIndex + 1 }} {{ $t("cards_info.conjunction") }} {{
+                    cards.length }}
             </span>
 
             <!-- Undo Button -->
@@ -445,7 +446,8 @@ onUnmounted(() => {
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800">{{ $t(`${caseKey}.title`) }} {{ $t('cards_info.completed') }}</h2>
+                <h2 class="text-2xl font-bold text-gray-800">{{ $t(`${caseKey}.title`) }} {{ $t('cards_info.completed')
+                    }}</h2>
             </div>
 
             <!-- Next Button -->
