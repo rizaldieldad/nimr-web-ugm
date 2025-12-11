@@ -14,6 +14,7 @@ const isDescriptionOpen = ref(false)
 const isCompleted = ref(false)
 const history = ref([]) // Track decision history for undo
 const isSoundEnabled = ref(true)
+const isAnimating = ref(false)
 
 // Audio context for sound effects
 let audioContext = null;
@@ -143,7 +144,7 @@ const currentCardText = computed(() => {
 })
 
 // Check if undo is available
-const canUndo = computed(() => history.value.length > 0 && !isCompleted.value)
+const canUndo = computed(() => history.value.length > 0 && !isCompleted.value && !isAnimating.value)
 
 // Check if case is completed 
 const checkIfCompleted = () => {
@@ -169,20 +170,23 @@ const resetIfIncomplete = () => {
 }
 
 const handleTouchStart = (e) => {
+    // Prevent interaction during animation
+    if (isAnimating.value) return
+
     isDragging.value = true;
     startX.value = e.touches ? e.touches[0].clientX : e.clientX;
     currentX.value = startX.value;
 };
 
 const handleTouchMove = (e) => {
-    if (!isDragging.value) return;
+    if (!isDragging.value || isAnimating.value) return;
 
     currentX.value = e.touches ? e.touches[0].clientX : e.clientX;
     offset.value = currentX.value - startX.value;
 };
 
 const handleTouchEnd = (e) => {
-    if (!isDragging.value) return;
+    if (!isDragging.value || isAnimating.value) return;
 
     const swipeThreshold = 100;
 
@@ -201,6 +205,11 @@ const handleTouchEnd = (e) => {
 };
 
 const chooseOption = (option) => {
+    // Prevent multiple simultaneous calls
+    if (isAnimating.value || isCompleted.value) return 
+
+    isAnimating.value = true
+
     // Play swipe sound
     playSwipeSound(option);
 
@@ -231,12 +240,14 @@ const chooseOption = (option) => {
 
         // Reset card position
         offset.value = 0;
+        isAnimating.value = false
     }, 300);
 };
 
 const undoLastChoice = () => {
     if (!canUndo.value) return;
 
+    isAnimating.value = true
     playUndoSound();
 
     // Get last decision
@@ -257,6 +268,11 @@ const undoLastChoice = () => {
     // Go back to that card
     currentCardIndex.value = lastDecision.cardIndex
     offset.value = 0
+
+    // Small delay to allow visual feedback
+    setTimeout(() => {
+        isAnimating.value = false;
+    }, 150)
 };
 
 const saveAnswer = (option) => {
@@ -307,12 +323,12 @@ const getOverlayStyle = (side) => {
 };
 
 const handleKeydown = (e) => {
-    if (isCompleted.value) return;
+    if (isCompleted.value || isAnimating.value) return;
 
-    if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+    if (e.key === 'ArrowLeft') {
         e.preventDefault();
         chooseOption('A');
-    } else if (e.key === 'ArrowRight' || e.key === 'b' || e.key === 'B') {
+    } else if (e.key === 'ArrowRight') {
         e.preventDefault();
         chooseOption('B');
     } else if ((e.key === 'z' || e.key === 'Z') && (e.ctrlKey || e.metaKey)) {
@@ -358,7 +374,7 @@ onUnmounted(() => {
                 <div class="flex items-center gap-2">
                     <!-- Sound Toggle -->
                     <button @click="toggleSound"
-                        class="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors"
+                        class="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer"
                         :class="isSoundEnabled ? 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100' : 'text-gray-400 bg-gray-50 hover:bg-gray-100'"
                         :aria-label="isSoundEnabled ? 'Mute sounds' : 'Unmute sounds'">
                         <svg v-if="isSoundEnabled" class="w-5 h-5" fill="none" stroke="currentColor"
@@ -374,13 +390,13 @@ onUnmounted(() => {
 
 
                     <button @click="toggleDescription"
-                        class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors">
+                        class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-indigo-600 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors cursor-pointer">
                         <svg :class="{ 'rotate-180': isDescriptionOpen }"
                             class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
-                        <span>{{ isDescriptionOpen ? 'Hide' : 'Show' }} Case</span>
+                        <span>{{ isDescriptionOpen ? $t("buttons.hide_case") : $t("buttons.show_case") }}</span>
                     </button>
                 </div>
             </div>
@@ -402,7 +418,7 @@ onUnmounted(() => {
         <!-- Progress Indicator & Undo Button -->
         <div v-if="!isCompleted" class="flex items-center justify-center space-x-4">
             <span class="text-sm text-gray-600" role="status" aria-live="polite">
-                Card {{ currentCardIndex + 1 }} of {{ cards.length }}
+                {{ $t("cards_info.card") }} {{ currentCardIndex + 1 }} {{ $t("cards_info.conjunction") }} {{ cards.length }}
             </span>
 
             <!-- Undo Button -->
@@ -415,7 +431,7 @@ onUnmounted(() => {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                 </svg>
-                <span>Undo</span>
+                <span>{{ $t("buttons.undo") }}</span>
             </button>
         </div>
 
@@ -429,7 +445,7 @@ onUnmounted(() => {
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800">Case {{ caseKey.substring(4) }} Completed!</h2>
+                <h2 class="text-2xl font-bold text-gray-800">{{ $t(`${caseKey}.title`) }} {{ $t('cards_info.completed') }}</h2>
             </div>
 
             <!-- Next Button -->
@@ -443,7 +459,8 @@ onUnmounted(() => {
             <div :style="getCardStyle()" @touchstart.prevent="handleTouchStart" @touchmove.prevent="handleTouchMove"
                 @touchend.prevent="handleTouchEnd" @mousedown="handleTouchStart" @mousemove="handleTouchMove"
                 @mouseup="handleTouchEnd" @mouseleave="handleTouchEnd"
-                class="bg-amber-50 px-12 py-10 rounded-xl shadow-md shadow-slate-100 cursor-grab active:cursor-grabbing relative touch-none">
+                class="bg-amber-50 px-12 py-10 rounded-xl shadow-md shadow-slate-100 cursor-grab active:cursor-grabbing relative touch-none"
+                :class="{ 'pointer-events-none': isAnimating }">
                 <!-- Left Overlay (A) -->
                 <div :style="getOverlayStyle('left')"
                     class="absolute inset-0 bg-green-300 rounded-xl flex items-center justify-center pointer-events-none">
@@ -468,8 +485,9 @@ onUnmounted(() => {
         <!-- Buttons -->
         <div v-if="!isCompleted" class="flex justify-between mt-8 mb-4">
             <div class="flex flex-col items-center space-y-3">
-                <button @click="chooseOption('A')"
-                    class="w-12 h-12 rounded-full border border-gray-300 bg-green-300 flex items-center justify-center text-xl cursor-pointer hover:bg-green-400 active:scale-95 transition-all">
+                <button @click="chooseOption('A')" :disabled="isAnimating"
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-green-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-green-400 active:scale-95 transition-all"
+                    :class="{ 'opacity-50 cursor-not-allowed': isAnimating }">
                     A
                 </button>
                 <p class="text-center text-slate-600 text-sm leading-tight">
@@ -478,8 +496,9 @@ onUnmounted(() => {
             </div>
 
             <div class="flex flex-col items-center space-y-3">
-                <button @click="chooseOption('B')"
-                    class="w-12 h-12 rounded-full border border-gray-300 bg-red-300 flex items-center justify-center text-xl cursor-pointer hover:bg-red-400 active:scale-95 transition-all">
+                <button @click="chooseOption('B')" :disabled="isAnimating"
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-red-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-red-400 active:scale-95 transition-all"
+                    :class="{ 'opacity-50 cursor-not-allowed': isAnimating }">
                     B
                 </button>
                 <p class="text-center text-slate-600 text-sm leading-tight">

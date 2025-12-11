@@ -283,6 +283,9 @@ router.beforeEach((to, from, next) => {
 
 const app = createApp(App)
 
+// enable vue devtools for development
+app.config.devtools = true 
+
 app.use(router)
 app.use(i18n)
 app.use(pinia)

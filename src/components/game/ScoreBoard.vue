@@ -38,7 +38,7 @@ const result = () => {
 
 <template>
     <div class="w-full bg-white rounded-lg shadow-lg p-8 space-y-6">
-        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">Your Score</h1>
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">{{ $t("score.title") }}</h1>
         
         <div class="space-y-4">
             <!-- Side A Score -->
@@ -51,7 +51,7 @@ const result = () => {
                 </div>
                 <div>
                     <span class="text-xl font-semibold text-gray-700">A</span>
-                    <p class="text-xs text-gray-500 mt-1">Re-elicited manually</p>
+                    <p class="text-xs text-gray-500 mt-1">{{ $t("score.side.a") }}</p>
                 </div>
                 <span
                     :class="['text-3xl font-bold transition-all duration-300', result() === 'a' ? 'text-pink-700 scale-110' : 'text-pink-600']"
@@ -70,7 +70,7 @@ const result = () => {
                 </div>
                 <div>
                     <span class="text-xl font-semibold text-gray-700">B</span>
-                    <p class="text-xs text-gray-500 mt-1">Automatically available</p>
+                    <p class="text-xs text-gray-500 mt-1">{{ $t("score.side.b") }}</p>
                 </div>
                 <span
                     :class="['text-3xl font-bold transition-all duration-300', result() === 'b' ? 'text-teal-700 scale-110' : 'text-teal-600']"
@@ -80,7 +80,7 @@ const result = () => {
             </div>
 
             <!-- Result based on scores -->
-            <h3 class="font-bold text-lg text-gray-600">🔹 Based on your score:</h3>
+            <h3 class="font-bold text-lg text-gray-600">🔹 {{ $t("score.sub_title") }}</h3>
             <p class="text-justify">{{ $t(`${props.caseKey}.results.${result()}`) }}</p>
         </div>
     </div>
