@@ -21,7 +21,7 @@ const props = defineProps({
             </h1>
 
             <div class="p-5 bg-blue-50 border-2 border-blue-400 rounded-xl shadow-md">
-                <span class="block text-xl font-extrabold text-blue-700 text-center">⚠️ INSTRUCTION</span>
+                <span class="block text-xl font-extrabold text-blue-700 text-center">⚠️ {{ $t("instruction") }}</span>
                 
                 <div>
                     <p class="text-base font-medium mt-4 mb-2">
