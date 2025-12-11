@@ -325,10 +325,10 @@ const getOverlayStyle = (side) => {
 const handleKeydown = (e) => {
     if (isCompleted.value || isAnimating.value) return;
 
-    if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+    if (e.key === 'ArrowLeft') {
         e.preventDefault();
         chooseOption('A');
-    } else if (e.key === 'ArrowRight' || e.key === 'b' || e.key === 'B') {
+    } else if (e.key === 'ArrowRight') {
         e.preventDefault();
         chooseOption('B');
     } else if ((e.key === 'z' || e.key === 'Z') && (e.ctrlKey || e.metaKey)) {
