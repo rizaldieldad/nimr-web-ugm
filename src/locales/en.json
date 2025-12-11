@@ -8,7 +8,10 @@
     "back": "back to case",
     "yes": "YES",
     "no": "NO",
-    "finish": "FINISH"
+    "finish": "FINISH",
+    "show_case": "Show Case",
+    "hide_case": "Hide Case",
+    "undo": "Undo"
   },
   "thank_you": {
     "not_participate": "I fully respect the decision you have made. Thank you for your response. Should there be anything I can assist you with in the future, please do not hesitate to contact me.",
@@ -233,6 +236,7 @@
       "balanced": "“Some essential information such as the initial examination results was available, but the allergy history and prior therapies were only partially recorded. Although the clinician could still determine the direction of management, additional verification was needed to avoid selecting an inappropriate medication. While clinical decisions were still feasible, the risk of inaccuracy remained due to incomplete information.”"
     }
   },
+  "instruction": "Instruction",
   "game_instruction": {
     "first": {
       "title": "Using a mouse/touchpad, there are 2 ways:",
@@ -248,5 +252,18 @@
         "2": "Press the A button or the B button"
       }
     }
+  },
+  "cards_info": {
+    "card": "Card",
+    "conjunction": "of",
+    "completed": "Completed"
+  },
+  "score": {
+    "title": "Your Score",
+    "side": {
+      "a": "The information must be re-elicited manually.",
+      "b": "The information is automatically available within the system."
+    },
+    "sub_title": "Based on your score:"
   }
 }

@@ -8,7 +8,10 @@
     "back": "kembali ke kasus",
     "yes": "YA",
     "no": "TIDAK",
-    "finish": "SELESAI"
+    "finish": "SELESAI",
+    "show_case": "Tampilkan Kasus",
+    "hide_case": "Sembunyikan Kasus",
+    "undo": "Batalkan Jawaban"
   },
   "thank_you": {
     "not_participate": "Saya menghormati sepenuhnya keputusan yang telah Bapak/Ibu sampaikan. Terima kasih atas respons yang diberikan. Apabila di kemudian hari terdapat hal lain yang dapat saya bantu, saya dengan senang hati siap untuk dihubungi.",
@@ -130,7 +133,7 @@
     "card_drop_hint": "Tarik kartu kesini"
   },
   "case1": {
-    "title": "Case 1",
+    "title": "Studi Kasus 1",
     "description": "Seorang pasien datang ke rumah sakit dengan keluhan lemas berat dan luka kaki yang tidak kunjung sembuh. Dari keluarga, baru diketahui bahwa pasien memiliki Diabetes Mellitus Tipe 2 selama lebih dari lima tahun. Namun informasi penting tersebut tidak muncul otomatis di sistem karena tidak terhubung dengan NIMR. Pemeriksaan pun harus dimulai ulang: kontrol gula darah, pemeriksaan luka, dan evaluasi pengobatan. Beberapa waktu sebelumnya, pasien juga sempat mendapat antibiotik di fasilitas kesehatan lain. Tak lama setelah pemberian obat, muncul reaksi alergi berat. Setelah ditelusuri, riwayat alergi itu sebenarnya sudah tercatat di rumah sakit lain tetapi tidak terbaca di sistem saat ini. Ketiadaan integrasi membuat proses klinis tertunda, pilihan terapi tidak optimal, dan penanganan antar fasilitas menjadi tidak selaras.",
     "cards_text": {
       "card1": "“Keluhan utama: tubuh lemas dan luka kaki kanan tidak membaik selama 3 minggu.”",
@@ -156,7 +159,7 @@
     }
   },
   "case2": {
-    "title": "Case 2",
+    "title": "Studi Kasus 2",
     "description": "Seorang pria 40 tahun datang ke UGD dengan sesak napas berat. Ia memiliki riwayat asma persisten yang sebelumnya ditangani di rumah sakit lain. Dalam satu bulan terakhir, pasien kembali mengalami perburukan gejala setelah memperoleh terapi berbeda dari sebuah klinik swasta. Karena tidak ada akses lintas fasilitas, dokter rumah sakit tidak mengetahui bahwa pasien sudah mendapat obat asma dengan dosis tinggi. Kombinasi terapi dari dua fasilitas menyebabkan efek samping seperti takikardia dan iritasi lambung. Dari audit internal, tim medis menyimpulkan bahwa masalah ini dapat dicegah apabila riwayat terapi pasien otomatis tersedia melalui sistem NIMR yang terhubung antar fasilitas.",
     "cards_text": {
       "card1": "“Keluhan utama: sesak napas berat dan pasien tampak sulit berbicara panjang.”",
@@ -182,7 +185,7 @@
     }
   },
   "case3": {
-    "title": "Case 3",
+    "title": "Studi Kasus 3",
     "description": "Seorang anak dibawa ke IGD dengan demam tinggi dan nyeri menelan. Orang tua menyampaikan bahwa anak ini baru saja diperiksakan di dua klinik berbeda dalam beberapa hari terakhir. Namun, karena tidak ada integrasi data antar fasilitas, dokter IGD tidak bisa melihat pemeriksaan atau terapi sebelumnya, sehingga seluruh proses harus diulang, termasuk pemeriksaan laboratorium. Beberapa hari kemudian, anak kembali berobat ke fasilitas lain dan tanpa disadari menerima antibiotik kedua. Karena tidak ada akses terhadap riwayat obat sebelumnya, dokter rumah sakit tidak mengetahui paparan antibiotik tersebut. Terapi ganda ini menimbulkan mual hebat dan diare. Evaluasi medis menunjukkan bahwa efek ini dapat dicegah jika riwayat pengobatan pasien dapat diakses lintas fasilitas.",
     "cards_text": {
       "card1": "“Keluhan utama: demam tinggi dan nyeri menelan selama beberapa hari.”",
@@ -208,7 +211,7 @@
     }
   },
   "case4": {
-    "title": "Case 4",
+    "title": "Studi Kasus 4",
     "description": "Seorang pasien datang ke Puskesmas dengan demam tinggi dan batuk berdahak. Ia belum pernah tercatat di fasilitas tersebut, dan karena tidak ada rekam medis terintegrasi, petugas tidak mengetahui riwayat penyakit, alergi obat, maupun pengobatan yang sedang dijalani. Diagnosis harus dilakukan dari awal, dan pemilihan terapi menjadi lebih lambat karena dokter harus berhati-hati tanpa riwayat lengkap. Dua minggu kemudian, pasien datang ke rumah sakit dengan keluhan ruam kulit dan mual menetap. Belakangan diketahui bahwa pasien sebelumnya mengonsumsi obat yang memicu alergi ringan. Namun karena data antar fasilitas tidak terhubung, pasien kembali menerima obat yang sama sehingga gejalanya memburuk. Evaluasi medis menegaskan bahwa ketiadaan riwayat alergi yang dapat diakses lintas fasilitas menjadi faktor utama terjadinya kesalahan terapi.",
     "cards_text": {
       "card1": "“Keluhan utama: demam tinggi dan batuk berdahak selama beberapa hari.”",
@@ -233,6 +236,7 @@
       "balanced": "“Sebagian data penting seperti hasil pemeriksaan awal tersedia, tetapi riwayat alergi dan terapi sebelumnya tidak muncul sepenuhnya. Dokter tetap dapat menentukan arah penanganan, namun diperlukan konfirmasi tambahan agar tidak salah memilih obat. Walaupun keputusan klinis masih bisa dibuat, risiko ketidaktepatan tetap ada karena informasi tidak sepenuhnya lengkap.”"
     }
   },
+  "instruction": "Instruksi",
   "game_instruction": {
     "first": {
       "title": "Menggunakan mouse/touchpad ada 2 cara:",
@@ -248,5 +252,18 @@
         "2": "Tekan tombol A atau tombol B"
       }
     }
+  },
+  "cards_info": {
+    "card": "Kartu",
+    "conjunction": "dari",
+    "completed": "Selesai"
+  },
+  "score": {
+    "title": "Hasil Kamu",
+    "side": {
+      "a": "Informasi harus digali ulang secara manual",
+      "b": "Informasi tersedia otomatis dalam sistem"
+    },
+    "sub_title": "Berdasarkan hasil kamu"
   }
 }
