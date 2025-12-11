@@ -380,7 +380,7 @@ onUnmounted(() => {
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
-                        <span>{{ isDescriptionOpen ? 'Hide' : 'Show' }} Case</span>
+                        <span>{{ isDescriptionOpen ? $t("buttons.hide_case") : $t("buttons.show_case") }}</span>
                     </button>
                 </div>
             </div>
@@ -402,7 +402,7 @@ onUnmounted(() => {
         <!-- Progress Indicator & Undo Button -->
         <div v-if="!isCompleted" class="flex items-center justify-center space-x-4">
             <span class="text-sm text-gray-600" role="status" aria-live="polite">
-                Card {{ currentCardIndex + 1 }} of {{ cards.length }}
+                {{ $t("cards_info.card") }} {{ currentCardIndex + 1 }} {{ $t("cards_info.conjunction") }} {{ cards.length }}
             </span>
 
             <!-- Undo Button -->
@@ -415,7 +415,7 @@ onUnmounted(() => {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                 </svg>
-                <span>Undo</span>
+                <span>{{ $t("buttons.undo") }}</span>
             </button>
         </div>
 
@@ -429,7 +429,7 @@ onUnmounted(() => {
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800">Case {{ caseKey.substring(4) }} Completed!</h2>
+                <h2 class="text-2xl font-bold text-gray-800">{{ $t(`${caseKey}.title`) }} {{ $t('cards_info.completed') }}</h2>
             </div>
 
             <!-- Next Button -->
