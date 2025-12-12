@@ -12,7 +12,8 @@
     "show_case": "Show Case",
     "hide_case": "Hide Case",
     "undo": "Undo",
-    "restart": "Reset and Restart Survey"
+    "restart": "Reset and Restart Survey",
+    "period": "Select Period"
   },
   "thank_you": {
     "not_participate": "I fully respect the decision you have made. Thank you for your response. Should there be anything I can assist you with in the future, please do not hesitate to contact me.",
