@@ -11,7 +11,8 @@
     "finish": "FINISH",
     "show_case": "Show Case",
     "hide_case": "Hide Case",
-    "undo": "Undo"
+    "undo": "Undo",
+    "restart": "Reset and Restart Survey"
   },
   "thank_you": {
     "not_participate": "I fully respect the decision you have made. Thank you for your response. Should there be anything I can assist you with in the future, please do not hesitate to contact me.",
@@ -50,7 +51,12 @@
       },
       "length_employment": {
         "title": "Length of Employment",
-        "placeholder": "Example: 5 years"
+        "placeholder": "Example: 5",
+        "dropdown": {
+          "weeks": "weeks",
+          "months": "months",
+          "years": "years"
+        }
       }
     },
     "errors": {
@@ -72,7 +78,7 @@
       },
       "affiliation": {
         "required": "Affiliation is required!",
-        "min": "Affiliation must be at least 5 characters!"
+        "min": "Affiliation must be at least 3 characters!"
       },
       "occupation": {
         "required": "Occupation is required!"

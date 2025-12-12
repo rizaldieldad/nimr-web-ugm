@@ -11,6 +11,10 @@ const { surveyState, startSurvey } = useSurvey()
 const { t } = useI18n()
 const isLoading = ref(false);
 
+// Separate ref for length employment
+const employmentLengthNumber = ref("")
+const employmentLengthPeriod = ref("")
+
 // Validation states
 const errors = ref({
     fullNameTitle: '',
@@ -24,6 +28,15 @@ const errors = ref({
 
 onMounted(() => {
     startSurvey()
+
+    // Parse existing value if it exists
+    if (surveyState.respondentInfo.lengthEmployment) {
+        const match = surveyState.respondentInfo.lengthEmployment.match(/^(\d+)\s*(weeks?|months?|years?)$/i)
+        if (match) {
+            employmentLengthNumber.value = match[1]
+            employmentLengthPeriod.value = match[2].toLowerCase()
+        }
+    }
 })
 
 // Function for validate full name - minimun 5 characters
@@ -43,7 +56,7 @@ const validateFullName = () => {
     return true
 }
 
-// Function for validate affiliation - minimun 5 characters
+// Function for validate affiliation - minimun 3 characters
 const validateAffiliation = () => {
     const affiliation = surveyState.respondentInfo.affiliation
     if(!affiliation) {
@@ -51,7 +64,7 @@ const validateAffiliation = () => {
         return false
     }
 
-    if (affiliation.length < 5) {
+    if (affiliation.length < 3) {
         errors.value.affiliation = t('personal_data.errors.affiliation.min')
         return false
     }
@@ -127,14 +140,40 @@ const validateOccupation = () => {
 
 // Function for validate length of employment
 const validateLengthEmployment = () => {
-    const lengthEmployment = surveyState.respondentInfo.lengthEmployment
-    if (!lengthEmployment) {
+    if (!employmentLengthNumber.value) {
+        errors.value.lengthEmployment = t('personal_data.errors.length_employment.required')
+        return false
+    }
+
+    if (!employmentLengthPeriod.value) {
         errors.value.lengthEmployment = t('personal_data.errors.length_employment.required')
         return false
     }
 
     errors.value.lengthEmployment = ""
     return true
+}
+
+// Handle employment length number input: only numbers
+const handleEmploymentLengthNumber = (event) => {
+    const value = event.target.value
+
+    // Remove any non digit character
+    employmentLengthNumber.value = value.replace(/\D/g, "")
+    updateLengthEmployment()
+}
+
+const handleEmploymentLengthPeriodChange = () => {
+    updateLengthEmployment()
+} 
+
+const updateLengthEmployment = () => {
+    if (employmentLengthNumber.value && employmentLengthPeriod.value) {
+        surveyState.respondentInfo.lengthEmployment = `${employmentLengthNumber.value} ${employmentLengthPeriod.value}`
+        validateLengthEmployment()
+    } else {
+        surveyState.respondentInfo.lengthEmployment = ""
+    }
 }
 
 // Restrict age input to numbers only
@@ -420,32 +459,41 @@ const handleSubmit = () => {
 
                         <!-- Field: Length of Employment -->
                         <div class="relative w-72">
-                        <input
-                            v-model="surveyState.respondentInfo.lengthEmployment"
-                            @blur="validateLengthEmployment"
-                            @input="validateLengthEmployment"
-                            type="text"
-                            id="ln_of_employment"
-                            :placeholder="
-                            $t('personal_data.fields.length_employment.placeholder')
-                            "
-                            :class="[
-                              'peer w-full border-2 rounded-full px-8 pt-10 pb-2 focus:outline-none',
-                              errors.lengthEmployment ? 'border-red-500 focus:border-red-500' : 'border-pink-300 focus:border-pink-500'
-                            ]"
-                        />
-                        <label
-                            for="ln_of_employment"
-                            :class="[
-                              'absolute left-8 top-4 italic text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm',
-                              errors.lengthEmployment ? 'text-red-500' : 'text-gray-500 peer-placeholder-shown:text-gray-400'
-                            ]"
-                        >
-                            {{ $t("personal_data.fields.length_employment.title") }}
-                        </label>
-                        <p v-if="errors.lengthEmployment" class="text-red-500 text-xs mt-1 ml-8">
-                          {{ errors.lengthEmployment }}
-                        </p>
+                            <div class="flex w-full gap-x-4">
+                                <label
+                                    for="ln_of_employment"
+                                    :class="[
+                                    'absolute left-8 top-4 italic text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm',
+                                    errors.lengthEmployment ? 'text-red-500' : 'text-gray-500 peer-placeholder-shown:text-gray-400'
+                                    ]"
+                                >
+                                    {{ $t("personal_data.fields.length_employment.title") }}
+                                </label>
+                                <div class="flex w-full gap-x-2">
+                                    <input 
+                                        type="text" 
+                                        v-model="employmentLengthNumber" @blur="validateLengthEmployment" @input="handleEmploymentLengthNumber" 
+                                        inputmode="numeric"
+                                        id="ln_of_employment" 
+                                        placeholder="" 
+                                        :class="['px-8 pt-10 pb-2 border-2 border-pink-300 rounded-full focus:outline-none', errors.lengthEmployment ? 'border-red-500 focus:border-red-500' : 'border-pink-300 focus:border-pink-500']"
+                                    >
+                                    <select 
+                                        v-model="employmentLengthPeriod"
+                                        @change="handleEmploymentLengthPeriodChange"
+                                        @blur="validateLengthEmployment"
+                                        class="absolute top-11 right-6 text-sm focus:outline-none cursor-pointer"
+                                    >
+                                        <option value="" disabled selected>Choose Period</option>
+                                        <option value="weeks">{{ $t('personal_data.fields.length_employment.dropdown.weeks') }}</option>
+                                        <option value="months">{{ $t('personal_data.fields.length_employment.dropdown.months') }}</option>
+                                        <option value="years">{{ $t('personal_data.fields.length_employment.dropdown.years') }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p v-if="errors.lengthEmployment" class="text-red-500 text-xs mt-1 ml-8">
+                                {{ errors.lengthEmployment }}
+                            </p>
                         </div>
                     </div>
                     </div>

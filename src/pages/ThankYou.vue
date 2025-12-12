@@ -1,4 +1,22 @@
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router"
+import { useSurvey } from "../stores/useSurvey"
+
+const router = useRouter()
+const { clearSurvey } = useSurvey()
+
+const handleRestartSurvey = () => {
+    // Clear all state
+    clearSurvey()
+
+    // Clear localStorage and sessionStorage
+    localStorage.clear()
+    sessionStorage.clear()
+
+    // Redirect to home page
+    router.push("/")
+}
+</script>
 
 <template>
     <section
@@ -11,9 +29,16 @@
                     src="../assets/images/thankyou/thankyou2.png"
                     alt=""
                 />
-                <p class="text-2xl md:text-3xl lg:text-5xl text-[#8ca6e3] font-extrabold">
-                    {{ $t("thank_you.participate") }}
-                </p>
+                <div class="flex flex-col gap-y-6">
+                    <p class="text-2xl md:text-3xl lg:text-5xl text-[#8ca6e3] font-extrabold">
+                        {{ $t("thank_you.participate") }}
+                    </p>
+                    <button
+                        @click="handleRestartSurvey" 
+                        class="px-6 py-4 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-full cursor-pointer transition-colors">
+                            {{ $t('buttons.restart') }}
+                    </button>
+                </div>
             </div>
         </div>   
     </section>

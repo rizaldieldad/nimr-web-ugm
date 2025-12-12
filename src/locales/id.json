@@ -11,7 +11,8 @@
     "finish": "SELESAI",
     "show_case": "Tampilkan Kasus",
     "hide_case": "Sembunyikan Kasus",
-    "undo": "Batalkan Jawaban"
+    "undo": "Batalkan Jawaban",
+    "restart": "Reset dan Mulai Ulang Survei"
   },
   "thank_you": {
     "not_participate": "Saya menghormati sepenuhnya keputusan yang telah Bapak/Ibu sampaikan. Terima kasih atas respons yang diberikan. Apabila di kemudian hari terdapat hal lain yang dapat saya bantu, saya dengan senang hati siap untuk dihubungi.",
@@ -50,7 +51,12 @@
       },
       "length_employment": {
         "title": "Lama Bekerja",
-        "placeholder": "Contoh: 5 tahun"
+        "placeholder": "Contoh: 5",
+        "dropdown": {
+          "weeks": "minggu",
+          "months": "bulan",
+          "years": "tahun"
+        }
       }
     },
     "errors": {
@@ -72,7 +78,7 @@
       },
       "affiliation": {
         "required": "Afiliasi wajib diisi!",
-        "min": "Afiliasi minimal 5 karakter!"
+        "min": "Afiliasi minimal 3 karakter!"
       },
       "occupation": {
         "required": "Pekerjaan wajib diisi!"
