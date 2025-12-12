@@ -484,7 +484,7 @@ const handleSubmit = () => {
                                         @blur="validateLengthEmployment"
                                         class="absolute top-11 right-6 text-sm focus:outline-none cursor-pointer"
                                     >
-                                        <option value="" disabled selected>Choose Period</option>
+                                        <option value="" disabled selected>{{ $t('buttons.period') }}</option>
                                         <option value="weeks">{{ $t('personal_data.fields.length_employment.dropdown.weeks') }}</option>
                                         <option value="months">{{ $t('personal_data.fields.length_employment.dropdown.months') }}</option>
                                         <option value="years">{{ $t('personal_data.fields.length_employment.dropdown.years') }}</option>
