@@ -51,7 +51,12 @@
       },
       "length_employment": {
         "title": "Lama Bekerja",
-        "placeholder": "Contoh: 5 tahun"
+        "placeholder": "Contoh: 5",
+        "dropdown": {
+          "weeks": "minggu",
+          "months": "bulan",
+          "years": "tahun"
+        }
       }
     },
     "errors": {
@@ -73,7 +78,7 @@
       },
       "affiliation": {
         "required": "Afiliasi wajib diisi!",
-        "min": "Afiliasi minimal 5 karakter!"
+        "min": "Afiliasi minimal 3 karakter!"
       },
       "occupation": {
         "required": "Pekerjaan wajib diisi!"

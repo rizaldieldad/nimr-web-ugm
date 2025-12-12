@@ -51,7 +51,12 @@
       },
       "length_employment": {
         "title": "Length of Employment",
-        "placeholder": "Example: 5 years"
+        "placeholder": "Example: 5",
+        "dropdown": {
+          "weeks": "weeks",
+          "months": "months",
+          "years": "years"
+        }
       }
     },
     "errors": {
@@ -73,7 +78,7 @@
       },
       "affiliation": {
         "required": "Affiliation is required!",
-        "min": "Affiliation must be at least 5 characters!"
+        "min": "Affiliation must be at least 3 characters!"
       },
       "occupation": {
         "required": "Occupation is required!"
