@@ -3,7 +3,7 @@ import { reactive, watch } from "vue"
 
 export const useSurvey = defineStore("survey", () => {
     // Define the current version of your data structure
-    const CURRENT_VERSION = "3.0.0"
+    const CURRENT_VERSION = "2.0.0"
 
     // Function to validate if the stored data has the correct structure
     const isValidStructure = (data) => {
