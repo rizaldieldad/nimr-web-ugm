@@ -96,8 +96,8 @@
       "q1": "I feel an emotional attachment to the Integrated Medical Record system that I use.",
       "q2": "I feel that I am part of the Integrated Medical Record system.",
       "q3": "I can identify myself with the Integrated Medical Record system that I use.",
-      "q4": "The Integrated Medical Record system I use holds personal significance for me.",
-      "q5": "I feel a sense of partnership with the Integrated Medical Record system that I use."
+      "q4": "The Integrated Medical Record system that I use holds important personal meaning for me.",
+      "q5": "I feel that I have a sense of partnership with the Integrated Medical Record system that I use."
     }
   },
   "customer_identification": {
@@ -121,7 +121,7 @@
     "title": "User Complience",
     "question": {
       "q1": "I make an effort to follow procedures or policies that support the implementation of the NIMR when they are available.",
-      "q2": "I make an effort to follow procedures or policies that support the implementation of the NIMR when they are available."
+      "q2": "I am willing to adjust my work practices if the NIMR is implemented in order to enhance patient safety."
     }
   },
   "case_hint": {
