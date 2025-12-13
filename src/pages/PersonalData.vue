@@ -414,10 +414,10 @@ const handleSubmit = () => {
                             ]"
                         >
                             <option value="" disabled selected>...</option>
-                            <option value="male">
+                            <option value="doctor">
                             {{ $t("personal_data.fields.occupation.doctor") }}
                             </option>
-                            <option value="female">
+                            <option value="non-doctor">
                             {{ $t("personal_data.fields.occupation.non_doctor") }}
                             </option>
                         </select>
