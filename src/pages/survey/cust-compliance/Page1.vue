@@ -14,7 +14,7 @@ const submitError = ref(null)
 const submitSuccess = ref(false)
 
 // Google Apps Script Web App 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw7XNVvZxFf7Cn2TV_GAFepI-z7jZYka5Cen0IqlMlIQ3Iat_S7vtTVOs42CjjzEb-J/exec'
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbweB905nCBJTA_q80QAL6samvF_SN64NknJN8kInbo-c8nqWS2sKQQC2cloX0yrw4k/exec'
 
 const questions = [{ id: 1 }, { id: 2 }]
 
