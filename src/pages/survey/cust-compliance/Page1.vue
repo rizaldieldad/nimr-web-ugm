@@ -1,20 +1,10 @@
 <script setup>
-import { computed, ref } from "vue"
-import { useRouter } from 'vue-router'
+import { computed } from "vue"
 import { useSurvey } from "../../../stores/useSurvey"
-import BackButton from "../../../components/buttons/BackButton.vue"
 import QuestionCard from "../../../components/QuestionCard.vue"
+import NextButton from "../../../components/buttons/NextButton.vue"
 
-const { surveyState, finishSurvey, clearSurvey, isSessionSubmitted, markSessionSubmitted } = useSurvey()
-const router = useRouter()
-
-// Loading and error states
-const isSubmitting = ref(false)
-const submitError = ref(null)
-const submitSuccess = ref(false)
-
-// Google Apps Script Web App 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbweB905nCBJTA_q80QAL6samvF_SN64NknJN8kInbo-c8nqWS2sKQQC2cloX0yrw4k/exec'
+const { surveyState } = useSurvey()
 
 const questions = [{ id: 1 }, { id: 2 }]
 
@@ -31,71 +21,10 @@ const selectAnswer = (questionId, answer) => {
     surveyState.answers.customerCompliance[`q${questionId}`] = answer
 }
 
-// Computed property to checck if all questions are answered
-const isFinishDisabled = computed(() => {
-    return surveyState.answers.customerCompliance.q1 === null || surveyState.answers.customerCompliance.q2 === null || isSubmitting.value
+// Computer property to check if all questions are answered
+const isNextDisabled = computed(() => {
+    return surveyState.answers.customerCompliance.q1 === null || surveyState.answers.customerCompliance.q2 === null
 })
-
-// Function to submit data to Google Sheets
-const submitToGoogleSheets = async () => {
-    // Check if already submitted
-    if (isSessionSubmitted()) {
-        console.log('Survey already submitted in this browser session.')
-        router.push("/survey/thankyou")
-        return
-    }
-
-    isSubmitting.value = true
-    submitError.value = null
-
-    try {
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors', // Important for Google Apps Script
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(surveyState)
-        })
-
-        // Note: With no-cors mode, we can't read the response
-        // We assume success if no error is thrown
-        submitSuccess.value = true
-
-        // Mark session as submitted
-        markSessionSubmitted()
-
-        console.log('Survey data submitted successfully!')
-
-        // Clear the survey data after successful submission
-        clearSurvey()
-
-        // Navigate to success page or show message
-        setTimeout(() => {
-            router.push('/survey/thankyou')
-        }, 1500)
-
-    } catch (error) {
-        console.error('Error submitting to Google Sheets:', error)
-        submitError.value = 'Failed to submit survey. Please try again.'
-        isSubmitting.value = false
-    }
-}
-
-// Function for handle submission
-const handleFinish = async () => {
-    // Check again before submission
-    if (isSessionSubmitted()) {
-        router.push("/survey/thankyou")
-        return
-    }
-
-    // Mark survey as finished
-    finishSurvey()
-
-    // Submit to Google Sheets
-    submitToGoogleSheets()
-}
 </script>
 
 <template>
@@ -112,29 +41,7 @@ const handleFinish = async () => {
         <QuestionCard v-for="question in questions" :key="question.id" :question="question" topic="customer_compliance"
             store-key="customerCompliance" @answer-selected="selectAnswer" />
 
-        <!-- Finish Button -->
-        <div class="flex justify-end">
-            <button @click="handleFinish" :disabled="isFinishDisabled" :class="[
-                'px-8 py-3 font-bold rounded-full transition-all transform shadow-lg',
-                isFinishDisabled
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-green-500 hover:bg-green-600 hover:scale-105 text-white'
-            ]">
-                <span v-if="isSubmitting">
-                    <svg class="animate-spin inline-block w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                        </circle>
-                        <path class="opacity-75" fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-                        </path>
-                    </svg>
-                    Submitting...
-                </span>
-                <span v-else>
-                    {{ $t('buttons.finish') || 'Finish Survey' }} ✓
-                </span>
-            </button>
-        </div>
+        <!-- Next Button -->
+        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/big-data-1" mode="nav"/>
     </div>
 </template>
