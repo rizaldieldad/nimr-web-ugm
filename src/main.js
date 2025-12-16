@@ -176,7 +176,7 @@ const router = createRouter({
 
 // Helper function to check if localStorage has valid structure
 const checkAndValidateStorage = () => {
-    const CURRENT_VERSION = "2.0.1"
+    const CURRENT_VERSION = "2.1.1"
     const stored = localStorage.getItem('survey-state')
 
     if (!stored) {

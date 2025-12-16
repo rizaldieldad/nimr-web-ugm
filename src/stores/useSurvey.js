@@ -3,7 +3,7 @@ import { reactive, watch } from "vue"
 
 export const useSurvey = defineStore("survey", () => {
     // Define the current version of your data structure
-    const CURRENT_VERSION = "2.0.1"
+    const CURRENT_VERSION = "2.1.1"
 
     // Function to validate if the stored data has the correct structure
     const isValidStructure = (data) => {
@@ -18,7 +18,7 @@ export const useSurvey = defineStore("survey", () => {
         }
 
         // Check if answers object has all required case structures
-        const requiredCases = ['commitment', 'customerIdentification', 'customerInternalization', 'customerCompliance', 'case1', 'case2', 'case3', 'case4']
+        const requiredCases = ['commitment', 'customerIdentification', 'customerInternalization', 'customerCompliance', 'bigData', 'case1', 'case2', 'case3', 'case4']
         for (const caseKey of requiredCases) {
             if (!data.answers[caseKey]) {
                 return false
@@ -105,6 +105,14 @@ export const useSurvey = defineStore("survey", () => {
                 customerCompliance: {
                     q1: null,
                     q2: null,
+                },
+                bigData: {
+                    q1: null,
+                    q2: null,
+                    q3: null,
+                    q4: null,
+                    q5: null,
+                    q6: null
                 },
                 case1: {
                     sideA: [],
