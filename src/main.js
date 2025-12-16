@@ -91,6 +91,14 @@ const router = createRouter({
                             component: () => import('./pages/survey/cust-compliance/Page1.vue')
                         },
                         {
+                            path: "big-data-1",
+                            component: () => import('./pages/survey/big-data/Page1.vue')
+                        },
+                        {
+                            path: "big-data-2",
+                            component: () => import('./pages/survey/big-data/Page2.vue')
+                        },
+                        {
                             path: "instruction-2",
                             component: () => import('./pages/survey/instructions/Instruction2.vue')
                         },
@@ -176,7 +184,7 @@ const router = createRouter({
 
 // Helper function to check if localStorage has valid structure
 const checkAndValidateStorage = () => {
-    const CURRENT_VERSION = "2.0.1"
+    const CURRENT_VERSION = "2.1.1"
     const stored = localStorage.getItem('survey-state')
 
     if (!stored) {

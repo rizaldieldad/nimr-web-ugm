@@ -124,6 +124,17 @@
       "q2": "I am willing to adjust my work practices if the NIMR is implemented in order to enhance patient safety."
     }
   },
+  "big_data": {
+    "title": "Usefulness of Big Data ",
+    "question": {
+      "q1": "The use of the nationally integrated medical records system helps me deliver patient care services more efficiently",
+      "q2": "The use of the nationally integrated medical records system increases my productivity in providing patient care services",
+      "q3": "The use of the nationally integrated medical records system improves the quality of patient care management and administration",
+      "q4": "The use of the nationally integrated medical records system enhances the effectiveness of the healthcare services I provide",
+      "q5": "The use of the nationally integrated medical records system makes it easier for me to perform patient care activities and manage patient data",
+      "q6": "The nationally integrated medical records system is useful in supporting my professional tasks and clinical decision-making as a healthcare provider"
+    }
+  },
   "case_hint": {
     "description": "This session aims to understand your perceptions and experiences in using the Integrated Medical Record system through <b>case scenarios</b> that reflect real-world conditions. Each section begins with a brief case, followed by several statements related to that situation.",
     "note": "Please read each case carefully and respond according to your personal experience or perspective. There are no right or wrong answers all responses will be kept confidential and used solely for academic research purposes."
