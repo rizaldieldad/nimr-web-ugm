@@ -75,19 +75,19 @@ const router = createRouter({
                             component: () => import('./pages/survey/commitment/Commitment2.vue')
                         },
                         {
-                            path: "customer-identification-1",
+                            path: "user-identification-1",
                             component: () => import('./pages/survey/cust-identification/Page1.vue')
                         },
                         {
-                            path: "customer-identification-2",
+                            path: "user-identification-2",
                             component: () => import('./pages/survey/cust-identification/Page2.vue')
                         },
                         {
-                            path: "customer-internalization",
+                            path: "user-internalization",
                             component: () => import('./pages/survey/cust-internalization/Page1.vue')
                         },
                         {
-                            path: "customer-compliance",
+                            path: "user-compliance",
                             component: () => import('./pages/survey/cust-compliance/Page1.vue')
                         },
                         {
