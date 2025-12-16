@@ -124,6 +124,17 @@
       "q2": "Saya bersedia menyesuaikan cara kerja saya jika NIMR diterapkan demi meningkatkan keselamatan pasien "
     }
   },
+  "big_data": {
+    "title": "Kegunaan Big Data",
+    "question": {
+      "q1": "Penggunaan sistem rekam medis terintegrasi nasional membantu saya menyelesaikan pelayanan perawatan pasien dengan lebih cepat",
+      "q2": "Penggunaan sistem rekam medis terintegrasi nasional meningkatkan produktivitas saya dalam memberikan pelayanan kepada pasien",
+      "q3": "Penggunaan sistem rekam medis terintegrasi nasional meningkatkan kualitas pengelolaan dan manajemen perawatan pasien",
+      "q4": "Penggunaan sistem rekam medis terintegrasi nasional meningkatkan efektivitas pelayanan kesehatan yang saya berikan",
+      "q5": "Penggunaan sistem rekam medis terintegrasi nasional mempermudah saya dalam melakukan perawatan dan pengelolaan data pasien",
+      "q6": "Sistem rekam medis terintegrasi nasional bermanfaat dalam mendukung tugas dan pengambilan keputusan saya sebagai tenaga kesehatan"
+    }
+  },
   "case_hint": {
     "description": "Sesi ini bertujuan untuk mengetahui persepsi dan pengalaman Bapak/Ibu dalam penggunaan sistem Integrated Medical Record melalui <b>situasi kasus</b> yang menggambarkan kondisi di lapangan. Setiap bagian akan diawali dengan sebuah kasus singkat, kemudian diikuti oleh beberapa pernyataan yang berkaitan dengan situasi tersebut.",
     "note": "Mohon Bapak/Ibu membaca setiap kasus dengan cermat dan memberikan jawaban sesuai dengan pengalaman atau pandangan pribadi. Tidak ada jawaban benar atau salah  semua jawaban akan dijaga kerahasiaannya dan digunakan hanya untuk keperluan penelitian akademik."
