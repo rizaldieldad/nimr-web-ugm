@@ -458,38 +458,41 @@ const handleSubmit = () => {
                         </div>
 
                         <!-- Field: Length of Employment -->
-                        <div class="relative w-72">
-                            <div class="flex w-full gap-x-4">
+                        <div class="flex flex-col justify-center w-72">
+                            <div class="relative w-full">
                                 <label
                                     for="ln_of_employment"
                                     :class="[
-                                    'absolute left-8 top-4 italic text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm',
-                                    errors.lengthEmployment ? 'text-red-500' : 'text-gray-500 peer-placeholder-shown:text-gray-400'
+                                        'absolute left-8 top-4 italic text-sm transition-all peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-sm',
+                                        errors.lengthEmployment ? 'text-red-500' : 'text-gray-500 peer-placeholder-shown:text-gray-400'
                                     ]"
                                 >
                                     {{ $t("personal_data.fields.length_employment.title") }}
                                 </label>
-                                <div class="flex w-full gap-x-2">
-                                    <input 
-                                        type="text" 
-                                        v-model="employmentLengthNumber" @blur="validateLengthEmployment" @input="handleEmploymentLengthNumber" 
-                                        inputmode="numeric"
-                                        id="ln_of_employment" 
-                                        placeholder="" 
-                                        :class="['px-8 pt-10 pb-2 border-2 border-pink-300 rounded-full focus:outline-none', errors.lengthEmployment ? 'border-red-500 focus:border-red-500' : 'border-pink-300 focus:border-pink-500']"
-                                    >
-                                    <select 
-                                        v-model="employmentLengthPeriod"
-                                        @change="handleEmploymentLengthPeriodChange"
-                                        @blur="validateLengthEmployment"
-                                        class="absolute top-11 right-6 text-sm focus:outline-none cursor-pointer"
-                                    >
-                                        <option value="" disabled selected>{{ $t('buttons.period') }}</option>
-                                        <option value="weeks">{{ $t('personal_data.fields.length_employment.dropdown.weeks') }}</option>
-                                        <option value="months">{{ $t('personal_data.fields.length_employment.dropdown.months') }}</option>
-                                        <option value="years">{{ $t('personal_data.fields.length_employment.dropdown.years') }}</option>
-                                    </select>
-                                </div>
+                                
+                                <input 
+                                    type="text" 
+                                    v-model="employmentLengthNumber" 
+                                    @blur="validateLengthEmployment" 
+                                    @input="handleEmploymentLengthNumber" 
+                                    inputmode="numeric"
+                                    id="ln_of_employment" 
+                                    placeholder="1/2/3/..." 
+                                    :class="['w-full px-8 pr-32 pt-10 pb-2 border-2 rounded-full focus:outline-none', errors.lengthEmployment ? 'border-red-500 focus:border-red-500' : 'border-pink-300 focus:border-pink-500']"
+                                >
+                                
+                                <!-- Select positioned inside the input on the right -->
+                                <select 
+                                    v-model="employmentLengthPeriod"
+                                    @change="handleEmploymentLengthPeriodChange"
+                                    @blur="validateLengthEmployment"
+                                    class="absolute right-4 -bottom-2 -translate-y-1/2 px-3 py-1 border-2 border-pink-300 rounded-full text-sm focus:outline-none focus:border-pink-500 cursor-pointer bg-white"
+                                >
+                                    <option value="" disabled selected>{{ $t('buttons.period') }}</option>
+                                    <option value="weeks">{{ $t('personal_data.fields.length_employment.dropdown.weeks') }}</option>
+                                    <option value="months">{{ $t('personal_data.fields.length_employment.dropdown.months') }}</option>
+                                    <option value="years">{{ $t('personal_data.fields.length_employment.dropdown.years') }}</option>
+                                </select>
                             </div>
                             <p v-if="errors.lengthEmployment" class="text-red-500 text-xs mt-1 ml-8">
                                 {{ errors.lengthEmployment }}
