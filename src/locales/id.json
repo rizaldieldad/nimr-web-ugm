@@ -11,7 +11,7 @@
     "finish": "SELESAI",
     "show_case": "Tampilkan Kasus",
     "hide_case": "Sembunyikan Kasus",
-    "undo": "Batalkan Jawaban",
+    "undo": "Kembali ke Pertanyaan Sebelumnya",
     "restart": "Reset dan Mulai Ulang Survei",
     "period": "Pilih Periode"
   },

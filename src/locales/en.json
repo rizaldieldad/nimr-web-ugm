@@ -11,7 +11,7 @@
     "finish": "FINISH",
     "show_case": "Show Case",
     "hide_case": "Hide Case",
-    "undo": "Undo",
+    "undo": "Back to Previous Question",
     "restart": "Reset and Restart Survey",
     "period": "Select Period"
   },
