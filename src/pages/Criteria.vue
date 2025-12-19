@@ -27,7 +27,7 @@ const handleNext = () => {
           {{ $t("participation_criteria.criteria1") }}
         </li>
         <li class="text-lg lg:text-3xl text-justify font-light">
-          {{ $t("participation_criteria.criteria1") }}
+          {{ $t("participation_criteria.criteria2") }}
         </li>
       </ol>
 
