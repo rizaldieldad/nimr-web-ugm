@@ -42,6 +42,6 @@ const isNextDisabled = computed(() => {
             store-key="customerCompliance" @answer-selected="selectAnswer" />
 
         <!-- Next Button -->
-        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/big-data-1" mode="nav"/>
+        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/big-data" mode="nav"/>
     </div>
 </template>
