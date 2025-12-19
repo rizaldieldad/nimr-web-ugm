@@ -71,7 +71,7 @@ const router = createRouter({
                             component: () => import('./pages/survey/commitment/Commitment1.vue')
                         },
                         {
-                            path: "user-identification-1",
+                            path: "user-identification",
                             component: () => import('./pages/survey/cust-identification/Page1.vue')
                         },
                         {
