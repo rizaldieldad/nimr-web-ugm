@@ -11,7 +11,7 @@
     "finish": "SELESAI",
     "show_case": "Tampilkan Kasus",
     "hide_case": "Sembunyikan Kasus",
-    "undo": "Batalkan Jawaban",
+    "undo": "Kembali ke Pertanyaan Sebelumnya",
     "restart": "Reset dan Mulai Ulang Survei",
     "period": "Pilih Periode"
   },
@@ -26,7 +26,7 @@
   },
   "explanation_consent": {
     "title": "Penjelasan dan Persetujuan",
-    "point3": "Penelitian ini bertujuan untuk melihat urgensi penerapan Nationally Integrated Medical Records (NIMR) di Indonesia yang dimulai dari rumah sakit anda.",
+    "point3": "Penelitian ini bertujuan untuk melihat urgensi penerapan Nationally Integrated Medical Records (NIMR) di Indonesia yang dimulai dari rumah sakit Anda.",
     "point4": "Saya memahami bahwa partisipasi saya bersifat sukarela.",
     "point5": "Data yang diperoleh dari penelitian ini dijaga kerahasiaannya dan hanya digunakan untuk kepentingan ilmiah.",
     "point6": "Diharapkan menggunakan perangkat Laptop/Komputer/ Ipad/ Tab pada saat pengisian dan pengerjaan penelitian. ",
@@ -48,7 +48,7 @@
       "occupation": {
         "title": "Pekerjaan",
         "doctor": "Dokter",
-        "non_doctor": "Non-Dokter"
+        "non_doctor": "Non-Dokter (perawat / bidan / tenaga medis Lainnya)"
       },
       "length_employment": {
         "title": "Lama Bekerja",
@@ -140,7 +140,7 @@
     "note": "Mohon Bapak/Ibu membaca setiap kasus dengan cermat dan memberikan jawaban sesuai dengan pengalaman atau pandangan pribadi. Tidak ada jawaban benar atau salah  semua jawaban akan dijaga kerahasiaannya dan digunakan hanya untuk keperluan penelitian akademik."
   },
   "simulation_hint": {
-    "p1": "Dalam praktik sehari-hari, kita semua pernah berhadapan dengan pasien yang datang dari berbagai fasilitas kesehatan Puskesmas, klinik, rumah sakit, bahkan fasilitas luar daerah. Sayangnya, tidak selalu riwayat medis mereka tersedia secara lengkap saat datang ke tempat kita. Kadang kita harus mengulang pemeriksaan yang sudah dilakukan sebelumnya. Kadang ada terapi yang tidak terekam. Ada riwayat alergi yang tidak terbaca. Ada obat yang diberikan dua kali tanpa disadari. Situasi ini tidak hanya menghambat kecepatan penanganan, tetapi juga berdampak langsung pada keselamatan pasien.",
+    "p1": "Dalam praktik sehari-hari, kita semua pernah berhadapan dengan pasien yang datang dari berbagai fasilitas kesehatan puskesmas, klinik, rumah sakit, bahkan fasilitas luar daerah. Namun, tidak selalu riwayat medis mereka tersedia secara lengkap saat datang ke tempat kita. Kadang kita harus mengulang pemeriksaan yang sudah dilakukan sebelumnya atau terdapat terapi yang tidak terekam. Adanya riwayat alergi yang tidak terbaca atau tanpa disadari obat diberikan dua / berulang kali. Situasi ini tidak hanya menghambat kecepatan penanganan, tetapi juga berdampak langsung pada keselamatan pasien.",
     "p2": "Hari ini, Anda akan masuk ke dalam rangkaian mini-simulasi. Anda akan melihat bagaimana perbedaan informasi yang lengkap maupun yang terputus mempengaruhi proses klinis. Tidak ada jawaban benar atau salah. Anda hanya diminta mengambil keputusan seolah Anda adalah tenaga medis yang menerima pasien tersebut."
   },
   "card_body": {
@@ -264,7 +264,7 @@
       }
     },
     "second": {
-      "title": "Menggunakan layar sentuk ada 2 cara:",
+      "title": "Menggunakan layar sentuh ada 2 cara:",
       "points": {
         "1": "Tekan dan geser kartu ke kiri (A) atau ke kanan (B)",
         "2": "Tekan tombol A atau tombol B"

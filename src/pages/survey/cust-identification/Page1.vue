@@ -5,14 +5,16 @@ import QuestionCard from "../../../components/QuestionCard.vue"
 import { useSurvey } from "../../../stores/useSurvey"
 
 const { surveyState } = useSurvey()
-const questions = [{ id: 1 }, { id: 2 }, { id: 3 }]
+const questions = [{ id: 1 }, { id: 2 }, { id: 3 }, {id: 4}, {id: 5}]
 
 // Initialize answers if not exists
 if (!surveyState.answers.customerIdentification) {
     surveyState.answers.customerIdentification = {
         q1: null,
         q2: null,
-        q3: null
+        q3: null,
+        q4: null,
+        q5: null
     }
 }
 
@@ -25,7 +27,9 @@ const selectAnswer = (questionId, answer) => {
 const isNextDisabled = computed(() => {
     return surveyState.answers.customerIdentification.q1 === null ||
         surveyState.answers.customerIdentification.q2 === null ||
-        surveyState.answers.customerIdentification.q3 === null
+        surveyState.answers.customerIdentification.q3 === null || 
+        surveyState.answers.customerIdentification.q4 === null ||
+        surveyState.answers.customerIdentification.q5 === null
 })
 </script>
 
@@ -40,11 +44,11 @@ const isNextDisabled = computed(() => {
             </h1>
         </div>
 
-        <!-- Question 1 to 3 -->
+        <!-- Question 1 to 5 -->
         <QuestionCard v-for="question in questions" :key="question.id" :question="question"
             topic="customer_identification" store-key="customerIdentification" @answer-selected="selectAnswer" />
 
         <!-- Next Button -->
-        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/user-identification-2" mode="submit"/>
+        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/user-internalization" mode="submit"/>
     </div>
 </template>

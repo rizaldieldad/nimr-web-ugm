@@ -7,14 +7,16 @@ import { useSurvey } from "../../../stores/useSurvey"
 const { surveyState } = useSurvey()
 
 // Define questions
-const questions = [{ id: 1 }, { id: 2 }, { id: 3 }]
+const questions = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }]
 
 // Initialize commitment answers if not exists
 if (!surveyState.answers.commitment) {
     surveyState.answers.commitment = {
         q1: null,
         q2: null,
-        q3: null
+        q3: null,
+        q4: null,
+        q5: null
     }
 }
 
@@ -27,7 +29,8 @@ const selectAnswer = (questionId, answer) => {
 const isNextDisabled = computed(() => {
     return surveyState.answers.commitment.q1 === null ||
         surveyState.answers.commitment.q2 === null ||
-        surveyState.answers.commitment.q3 === null
+        surveyState.answers.commitment.q3 === null || surveyState.answers.commitment.q4 === null ||
+        surveyState.answers.commitment.q5 === null
 })
 </script>
 
@@ -42,12 +45,12 @@ const isNextDisabled = computed(() => {
             </h1>
         </div>
 
-        <!-- Question 1 to 3 -->
+        <!-- Question 1 to 5 -->
         <QuestionCard v-for="question in questions" :key="question.id" :question="question" topic="commitment"
             store-key="commitment" @answer-selected="selectAnswer" />
 
         <!-- Next Button -->
-        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/commitment-2" mode="nav"/>
+        <NextButton :disabled="isNextDisabled" class="justify-end" next-route="/survey/user-identification" mode="nav"/>
     </div>
 </template>
 

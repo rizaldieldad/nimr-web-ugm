@@ -67,20 +67,12 @@ const router = createRouter({
                             component: () => import('./pages/survey/instructions/Simulation.vue')
                         },
                         {
-                            path: "commitment-1",
+                            path: "commitment",
                             component: () => import('./pages/survey/commitment/Commitment1.vue')
                         },
                         {
-                            path: "commitment-2",
-                            component: () => import('./pages/survey/commitment/Commitment2.vue')
-                        },
-                        {
-                            path: "user-identification-1",
+                            path: "user-identification",
                             component: () => import('./pages/survey/cust-identification/Page1.vue')
-                        },
-                        {
-                            path: "user-identification-2",
-                            component: () => import('./pages/survey/cust-identification/Page2.vue')
                         },
                         {
                             path: "user-internalization",
@@ -91,12 +83,8 @@ const router = createRouter({
                             component: () => import('./pages/survey/cust-compliance/Page1.vue')
                         },
                         {
-                            path: "big-data-1",
+                            path: "big-data",
                             component: () => import('./pages/survey/big-data/Page1.vue')
-                        },
-                        {
-                            path: "big-data-2",
-                            component: () => import('./pages/survey/big-data/Page2.vue')
                         },
                         {
                             path: "instruction-2",
@@ -297,7 +285,7 @@ router.beforeEach((to, from, next) => {
 const app = createApp(App)
 
 // enable vue devtools for development
-app.config.devtools = true 
+app.config.devtools = true
 
 app.use(router)
 app.use(i18n)

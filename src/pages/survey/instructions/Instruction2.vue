@@ -17,7 +17,7 @@ import NextButton from '../../../components/buttons/NextButton.vue';
             </div>
         </div>
 
-        <NextButton class="my-10" next-route="/survey/commitment-1" mode="nav"/>
+        <NextButton class="my-10" next-route="/survey/commitment" mode="nav"/>
     </div>
 </template>
 
