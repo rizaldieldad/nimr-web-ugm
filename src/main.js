@@ -71,10 +71,6 @@ const router = createRouter({
                             component: () => import('./pages/survey/commitment/Commitment1.vue')
                         },
                         {
-                            path: "commitment-2",
-                            component: () => import('./pages/survey/commitment/Commitment2.vue')
-                        },
-                        {
                             path: "user-identification-1",
                             component: () => import('./pages/survey/cust-identification/Page1.vue')
                         },
@@ -297,7 +293,7 @@ router.beforeEach((to, from, next) => {
 const app = createApp(App)
 
 // enable vue devtools for development
-app.config.devtools = true 
+app.config.devtools = true
 
 app.use(router)
 app.use(i18n)
