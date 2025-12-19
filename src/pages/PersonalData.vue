@@ -486,7 +486,7 @@ const handleSubmit = () => {
                                     v-model="employmentLengthPeriod"
                                     @change="handleEmploymentLengthPeriodChange"
                                     @blur="validateLengthEmployment"
-                                    class="absolute right-4 -bottom-2 -translate-y-1/2 px-3 py-1 border-2 border-pink-300 rounded-full text-sm focus:outline-none focus:border-pink-500 cursor-pointer bg-white"
+                                    class="absolute right-4 -bottom-2 -translate-y-1/2 px-3 py-1 border-2 border-pink-300 bg-pink-100 rounded-full text-sm font-medium focus:outline-none focus:border-pink-500 cursor-pointer"
                                 >
                                     <option value="" disabled selected>{{ $t('buttons.period') }}</option>
                                     <option value="weeks">{{ $t('personal_data.fields.length_employment.dropdown.weeks') }}</option>
