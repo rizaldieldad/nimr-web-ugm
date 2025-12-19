@@ -75,10 +75,6 @@ const router = createRouter({
                             component: () => import('./pages/survey/cust-identification/Page1.vue')
                         },
                         {
-                            path: "user-identification-2",
-                            component: () => import('./pages/survey/cust-identification/Page2.vue')
-                        },
-                        {
                             path: "user-internalization",
                             component: () => import('./pages/survey/cust-internalization/Page1.vue')
                         },
