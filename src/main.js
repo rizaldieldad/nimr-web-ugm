@@ -83,12 +83,8 @@ const router = createRouter({
                             component: () => import('./pages/survey/cust-compliance/Page1.vue')
                         },
                         {
-                            path: "big-data-1",
+                            path: "big-data",
                             component: () => import('./pages/survey/big-data/Page1.vue')
-                        },
-                        {
-                            path: "big-data-2",
-                            component: () => import('./pages/survey/big-data/Page2.vue')
                         },
                         {
                             path: "instruction-2",
