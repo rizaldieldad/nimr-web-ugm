@@ -48,7 +48,7 @@
       "occupation": {
         "title": "Occupation",
         "doctor": "Doctor",
-        "non_doctor": "Non-Doctor"
+        "non_doctor": "Non-Doctor (nurse / midwife / other medical personnel)"
       },
       "length_employment": {
         "title": "Length of Employment",

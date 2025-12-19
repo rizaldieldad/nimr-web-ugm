@@ -48,7 +48,7 @@
       "occupation": {
         "title": "Pekerjaan",
         "doctor": "Dokter",
-        "non_doctor": "Non-Dokter"
+        "non_doctor": "Non-Dokter (perawat / bidan / tenaga medis Lainnya)"
       },
       "length_employment": {
         "title": "Lama Bekerja",
