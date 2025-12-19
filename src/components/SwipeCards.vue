@@ -364,7 +364,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div class="max-w-3xl mx-auto min-h-screen flex flex-col justify-center  p-4 md:p-8 space-y-6">
+    <div class="max-w-5xl mx-auto min-h-screen flex flex-col justify-center  p-4 md:p-8 space-y-6">
         <!-- Page Header -->
         <div class="flex flex-col">
             <div class="flex flex-col md:flex-row items-center justify-between mb-4">
@@ -424,8 +424,8 @@ onUnmounted(() => {
 
             <!-- Undo Button -->
             <button @click="undoLastChoice" :disabled="!canUndo"
-                class="flex items-center gap-1 px-3 py-1.5 text-xs font-medium rounded-lg transition-all" :class="canUndo
-                    ? 'text-orange-600 bg-orange-50 hover:bg-orange-100 active:scale-95'
+                class="flex items-center gap-1 px-5 py-3 text-xs md:text-sm font-medium rounded-lg transition-all" :class="canUndo
+                    ? 'text-orange-600 bg-orange-50 hover:bg-orange-100 active:scale-95 cursor-pointer'
                     : 'text-gray-300 bg-gray-50 cursor-not-allowed'"
                 :aria-label="canUndo ? 'Undo last choice' : 'No actions to undo'">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -461,23 +461,23 @@ onUnmounted(() => {
             <div :style="getCardStyle()" @touchstart.prevent="handleTouchStart" @touchmove.prevent="handleTouchMove"
                 @touchend.prevent="handleTouchEnd" @mousedown="handleTouchStart" @mousemove="handleTouchMove"
                 @mouseup="handleTouchEnd" @mouseleave="handleTouchEnd"
-                class="bg-amber-50 px-12 py-10 rounded-xl shadow-md shadow-slate-100 cursor-grab active:cursor-grabbing relative touch-none"
+                class="bg-amber-50 px-12 py-10 h-[250px] md:h-[350px] rounded-xl shadow-md shadow-slate-100 cursor-grab active:cursor-grabbing relative touch-none flex items-center"
                 :class="{ 'pointer-events-none': isAnimating }">
                 <!-- Left Overlay (A) -->
                 <div :style="getOverlayStyle('left')"
-                    class="absolute inset-0 bg-green-300 rounded-xl flex items-center justify-center pointer-events-none">
+                    class="absolute inset-0 bg-rose-300 rounded-xl flex items-center justify-center pointer-events-none">
                     <div class="text-6xl font-bold text-white">A</div>
                 </div>
 
                 <!-- Right Overlay (B) -->
                 <div :style="getOverlayStyle('right')"
-                    class="absolute inset-0 bg-red-300 rounded-xl flex items-center justify-center pointer-events-none">
+                    class="absolute inset-0 bg-rose-300 rounded-xl flex items-center justify-center pointer-events-none">
                     <div class="text-6xl font-bold text-white">B</div>
                 </div>
 
                 <!-- Content -->
                 <div class="relative z-10">
-                    <h2 class="text-lg">
+                    <h2 class="text-3xl md:text-5xl text-center">
                         {{ currentCardText }}
                     </h2>
                 </div>
@@ -488,7 +488,7 @@ onUnmounted(() => {
         <div v-if="!isCompleted" class="flex justify-between mt-8 mb-4">
             <div class="flex flex-col items-center space-y-3">
                 <button @click="chooseOption('A')" :disabled="isAnimating"
-                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-green-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-green-400 active:scale-95 transition-all"
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-rose-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-rose-400 active:scale-95 transition-all"
                     :class="{ 'opacity-50 cursor-not-allowed': isAnimating }">
                     A
                 </button>
@@ -499,7 +499,7 @@ onUnmounted(() => {
 
             <div class="flex flex-col items-center space-y-3">
                 <button @click="chooseOption('B')" :disabled="isAnimating"
-                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-red-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-red-400 active:scale-95 transition-all"
+                    class="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-black bg-rose-300 font-bold flex items-center justify-center text-xl cursor-pointer hover:bg-rose-400 active:scale-95 transition-all"
                     :class="{ 'opacity-50 cursor-not-allowed': isAnimating }">
                     B
                 </button>
