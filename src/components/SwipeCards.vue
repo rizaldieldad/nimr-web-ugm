@@ -424,8 +424,8 @@ onUnmounted(() => {
 
             <!-- Undo Button -->
             <button @click="undoLastChoice" :disabled="!canUndo"
-                class="flex items-center gap-1 px-5 py-3 text-xs md:text-sm font-medium rounded-lg transition-all" :class="canUndo
-                    ? 'text-orange-600 bg-orange-50 hover:bg-orange-100 active:scale-95 cursor-pointer'
+                class="flex items-center gap-1 px-5 py-3 text-sm font-medium rounded-lg transition-all" :class="canUndo
+                    ? 'text-white bg-rose-500 hover:bg-rose-600 active:scale-95 cursor-pointer'
                     : 'text-gray-300 bg-gray-50 cursor-not-allowed'"
                 :aria-label="canUndo ? 'Undo last choice' : 'No actions to undo'">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
