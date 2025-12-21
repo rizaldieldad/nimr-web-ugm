@@ -283,5 +283,7 @@
       "b": "The information is automatically available within the system."
     },
     "sub_title": "Based on your score:"
-  }
+  },
+  "strongly_disagree": "Strongly Disagree",
+  "strongly_agree": "Strongly Agree"
 }

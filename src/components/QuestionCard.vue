@@ -58,6 +58,12 @@ const handleSelect = (value) => {
                 {{ value }}
             </button>
         </div>
+
+        <!-- Scale Information -->
+        <div class="flex md:flex-col gap-x-4 mt-5">
+            <p class="text-xs md:text-sm text-gray-500 font-medium">1 = {{ $t('strongly_disagree') }}</p>
+            <p class="text-xs md:text-sm text-gray-500 font-medium">5 = {{ $t('strongly_agree') }}</p>
+        </div>
     </div>
 </template>
 
