@@ -13,7 +13,7 @@ const submitError = ref(null)
 const submitSuccess = ref(false)
 
 // Google Apps Script Web App 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycDYqCx-NQhvcLwQqT19ATQ-NPHP-zsfwO559I4ge3aNT5sevcmf_qQIqe8B9AXhw1/exec'
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXzSY3Cl6ZpiIQLbbkIVMiFkbPQKCMgtHBPOvnC-ZiGnfyMPa8ZPV39Rrf-4HP6eXi/exec'
 
 // Define questions
 const questions = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}]
