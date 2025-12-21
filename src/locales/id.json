@@ -283,5 +283,7 @@
       "b": "Informasi tersedia otomatis dalam sistem"
     },
     "sub_title": "Berdasarkan hasil kamu"
-  }
+  },
+  "strongly_disagree": "Sangat Tidak Setuju",
+  "strongly_agree": "Sangat Setuju"
 }
