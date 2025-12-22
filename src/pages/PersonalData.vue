@@ -47,7 +47,7 @@ const validateFullName = () => {
         return false
     }
 
-    if (name.length < 5) {
+    if (name.length < 3) {
         errors.value.fullNameTitle = t('personal_data.errors.fullname.min')
         return false
     }

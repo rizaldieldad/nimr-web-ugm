@@ -36,7 +36,7 @@
     "title": "Data Pribadi",
     "description": "Silahkan mengisi data pribadi terlebih dahulu untuk melanjutkan pengisian data. Informasi pribadi sepenuhnya akan digunakan untuk keperluan penelitian. ",
     "fields": {
-      "fullname": "Nama beserta title pendidikan",
+      "fullname": "Nama Lengkap",
       "email": "Email",
       "gender": {
         "title": "Jenis Kelamin",
@@ -62,8 +62,8 @@
     },
     "errors": {
       "fullname": {
-        "required": "Nama lengkap dan title pendidikan wajib diisi!",
-        "min": "Nama lengkap dan title pendidikan minimal 5 karakter!"
+        "required": "Nama lengkap wajib diisi!",
+        "min": "Nama lengkap minimal 3 karakter!"
       },
       "email": {
         "required": "Email wajib diisi!",
