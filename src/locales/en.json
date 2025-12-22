@@ -36,7 +36,7 @@
     "title": "Personal Data",
     "description": "Please fill in your personal data before proceeding with the questionnaire. All personal information will be used solely for research purposes.",
     "fields": {
-      "fullname": "Full Name and Academic Title",
+      "fullname": "Full Name",
       "email": "Email",
       "gender": {
         "title": "Gender",
@@ -62,8 +62,8 @@
     },
     "errors": {
       "fullname": {
-        "required": "Full Name and Title are required!",
-        "min": "Full name and Title must be at least 5 characters!"
+        "required": "Full Name is required!",
+        "min": "Full name must be at least 3 characters!"
       },
       "email": {
         "required": "Email is required!",
